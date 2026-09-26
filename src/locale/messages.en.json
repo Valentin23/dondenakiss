@@ -26,8 +26,11 @@
     "langSwitcher.label": "Language",
     "contact.heading": "Contact & location",
     "contact.maps": "Directions (Google Maps)",
+    "contact.hours": "Opening hours",
+    "contact.closed": "Closed",
     "home.heading": "Gluten-free brunch & tapas in Alicante",
     "home.intro": "Every dish on our menu has a gluten-free option.",
+    "home.offer": "Breakfast, brunch, tapas, rice dishes, fish and seafood, burgers, salads and pastries.",
     "home.alwaysGlutenFree": "Our battered squid, croquettes and pancakes are gluten-free for everyone. For burgers and breakfasts we have both regular and gluten-free bread: just ask.",
     "home.crossContamination": "We control cross-contamination: everything that goes into our fryer is gluten-free, and we use separate toasters for regular and gluten-free bread.",
     "home.association": "We are a member establishment of {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}, the Coeliac Association of the Valencian Community.",
@@ -97,8 +100,14 @@
     "reservations.heading": "Reservations",
     "reservations.widgetTitle": "Donde Nakiss reservations",
     "reservations.fallback": "Online booking is coming soon. In the meantime, call us on {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}.",
+    "schema.cuisine.glutenFree": "Gluten-free",
     "schema.cuisine.brunch": "Brunch",
     "schema.cuisine.tapas": "Tapas",
-    "schema.cuisine.glutenFree": "Gluten-free"
+    "schema.cuisine.breakfast": "Breakfast",
+    "schema.cuisine.burgers": "Burgers",
+    "schema.cuisine.rice": "Rice dishes",
+    "schema.cuisine.seafood": "Fish and seafood",
+    "schema.cuisine.salads": "Salads",
+    "schema.cuisine.pastry": "Pastries"
   }
 }

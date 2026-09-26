@@ -1,3 +1,13 @@
+export type DayOfWeek =
+  'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
+
+export interface OpeningHours {
+  days: readonly DayOfWeek[];
+  /** 24h `HH:mm`. */
+  opens: string;
+  closes: string;
+}
+
 export const SITE = {
   /** Short brand name. */
   name: 'Donde Nakiss',
@@ -17,6 +27,18 @@ export const SITE = {
   geo: { latitude: 38.3472456, longitude: -0.4844562 },
   /** Google Maps listing (Google Business Profile), by CID. */
   googleMapsUrl: 'https://maps.google.com/?cid=9919217617028969137',
+  instagramUrl: 'https://www.instagram.com/dondenakiss12/',
+  /** Price range per person, as shown on the Google Business Profile. */
+  priceRange: '10-20 €',
+  /**
+   * Opening hours, same as the Google Business Profile. Days not listed are
+   * closed. Keep both in sync.
+   */
+  openingHours: [
+    { days: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:30', closes: '16:00' },
+    { days: ['Saturday'], opens: '10:00', closes: '16:00' },
+    { days: ['Friday', 'Saturday'], opens: '20:00', closes: '23:00' },
+  ],
   /** Coeliac association the restaurant belongs to. */
   celiacAssociation: { name: 'ACECOVA', url: 'https://www.acecova.org' },
   /** DISH Reservation widget URL (rendered in an iframe on the reservations page). */

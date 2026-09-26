@@ -26,8 +26,11 @@
     "langSwitcher.label": "Idioma",
     "contact.heading": "Contacto y ubicación",
     "contact.maps": "Cómo llegar (Google Maps)",
+    "contact.hours": "Horario",
+    "contact.closed": "Cerrado",
     "home.heading": "Brunch y tapas sin gluten en Alicante",
     "home.intro": "Todos nuestros platos tienen opción sin gluten.",
+    "home.offer": " Desayunos, brunch, tapas, arroces, pescado y marisco, hamburguesas, ensaladas y repostería. ",
     "home.alwaysGlutenFree": " Los calamares rebozados, las croquetas y las tortitas son sin gluten para todo el mundo. Para las hamburguesas y los desayunos tenemos pan con y sin gluten: solo tienes que pedirlo. ",
     "home.crossContamination": " Controlamos la contaminación cruzada: todo lo que pasa por nuestra freidora es sin gluten, y usamos tostadores distintos para el pan con gluten y el pan sin gluten. ",
     "home.association": " Somos establecimiento miembro de {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}, la Asociación de Celíacos de la Comunitat Valenciana. ",
@@ -97,8 +100,14 @@
     "reservations.heading": "Reservas",
     "reservations.widgetTitle": "Reservas Donde Nakiss",
     "reservations.fallback": " Muy pronto podrás reservar online. Mientras tanto, llámanos al {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}. ",
+    "schema.cuisine.glutenFree": "Sin gluten",
     "schema.cuisine.brunch": "Brunch",
     "schema.cuisine.tapas": "Tapas",
-    "schema.cuisine.glutenFree": "Sin gluten"
+    "schema.cuisine.breakfast": "Desayunos",
+    "schema.cuisine.burgers": "Hamburguesas",
+    "schema.cuisine.rice": "Arroces",
+    "schema.cuisine.seafood": "Pescado y marisco",
+    "schema.cuisine.salads": "Ensaladas",
+    "schema.cuisine.pastry": "Repostería"
   }
 }

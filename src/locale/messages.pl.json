@@ -26,8 +26,11 @@
     "langSwitcher.label": "Język",
     "contact.heading": "Kontakt i dojazd",
     "contact.maps": "Jak dojechać (Google Maps)",
+    "contact.hours": "Godziny otwarcia",
+    "contact.closed": "Nieczynne",
     "home.heading": "Bezglutenowy brunch i tapas w Alicante",
     "home.intro": "Każde danie w naszym menu ma wersję bezglutenową.",
+    "home.offer": "Śniadania, brunch, tapas, dania z ryżu, ryby i owoce morza, burgery, sałatki i wypieki.",
     "home.alwaysGlutenFree": "Kalmary w panierce, krokiety i pancakes są bezglutenowe dla wszystkich. Do burgerów i śniadań mamy chleb zwykły i bezglutenowy – wystarczy poprosić.",
     "home.crossContamination": "Dbamy o to, by uniknąć zanieczyszczenia krzyżowego: wszystko, co trafia do naszej frytkownicy, jest bezglutenowe, a do chleba zwykłego i bezglutenowego używamy osobnych tosterów.",
     "home.association": "Jesteśmy lokalem członkowskim {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}, Stowarzyszenia Osób z Celiakią Wspólnoty Walenckiej.",
@@ -97,8 +100,14 @@
     "reservations.heading": "Rezerwacja",
     "reservations.widgetTitle": "Rezerwacje Donde Nakiss",
     "reservations.fallback": "Rezerwacja online już wkrótce. Do tego czasu zadzwoń do nas: {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}.",
+    "schema.cuisine.glutenFree": "Bez glutenu",
     "schema.cuisine.brunch": "Brunch",
     "schema.cuisine.tapas": "Tapas",
-    "schema.cuisine.glutenFree": "Bez glutenu"
+    "schema.cuisine.breakfast": "Śniadania",
+    "schema.cuisine.burgers": "Burgery",
+    "schema.cuisine.rice": "Dania z ryżu",
+    "schema.cuisine.seafood": "Ryby i owoce morza",
+    "schema.cuisine.salads": "Sałatki",
+    "schema.cuisine.pastry": "Wypieki"
   }
 }

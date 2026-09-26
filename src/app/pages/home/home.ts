@@ -9,6 +9,9 @@ import { CURRENT_LOCALE, PAGE_SLUGS } from '../../i18n/locales';
   template: `
     <h1 i18n="@@home.heading">Brunch y tapas sin gluten en Alicante</h1>
     <p class="lead" i18n="@@home.intro">Todos nuestros platos tienen opción sin gluten.</p>
+    <p i18n="@@home.offer">
+      Desayunos, brunch, tapas, arroces, pescado y marisco, hamburguesas, ensaladas y repostería.
+    </p>
     <p i18n="@@home.alwaysGlutenFree">
       Los calamares rebozados, las croquetas y las tortitas son sin gluten para todo el mundo. Para
       las hamburguesas y los desayunos tenemos pan con y sin gluten: solo tienes que pedirlo.

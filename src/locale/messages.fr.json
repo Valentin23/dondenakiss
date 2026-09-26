@@ -26,8 +26,11 @@
     "langSwitcher.label": "Langue",
     "contact.heading": "Contact et accès",
     "contact.maps": "Itinéraire (Google Maps)",
+    "contact.hours": "Horaires",
+    "contact.closed": "Fermé",
     "home.heading": "Brunch et tapas sans gluten à Alicante",
     "home.intro": "Tous nos plats existent en version sans gluten.",
+    "home.offer": "Petits-déjeuners, brunch, tapas, riz, poissons et fruits de mer, burgers, salades et pâtisseries.",
     "home.alwaysGlutenFree": "Les calamars frits, les croquettes et les pancakes sont sans gluten pour tout le monde. Pour les burgers et les petits-déjeuners, nous avons du pain classique et du pain sans gluten : il suffit de demander.",
     "home.crossContamination": "Nous maîtrisons la contamination croisée : tout ce qui passe dans notre friteuse est sans gluten, et nous utilisons des grille-pain séparés pour le pain classique et le pain sans gluten.",
     "home.association": "Nous sommes un établissement membre d’{$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}, l’association des personnes cœliaques de la Communauté valencienne.",
@@ -97,8 +100,14 @@
     "reservations.heading": "Réservation",
     "reservations.widgetTitle": "Réservations Donde Nakiss",
     "reservations.fallback": "La réservation en ligne arrive bientôt. En attendant, appelez-nous au {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}.",
+    "schema.cuisine.glutenFree": "Sans gluten",
     "schema.cuisine.brunch": "Brunch",
     "schema.cuisine.tapas": "Tapas",
-    "schema.cuisine.glutenFree": "Sans gluten"
+    "schema.cuisine.breakfast": "Petits-déjeuners",
+    "schema.cuisine.burgers": "Burgers",
+    "schema.cuisine.rice": "Riz",
+    "schema.cuisine.seafood": "Poissons et fruits de mer",
+    "schema.cuisine.salads": "Salades",
+    "schema.cuisine.pastry": "Pâtisseries"
   }
 }

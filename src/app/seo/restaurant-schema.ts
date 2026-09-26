@@ -18,11 +18,26 @@ export function restaurantSchema(locale: Locale): Record<string, unknown> {
     address: { '@type': 'PostalAddress', ...SITE.postalAddress },
     geo: { '@type': 'GeoCoordinates', ...SITE.geo },
     hasMap: SITE.googleMapsUrl,
+    // Mirrors the Google Business Profile categories.
     servesCuisine: [
+      $localize`:@@schema.cuisine.glutenFree:Sin gluten`,
       $localize`:@@schema.cuisine.brunch:Brunch`,
       $localize`:@@schema.cuisine.tapas:Tapas`,
-      $localize`:@@schema.cuisine.glutenFree:Sin gluten`,
+      $localize`:@@schema.cuisine.breakfast:Desayunos`,
+      $localize`:@@schema.cuisine.burgers:Hamburguesas`,
+      $localize`:@@schema.cuisine.rice:Arroces`,
+      $localize`:@@schema.cuisine.seafood:Pescado y marisco`,
+      $localize`:@@schema.cuisine.salads:Ensaladas`,
+      $localize`:@@schema.cuisine.pastry:Repostería`,
     ],
+    priceRange: SITE.priceRange,
+    openingHoursSpecification: SITE.openingHours.map(({ days, opens, closes }) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: days,
+      opens,
+      closes,
+    })),
+    sameAs: [SITE.instagramUrl, SITE.googleMapsUrl],
     hasMenu: SITE_URL + pagePath('menu', locale),
     acceptsReservations: true,
     memberOf: {

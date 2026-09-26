@@ -26,8 +26,11 @@
     "langSwitcher.label": "Lingua",
     "contact.heading": "Contatti e posizione",
     "contact.maps": "Come arrivare (Google Maps)",
+    "contact.hours": "Orari",
+    "contact.closed": "Chiuso",
     "home.heading": "Brunch e tapas senza glutine ad Alicante",
     "home.intro": "Tutti i nostri piatti hanno un’opzione senza glutine.",
+    "home.offer": "Colazioni, brunch, tapas, riso, pesce e frutti di mare, hamburger, insalate e pasticceria.",
     "home.alwaysGlutenFree": "I calamari fritti, le crocchette e i pancake sono senza glutine per tutti. Per hamburger e colazioni abbiamo pane normale e senza glutine: basta chiedere.",
     "home.crossContamination": "Controlliamo la contaminazione crociata: tutto ciò che passa nella nostra friggitrice è senza glutine e usiamo tostapane separati per il pane normale e quello senza glutine.",
     "home.association": "Siamo un locale associato ad {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}, l’Associazione Celiaci della Comunità Valenciana.",
@@ -97,8 +100,14 @@
     "reservations.heading": "Prenotazioni",
     "reservations.widgetTitle": "Prenotazioni Donde Nakiss",
     "reservations.fallback": "La prenotazione online arriverà presto. Nel frattempo, chiamaci al {$START_LINK}{$INTERPOLATION}{$CLOSE_LINK}.",
+    "schema.cuisine.glutenFree": "Senza glutine",
     "schema.cuisine.brunch": "Brunch",
     "schema.cuisine.tapas": "Tapas",
-    "schema.cuisine.glutenFree": "Senza glutine"
+    "schema.cuisine.breakfast": "Colazioni",
+    "schema.cuisine.burgers": "Hamburger",
+    "schema.cuisine.rice": "Riso",
+    "schema.cuisine.seafood": "Pesce e frutti di mare",
+    "schema.cuisine.salads": "Insalate",
+    "schema.cuisine.pastry": "Pasticceria"
   }
 }
