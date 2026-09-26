@@ -15,7 +15,7 @@ export const SITE = {
   fullName: 'Donde Nakiss Brunch & Tapas Sin Gluten',
   phone: '+34 625 32 78 63',
   // TODO: switch to the dondenakiss.es address once it exists.
-  email: 'elrincondenakiss@gmail.com',
+  email: 'dondenakiss@gmail.com',
   address: 'Rambla de Méndez Núñez, 48, 03002 Alicante',
   postalAddress: {
     streetAddress: 'Rambla de Méndez Núñez, 48',
