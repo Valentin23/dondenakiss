@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { SITE } from '../../config/site';
+import { CURRENT_LOCALE, PAGE_SLUGS } from '../../i18n/locales';
 
-// TODO: texto legal (LSSI-CE): titular, NIF, domicilio, contacto, datos registrales.
 @Component({
   selector: 'app-legal',
-  template: `
-    <h1 i18n="@@legal.heading">Aviso legal</h1>
-    <p i18n="@@legal.pending">Contenido pendiente.</p>
-  `,
+  imports: [DatePipe, RouterLink],
+  templateUrl: './legal.html',
 })
-export class Legal {}
+export class Legal {
+  protected readonly site = SITE;
+  protected readonly privacyPath = `/${PAGE_SLUGS.privacy[inject(CURRENT_LOCALE)]}`;
+}
