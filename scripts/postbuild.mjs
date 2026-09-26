@@ -1,7 +1,7 @@
-// Ajustes del build estático para Cloudflare Pages:
-// - 404.html en la raíz y en cada idioma (Pages sirve el 404.html más cercano).
-// - sitemap.xml con las alternativas hreflang de cada página.
-// - _headers y robots.txt solo en la raíz (Angular copia public/ en cada idioma).
+// Post-processing of the static build for Cloudflare Pages:
+// - 404.html at the root and in every locale (Pages serves the nearest 404.html).
+// - sitemap.xml with the hreflang alternates of every page.
+// - _headers and robots.txt only at the root (Angular copies public/ into every locale).
 import { copyFileSync, existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -23,7 +23,7 @@ for (const locale of locales) {
   const dir = dirOf(locale);
   const notFound = join(dir, '404', 'index.html');
   if (!existsSync(notFound)) {
-    throw new Error(`No existe ${notFound}: ¿ha fallado el prerender?`);
+    throw new Error(`Missing ${notFound}: did prerendering fail?`);
   }
   copyFileSync(notFound, join(dir, '404.html'));
   rmSync(join(dir, '404'), { recursive: true });

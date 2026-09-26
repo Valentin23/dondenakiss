@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { SITE } from '../../config/site';
+import { PHONE_HREF, SITE } from '../../config/site';
 
 @Component({
   selector: 'app-reservations',
@@ -10,13 +10,15 @@ import { SITE } from '../../config/site';
       <iframe
         class="dish-widget"
         [src]="widgetUrl"
-        title="Reservas DondeNakiss"
+        title="Reservas Donde Nakiss"
         i18n-title="@@reservations.widgetTitle"
         loading="lazy"
       ></iframe>
     } @else {
       <p i18n="@@reservations.fallback">
-        Muy pronto podrás reservar online. Mientras tanto, llámanos por teléfono.
+        Muy pronto podrás reservar online. Mientras tanto, llámanos al
+        <a [href]="phoneHref">{{ phone }}</a
+        >.
       </p>
     }
   `,
@@ -29,6 +31,8 @@ import { SITE } from '../../config/site';
   `,
 })
 export class Reservations {
+  protected readonly phone = SITE.phone;
+  protected readonly phoneHref = PHONE_HREF;
   protected readonly widgetUrl = SITE.dishWidgetUrl
     ? inject(DomSanitizer).bypassSecurityTrustResourceUrl(SITE.dishWidgetUrl)
     : null;

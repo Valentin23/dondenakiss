@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { SITE } from './config/site';
 import { CURRENT_LOCALE, PAGE_SLUGS, PageKey } from './i18n/locales';
 import { LanguageSwitcher } from './layout/language-switcher/language-switcher';
 
@@ -12,6 +13,7 @@ import { LanguageSwitcher } from './layout/language-switcher/language-switcher';
 export class App {
   private readonly locale = inject(CURRENT_LOCALE);
 
+  protected readonly site = SITE;
   protected readonly year = new Date().getFullYear();
 
   protected readonly mainNav = [

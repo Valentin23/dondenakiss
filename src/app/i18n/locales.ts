@@ -7,7 +7,7 @@ export const LOCALES = ['es', 'en', 'fr', 'it', 'pl'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'es';
 
-/** Nombre de cada idioma en su propio idioma, para el selector. */
+/** Native name of each language, for the language switcher. */
 export const LOCALE_NAMES: Record<Locale, string> = {
   es: 'Español',
   en: 'English',
@@ -24,8 +24,8 @@ export function isLocale(value: string): value is Locale {
 }
 
 /**
- * Idioma del build actual. Con `ng serve` sin configuración de idioma, Angular
- * usa `en-US`: en ese caso se sirven los textos fuente (español).
+ * Locale of the current build. Plain `ng serve` (no locale configuration) uses
+ * `en-US`, which serves the source (Spanish) texts, so it maps to `es`.
  */
 export const CURRENT_LOCALE = new InjectionToken<Locale>('CURRENT_LOCALE', {
   providedIn: 'root',
@@ -35,7 +35,7 @@ export const CURRENT_LOCALE = new InjectionToken<Locale>('CURRENT_LOCALE', {
   },
 });
 
-/** Ruta absoluta (sin dominio) de una página en un idioma, p. ej. `/en/menu/`. */
+/** Absolute path (no domain) of a page in a locale, e.g. `/en/menu/`. */
 export function pagePath(page: PageKey, locale: Locale): string {
   const prefix = locale === DEFAULT_LOCALE ? '' : `/${locale}`;
   const slug = PAGE_SLUGS[page][locale];

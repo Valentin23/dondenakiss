@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SITE } from '../../config/site';
+import { PHONE_HREF, SITE } from '../../config/site';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +11,7 @@ import { SITE } from '../../config/site';
       }
       @if (site.phone) {
         <p>
-          <a [href]="'tel:' + site.phone">{{ site.phone }}</a>
+          <a [href]="phoneHref">{{ site.phone }}</a>
         </p>
       }
       @if (site.email) {
@@ -31,4 +31,5 @@ import { SITE } from '../../config/site';
 })
 export class Contact {
   protected readonly site = SITE;
+  protected readonly phoneHref = PHONE_HREF;
 }

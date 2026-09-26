@@ -7,9 +7,9 @@ export interface PageData {
 }
 
 /**
- * Las rutas se generan por idioma a partir de `i18n/pages.json`, para que los
- * slugs estén traducidos (/carta en español, /en/menu en inglés...).
- * Los títulos y descripciones usan `$localize` y se traducen en el build.
+ * Routes are generated per locale from `i18n/pages.json`, so slugs are
+ * translated (/carta in Spanish, /en/menu in English...).
+ * Titles and descriptions use `$localize` and are translated at build time.
  */
 export function buildRoutes(locale: Locale): Routes {
   const slug = (page: PageKey) => PAGE_SLUGS[page][locale];
@@ -19,61 +19,64 @@ export function buildRoutes(locale: Locale): Routes {
     {
       path: slug('home'),
       pathMatch: 'full',
-      title: $localize`:@@home.title:DondeNakiss · Restaurante`,
+      title: $localize`:@@home.title:Donde Nakiss · Brunch y tapas sin gluten en Alicante`,
       data: data(
         'home',
-        $localize`:@@home.description:Restaurante DondeNakiss. Consulta la carta y reserva tu mesa.`,
+        $localize`:@@home.description:Brunch y tapas en el centro de Alicante con opción sin gluten en todos los platos. Miembros de ACECOVA. Reserva tu mesa.`,
       ),
       loadComponent: () => import('./pages/home/home').then((m) => m.Home),
     },
     {
       path: slug('menu'),
-      title: $localize`:@@menu.title:Carta · DondeNakiss`,
-      data: data('menu', $localize`:@@menu.description:La carta del restaurante DondeNakiss.`),
+      title: $localize`:@@menu.title:Carta de brunch y tapas sin gluten · Donde Nakiss`,
+      data: data(
+        'menu',
+        $localize`:@@menu.description:Nuestra carta de brunch y tapas: todos los platos tienen opción sin gluten, con pan con y sin gluten.`,
+      ),
       loadComponent: () => import('./pages/menu/menu').then((m) => m.Menu),
     },
     {
       path: slug('reservations'),
-      title: $localize`:@@reservations.title:Reservas · DondeNakiss`,
+      title: $localize`:@@reservations.title:Reservar mesa · Donde Nakiss Alicante`,
       data: data(
         'reservations',
-        $localize`:@@reservations.description:Reserva tu mesa en DondeNakiss.`,
+        $localize`:@@reservations.description:Reserva tu mesa en Donde Nakiss, brunch y tapas sin gluten en Alicante.`,
       ),
       loadComponent: () => import('./pages/reservations/reservations').then((m) => m.Reservations),
     },
     {
       path: slug('contact'),
-      title: $localize`:@@contact.title:Contacto y ubicación · DondeNakiss`,
+      title: $localize`:@@contact.title:Contacto y cómo llegar · Donde Nakiss Alicante`,
       data: data(
         'contact',
-        $localize`:@@contact.description:Dirección, horario y contacto de DondeNakiss.`,
+        $localize`:@@contact.description:Donde Nakiss, brunch y tapas sin gluten en la Rambla de Méndez Núñez, 48, Alicante. Dirección, horario y contacto.`,
       ),
       loadComponent: () => import('./pages/contact/contact').then((m) => m.Contact),
     },
     {
       path: slug('legal'),
-      title: $localize`:@@legal.title:Aviso legal · DondeNakiss`,
-      data: data('legal', $localize`:@@legal.description:Aviso legal de DondeNakiss.`),
+      title: $localize`:@@legal.title:Aviso legal · Donde Nakiss`,
+      data: data('legal', $localize`:@@legal.description:Aviso legal de Donde Nakiss.`),
       loadComponent: () => import('./pages/legal/legal').then((m) => m.Legal),
     },
     {
       path: slug('privacy'),
-      title: $localize`:@@privacy.title:Política de privacidad · DondeNakiss`,
+      title: $localize`:@@privacy.title:Política de privacidad · Donde Nakiss`,
       data: data(
         'privacy',
-        $localize`:@@privacy.description:Política de privacidad de DondeNakiss.`,
+        $localize`:@@privacy.description:Política de privacidad de Donde Nakiss.`,
       ),
       loadComponent: () => import('./pages/privacy/privacy').then((m) => m.Privacy),
     },
     {
-      // Se prerenderiza como /404/ y scripts/postbuild.mjs lo copia a 404.html.
+      // Prerendered as /404/; scripts/postbuild.mjs copies it to 404.html.
       path: '404',
-      title: $localize`:@@notFound.title:Página no encontrada · DondeNakiss`,
+      title: $localize`:@@notFound.title:Página no encontrada · Donde Nakiss`,
       loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
     },
     {
       path: '**',
-      title: $localize`:@@notFound.title:Página no encontrada · DondeNakiss`,
+      title: $localize`:@@notFound.title:Página no encontrada · Donde Nakiss`,
       loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
     },
   ];

@@ -1,7 +1,10 @@
 <a class="skip-link" href="#main" i18n="@@skipLink">Saltar al contenido</a>
 
 <header class="site-header">
-  <a class="brand" [routerLink]="path('home')">DondeNakiss</a>
+  <a class="brand" [routerLink]="path('home')">
+    <span class="brand-name">{{ site.name }}</span>
+    <span class="brand-tagline" i18n="@@brand.tagline">Brunch & tapas sin gluten</span>
+  </a>
   <nav aria-label="Principal" i18n-aria-label="@@nav.mainLabel">
     <ul>
       @for (link of mainNav; track link.path) {
@@ -21,7 +24,10 @@
 </main>
 
 <footer class="site-footer">
-  <p>© {{ year }} DondeNakiss</p>
+  <p>
+    © {{ year }} {{ site.fullName }}<br />
+    {{ site.address }}
+  </p>
   <nav aria-label="Legal" i18n-aria-label="@@nav.legalLabel">
     <ul>
       @for (link of legalNav; track link.path) {

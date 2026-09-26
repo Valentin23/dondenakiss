@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
-# Cuando exista el panel: Disallow: /admin
+# Once the admin panel exists: Disallow: /admin
 
 Sitemap: https://dondenakiss.es/sitemap.xml

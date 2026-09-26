@@ -15,9 +15,18 @@
 }
 
 .brand {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.brand-name {
   font-size: 1.25rem;
   font-weight: 700;
-  text-decoration: none;
+}
+
+.brand-tagline {
+  font-size: 0.875rem;
 }
 
 nav ul {

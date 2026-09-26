@@ -4,10 +4,11 @@ import { ActivatedRouteSnapshot, NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { PageData } from '../app.routes';
 import { CURRENT_LOCALE, DEFAULT_LOCALE, LOCALES, SITE_URL, pagePath } from '../i18n/locales';
+import { restaurantSchema } from './restaurant-schema';
 
 /**
- * Mantiene en el <head> la descripción, la URL canónica y los enlaces
- * `hreflang` a las versiones en otros idiomas de la página actual.
+ * Keeps the <head> in sync with the current page: description, canonical URL,
+ * `hreflang` links to the other locales and the schema.org JSON-LD.
  */
 @Service()
 export class Seo {
@@ -17,6 +18,7 @@ export class Seo {
   private readonly locale = inject(CURRENT_LOCALE);
 
   init(): void {
+    this.addStructuredData();
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe(() => this.update(deepestChild(this.router.routerState.snapshot.root)));
@@ -53,6 +55,16 @@ export class Seo {
       hreflang: 'x-default',
       href: SITE_URL + pagePath(data.page, DEFAULT_LOCALE),
     });
+  }
+
+  private addStructuredData(): void {
+    // In the browser it is already in the prerendered HTML: replace it to avoid a duplicate.
+    this.document.getElementById('schema-restaurant')?.remove();
+    const script = this.document.createElement('script');
+    script.id = 'schema-restaurant';
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(restaurantSchema(this.locale));
+    this.document.head.appendChild(script);
   }
 
   private addLink(attrs: Record<string, string>): void {
