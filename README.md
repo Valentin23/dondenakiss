@@ -7,7 +7,7 @@ Se publica en Cloudflare Pages.
 
 ## Requisitos
 
-Node 24 LTS (ver `.nvmrc`).
+Node 24 LTS, versión exacta en `.nvmrc` (Angular 22 exige ≥ 24.15.0).
 
 ## Comandos
 
@@ -48,13 +48,13 @@ Node 24 LTS (ver `.nvmrc`).
 
 Conecta el repositorio de GitHub en _Workers & Pages → Create → Pages → Connect to Git_:
 
-| Ajuste                 | Valor                      |
-| ---------------------- | -------------------------- |
-| Framework preset       | None                       |
-| Build command          | `npm run build`            |
-| Build output directory | `dist/dondenakiss/browser` |
-| Variable de entorno    | `NODE_VERSION` = `24`      |
-| Production branch      | `main`                     |
+| Ajuste                 | Valor                                           |
+| ---------------------- | ----------------------------------------------- |
+| Framework preset       | None                                            |
+| Build command          | `npm run build`                                 |
+| Build output directory | `dist/dondenakiss/browser`                      |
+| Variable de entorno    | `NODE_VERSION` = `24.21.0` (igual que `.nvmrc`) |
+| Production branch      | `main`                                          |
 
 Cada PR genera una URL de preview. Las URLs `*.pages.dev` llevan `X-Robots-Tag: noindex` (ver `public/_headers`).
 
