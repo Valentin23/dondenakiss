@@ -1,0 +1,32 @@
+{
+  "home": { "es": "", "en": "", "fr": "", "it": "", "pl": "" },
+  "menu": { "es": "carta", "en": "menu", "fr": "carte", "it": "menu", "pl": "menu" },
+  "reservations": {
+    "es": "reservas",
+    "en": "reservations",
+    "fr": "reservation",
+    "it": "prenotazioni",
+    "pl": "rezerwacja"
+  },
+  "contact": {
+    "es": "contacto",
+    "en": "contact",
+    "fr": "contact",
+    "it": "contatti",
+    "pl": "kontakt"
+  },
+  "legal": {
+    "es": "aviso-legal",
+    "en": "legal-notice",
+    "fr": "mentions-legales",
+    "it": "note-legali",
+    "pl": "nota-prawna"
+  },
+  "privacy": {
+    "es": "privacidad",
+    "en": "privacy",
+    "fr": "confidentialite",
+    "it": "privacy",
+    "pl": "prywatnosc"
+  }
+}

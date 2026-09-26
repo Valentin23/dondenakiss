@@ -1,0 +1,34 @@
+<a class="skip-link" href="#main" i18n="@@skipLink">Saltar al contenido</a>
+
+<header class="site-header">
+  <a class="brand" [routerLink]="path('home')">DondeNakiss</a>
+  <nav aria-label="Principal" i18n-aria-label="@@nav.mainLabel">
+    <ul>
+      @for (link of mainNav; track link.path) {
+        <li>
+          <a [routerLink]="link.path" routerLinkActive="active" ariaCurrentWhenActive="page">{{
+            link.label
+          }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+  <app-language-switcher />
+</header>
+
+<main id="main" tabindex="-1">
+  <router-outlet />
+</main>
+
+<footer class="site-footer">
+  <p>© {{ year }} DondeNakiss</p>
+  <nav aria-label="Legal" i18n-aria-label="@@nav.legalLabel">
+    <ul>
+      @for (link of legalNav; track link.path) {
+        <li>
+          <a [routerLink]="link.path">{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+  </nav>
+</footer>
