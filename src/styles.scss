@@ -20,3 +20,27 @@ body {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+.legal {
+  max-width: 45rem;
+
+  .updated,
+  .language-note {
+    font-size: 0.875rem;
+    color: #555;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.25rem 1rem;
+  }
+
+  dt {
+    font-weight: 700;
+  }
+
+  dd {
+    margin: 0;
+  }
+}

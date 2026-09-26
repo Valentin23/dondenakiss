@@ -1,0 +1,67 @@
+<article class="legal">
+  <h1 i18n="@@legal.heading">Aviso legal</h1>
+  <p class="updated">
+    <ng-container i18n="@@legalPages.updated">Última actualización:</ng-container>
+    <time [attr.datetime]="site.legalUpdated">{{ site.legalUpdated | date: 'longDate' }}</time>
+  </p>
+
+  <h2 i18n="@@legal.owner.heading">1. Datos identificativos</h2>
+  <p i18n="@@legal.owner.intro">
+    En cumplimiento del artículo 10 de la Ley 34/2002, de servicios de la sociedad de la información
+    y de comercio electrónico (LSSI-CE), se informa de los datos del titular de esta web:
+  </p>
+  <dl>
+    <dt i18n="@@legalPages.owner">Titular</dt>
+    <dd>{{ site.owner.name }}</dd>
+    <dt i18n="@@legal.owner.tradeName">Nombre comercial</dt>
+    <dd>{{ site.name }}</dd>
+    <dt i18n="@@legalPages.taxId">NIF</dt>
+    <dd>{{ site.owner.taxId }}</dd>
+    <dt i18n="@@legalPages.address">Domicilio</dt>
+    <dd>{{ site.address }}</dd>
+    <dt i18n="@@legalPages.email">Email</dt>
+    <dd>
+      <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+    </dd>
+    <dt i18n="@@legal.owner.activity">Actividad</dt>
+    <dd i18n="@@legal.owner.activityValue">Restauración</dd>
+  </dl>
+
+  <h2 i18n="@@legal.use.heading">2. Condiciones de uso</h2>
+  <p i18n="@@legal.use.body">
+    El acceso a esta web es gratuito e implica la aceptación de este aviso legal. La información
+    publicada (carta, precios, horarios) es orientativa y puede cambiar sin previo aviso; ante
+    cualquier duda, consúltanos directamente.
+  </p>
+
+  <h2 i18n="@@legal.ip.heading">3. Propiedad intelectual e industrial</h2>
+  <p i18n="@@legal.ip.body">
+    Los textos, imágenes, logotipos y diseño de esta web pertenecen a su titular o se usan con
+    autorización. No está permitida su reproducción, distribución o modificación sin consentimiento
+    previo por escrito.
+  </p>
+
+  <h2 i18n="@@legal.liability.heading">4. Responsabilidad y enlaces</h2>
+  <p i18n="@@legal.liability.body">
+    El titular no se hace responsable de las interrupciones del servicio ni de los daños derivados
+    de un uso indebido de la web. Esta web puede incluir enlaces a sitios de terceros, como Google
+    Maps, sobre cuyo contenido y políticas de privacidad no tenemos control.
+  </p>
+
+  <h2 i18n="@@legal.privacy.heading">5. Protección de datos</h2>
+  <p i18n="@@legal.privacy.body">
+    El tratamiento de datos personales se explica en la
+    <a [routerLink]="privacyPath">política de privacidad</a>.
+  </p>
+
+  <h2 i18n="@@legal.law.heading">6. Legislación aplicable</h2>
+  <p i18n="@@legal.law.body">
+    Este aviso legal se rige por la legislación española. Si eres consumidor, serán competentes los
+    juzgados y tribunales de tu domicilio.
+  </p>
+
+  <p class="language-note" i18n="@@legalPages.languageNote">
+    Este texto se ofrece en varios idiomas. En caso de discrepancia, prevalece la versión en
+    español.
+  </p>
+</article>

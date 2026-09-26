@@ -1,11 +1,14 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { SITE } from '../../config/site';
 
-// TODO: política de privacidad (RGPD/LOPDGDD), incluyendo DISH como encargado del tratamiento.
+// Si se añade el widget de DISH u otro servicio de terceros, hay que actualizar
+// esta política (destinatarios, cookies) y SITE.legalUpdated.
 @Component({
   selector: 'app-privacy',
-  template: `
-    <h1 i18n="@@privacy.heading">Política de privacidad</h1>
-    <p i18n="@@privacy.pending">Contenido pendiente.</p>
-  `,
+  imports: [DatePipe],
+  templateUrl: './privacy.html',
 })
-export class Privacy {}
+export class Privacy {
+  protected readonly site = SITE;
+}

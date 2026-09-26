@@ -79,8 +79,8 @@ https://dondenakiss.es/?utm_source=google&utm_medium=organic&utm_campaign=gbp
 
 ## Pendiente
 
-- Datos reales en `src/app/config/site.ts` (teléfono, dirección, Google Maps, URL del widget de DISH).
-- Textos del aviso legal y de la política de privacidad.
+- Datos en `src/app/config/site.ts`: teléfono, Google Maps, URL del widget de DISH y email con el dominio (ahora es el Gmail).
+- Al añadir el widget de DISH u otro servicio de terceros: actualizar la política de privacidad (destinatarios y cookies) y `SITE.legalUpdated`.
 - Carta en `menu-data.ts`.
 - `/admin` (SPA): `RenderMode.Client` en `app.routes.server.ts`, `noindex`, `Disallow: /admin` en
   `robots.txt` y `_redirects` con `/admin/* /index.csr.html 200`.
