@@ -1,86 +1,92 @@
-# DondeNakiss
+# Donde Nakiss
 
-Web del restaurante DondeNakiss ([dondenakiss.es](https://dondenakiss.es)).
+Website for **Donde Nakiss Brunch & Tapas Sin Gluten**, Alicante ([dondenakiss.es](https://dondenakiss.es)).
 
-Angular 22 con prerender estático (`outputMode: "static"`), en 5 idiomas con `@angular/localize`.
-Se publica en Cloudflare Pages.
+Angular 22 with static prerendering (`outputMode: "static"`), in 5 languages with `@angular/localize`.
+Deployed on Cloudflare Pages.
 
-## Requisitos
+## Requirements
 
-Node 24 LTS, versión exacta en `.nvmrc` (Angular 22 exige ≥ 24.15.0).
+Node 24 LTS; the exact version is in `.nvmrc` (Angular 22 requires >= 24.15.0).
 
-## Comandos
+## Commands
 
-| Comando                | Qué hace                                                                            |
-| ---------------------- | ----------------------------------------------------------------------------------- |
-| `npm start`            | Servidor de desarrollo en español (http://localhost:4200)                           |
-| `npm run start:en`     | Igual, en inglés (también `fr`, `it`, `pl` con `ng serve --configuration <idioma>`) |
-| `npm run build`        | Build de producción de todos los idiomas + postbuild                                |
-| `npm test`             | Tests unitarios (Vitest)                                                            |
-| `npm run lint`         | ESLint                                                                              |
-| `npm run format`       | Prettier                                                                            |
-| `npm run extract-i18n` | Regenera `src/locale/messages.json` con los textos fuente                           |
+| Command                | What it does                                                                      |
+| ---------------------- | --------------------------------------------------------------------------------- |
+| `npm start`            | Dev server in Spanish (http://localhost:4200)                                     |
+| `npm run start:en`     | Same, in English (also `fr`, `it`, `pl` with `ng serve --configuration <locale>`) |
+| `npm run build`        | Production build of every locale + postbuild                                      |
+| `npm test`             | Unit tests (Vitest)                                                               |
+| `npm run lint`         | ESLint                                                                            |
+| `npm run format`       | Prettier                                                                          |
+| `npm run extract-i18n` | Regenerates `src/locale/messages.json` with the source texts                      |
 
-## Idiomas
+## Languages
 
-| Idioma           | URL                        |
+| Language         | URL                        |
 | ---------------- | -------------------------- |
-| Español (fuente) | `dondenakiss.es/carta/`    |
-| Inglés           | `dondenakiss.es/en/menu/`  |
-| Francés          | `dondenakiss.es/fr/carte/` |
-| Italiano         | `dondenakiss.es/it/menu/`  |
-| Polaco           | `dondenakiss.es/pl/menu/`  |
+| Spanish (source) | `dondenakiss.es/carta/`    |
+| English          | `dondenakiss.es/en/menu/`  |
+| French           | `dondenakiss.es/fr/carte/` |
+| Italian          | `dondenakiss.es/it/menu/`  |
+| Polish           | `dondenakiss.es/pl/menu/`  |
 
-- **Slugs**: `src/app/i18n/pages.json`. Es la única fuente de verdad, y de ahí salen las rutas, el selector de
-  idioma, las etiquetas `hreflang` y el `sitemap.xml`.
-- **Textos de la interfaz**: se marcan con `i18n="@@id"` en las plantillas y con `` $localize`:@@id:texto` `` en TypeScript.
-  Usa siempre un id explícito.
-- **Traducir**:
+- **Slugs**: `src/app/i18n/pages.json` is the single source of truth. Routes, the language switcher, the
+  `hreflang` tags and `sitemap.xml` are all generated from it.
+- **UI texts**: marked with `i18n="@@id"` in templates and `` $localize`:@@id:text` `` in TypeScript.
+  Always use an explicit id.
+- **Translating**:
   1. `npm run extract-i18n`
-  2. Copia las claves nuevas de `messages.json` a `messages.{en,fr,it,pl}.json` y tradúcelas.
+  2. Copy the new keys from `messages.json` into `messages.{en,fr,it,pl}.json` and translate them.
 
-  El build falla si falta alguna traducción (`i18nMissingTranslation: "error"`).
+  The build fails if a translation is missing (`i18nMissingTranslation: "error"`).
 
-- **Carta**: no va en los ficheros de traducción. Está en `src/app/pages/menu/menu-data.ts`, con un
-  texto por idioma en cada plato.
+- **Menu**: not in the translation files. It lives in `src/app/pages/menu/menu-data.ts`, with one text per
+  language for each dish.
 
-## Despliegue en Cloudflare Pages
+## Workflow
 
-Conecta el repositorio de GitHub en _Workers & Pages → Create → Pages → Connect to Git_:
+`main` is protected: open a PR from a branch; it can only be merged once the `ci` check (lint, format,
+test, build) passes. Cloudflare Pages builds a preview URL for every PR.
 
-| Ajuste                 | Valor                                           |
-| ---------------------- | ----------------------------------------------- |
-| Framework preset       | None                                            |
-| Build command          | `npm run build`                                 |
-| Build output directory | `dist/dondenakiss/browser`                      |
-| Variable de entorno    | `NODE_VERSION` = `24.21.0` (igual que `.nvmrc`) |
-| Production branch      | `main`                                          |
+## Deploying to Cloudflare Pages
 
-Cada PR genera una URL de preview. Las URLs `*.pages.dev` llevan `X-Robots-Tag: noindex` (ver `public/_headers`).
+The GitHub repository is connected in _Workers & Pages → Pages_:
 
-El postbuild (`scripts/postbuild.mjs`) hace lo siguiente:
+| Setting                | Value                             |
+| ---------------------- | --------------------------------- |
+| Framework preset       | None                              |
+| Build command          | `npm run build`                   |
+| Build output directory | `dist/dondenakiss/browser`        |
+| Environment variable   | `NODE_VERSION` = same as `.nvmrc` |
+| Production branch      | `main`                            |
 
-- Genera un `404.html` por idioma. Pages sirve el más cercano, y al existir un 404.html deja de tratar
-  el sitio como SPA.
-- Genera `sitemap.xml` con las alternativas `hreflang`.
+`*.pages.dev` URLs send `X-Robots-Tag: noindex` (see `public/_headers`).
 
-Después, añade el dominio `dondenakiss.es` (y `www`) en _Custom domains_.
+The postbuild step (`scripts/postbuild.mjs`):
 
-## Analítica
+- Generates a `404.html` per locale. Pages serves the nearest one, and having a 404.html stops it from
+  treating the site as an SPA.
+- Generates `sitemap.xml` with the `hreflang` alternates.
 
-Cloudflare Web Analytics se activa desde el proyecto de Pages (_Metrics → Web Analytics → Enable_).
-Cloudflare inyecta el script automáticamente, así que no hace falta código. No usa cookies.
+Then add `dondenakiss.es` (and `www`) under _Custom domains_.
 
-Enlace para la ficha de Google Business Profile:
+## Analytics
+
+Cloudflare Web Analytics is enabled from the Pages project (_Metrics → Web Analytics → Enable_).
+Cloudflare injects the script automatically, so no code is needed. It does not use cookies.
+
+Link for the Google Business Profile listing:
 
 ```
 https://dondenakiss.es/?utm_source=google&utm_medium=organic&utm_campaign=gbp
 ```
 
-## Pendiente
+## To do
 
-- Datos en `src/app/config/site.ts`: teléfono, Google Maps, URL del widget de DISH y email con el dominio (ahora es el Gmail).
-- Al añadir el widget de DISH u otro servicio de terceros: actualizar la política de privacidad (destinatarios y cookies) y `SITE.legalUpdated`.
-- Carta en `menu-data.ts`.
-- `/admin` (SPA): `RenderMode.Client` en `app.routes.server.ts`, `noindex`, `Disallow: /admin` en
-  `robots.txt` y `_redirects` con `/admin/* /index.csr.html 200`.
+- In `src/app/config/site.ts`: DISH widget URL, and the email on the domain (currently the Gmail address).
+- When adding the DISH widget or any other third-party service: update the privacy policy (recipients
+  and cookies) and `SITE.legalUpdated`.
+- Real menu in `menu-data.ts`.
+- `/admin` (SPA): `RenderMode.Client` in `app.routes.server.ts`, `noindex`, `Disallow: /admin` in
+  `robots.txt` and `_redirects` with `/admin/* /index.csr.html 200`.

@@ -6,8 +6,8 @@ import { PageData } from '../../app.routes';
 import { CURRENT_LOCALE, LOCALES, LOCALE_NAMES, PageKey, pagePath } from '../../i18n/locales';
 
 /**
- * Enlaces a la misma página en los otros idiomas. Cada idioma es un build
- * distinto, así que son enlaces normales (recargan la página), no routerLink.
+ * Links to the current page in the other locales. Each locale is a separate
+ * build, so these are plain links (full page load), not routerLink.
  */
 @Component({
   selector: 'app-language-switcher',

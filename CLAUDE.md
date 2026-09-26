@@ -2,60 +2,66 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Web del restaurante DondeNakiss (dondenakiss.es). Angular 22, prerender 100 % estático, 5 idiomas, hospedada en Cloudflare Pages. El README tiene los detalles de despliegue y del flujo de traducción.
+Website for the restaurant "Donde Nakiss Brunch & Tapas Sin Gluten" (dondenakiss.es). Angular 22, fully static prerender, 5 languages, hosted on Cloudflare Pages. The README covers deployment and the translation workflow.
 
-## Comandos
+## Conventions
 
-- `npm start`: dev server en español. Para otro idioma: `npm run start:en` o `ng serve --configuration fr|it|pl`.
-- `npm run build`: build de producción de los 5 idiomas + `postbuild` (`scripts/postbuild.mjs`). Salida: `dist/dondenakiss/browser`.
-- `npm test`: Vitest vía `ng test`, sin watch.
-  - Un fichero: `npx ng test --watch=false --include src/app/i18n/locales.spec.ts`
-  - Por nombre: `npx ng test --watch=false --filter "buildRoutes"`
+- **Everything code-related is in English**: code comments, docs, commit messages, PR titles and descriptions, script output. Only user-facing site content is in other languages (Spanish is the i18n source language).
+- `main` is protected: every change goes through a branch and a PR, and the `ci` check must pass.
+
+## Commands
+
+- `npm start`: dev server in Spanish. Other languages: `npm run start:en` or `ng serve --configuration fr|it|pl`.
+- `npm run build`: production build of all 5 locales + `postbuild` (`scripts/postbuild.mjs`). Output: `dist/dondenakiss/browser`.
+- `npm test`: Vitest via `ng test`, no watch.
+  - Single file: `npx ng test --watch=false --include src/app/i18n/locales.spec.ts`
+  - By name: `npx ng test --watch=false --filter "buildRoutes"`
 - `npm run lint`, `npm run format` / `npm run format:check`.
-- `npm run extract-i18n`: regenera `src/locale/messages.json` (textos fuente en español).
+- `npm run extract-i18n`: regenerates `src/locale/messages.json` (Spanish source texts).
 
-El CI (`.github/workflows/ci.yml`) ejecuta lint, format:check, test y build. Hay que dejar los cuatro en verde.
+CI (`.github/workflows/ci.yml`) runs lint, format:check, test and build; all four must be green.
 
-Node: la versión exacta está en `.nvmrc` (Angular 22 exige ≥ 24.15.0). En Cloudflare Pages la variable `NODE_VERSION` debe coincidir con `.nvmrc`, porque tiene prioridad sobre el fichero.
+Node: the exact version is in `.nvmrc` (Angular 22 requires >= 24.15.0). On Cloudflare Pages the `NODE_VERSION` variable must match `.nvmrc`, because it takes precedence over the file.
 
-## Arquitectura
+## Architecture
 
-**Build estático, sin servidor.** `outputMode: "static"` con `@angular/ssr`. Todas las rutas se prerenderizan en el build (`app.routes.server.ts`: `**` → `RenderMode.Prerender`). No hay `server.ts` ni Express. Nada puede depender de datos de la petición en tiempo de ejecución, y valores como `new Date()` se congelan en la fecha del build.
+**Static build, no server.** `outputMode: "static"` with `@angular/ssr`. Every route is prerendered at build time (`app.routes.server.ts`: `**` → `RenderMode.Prerender`). There is no `server.ts` or Express. Nothing can depend on request data at runtime, and values like `new Date()` are frozen at build time.
 
-**i18n en tiempo de build (`@angular/localize`).** Hay un bundle por idioma (`angular.json` → `i18n`):
+**Build-time i18n (`@angular/localize`).** One bundle per locale (`angular.json` → `i18n`):
 
-- `es` es el idioma fuente y va en la raíz (`subPath: ""`). `en`, `fr`, `it`, `pl` van en `/<locale>/`, cada uno con su propio `<base href>`.
-- `i18nMissingTranslation: "error"`: si falta una clave en cualquier `src/locale/messages.<locale>.json`, el build falla.
-- Todo texto visible lleva un id explícito: `i18n="@@area.clave"` en plantillas y `` $localize`:@@area.clave:texto` `` en TS. Tras añadir o cambiar textos: `npm run extract-i18n` y copiar las claves nuevas a los 4 ficheros de traducción.
-- En `ng serve` sin configuración de idioma, `LOCALE_ID` es `en-US`. Por eso se usa el token `CURRENT_LOCALE` (`src/app/i18n/locales.ts`), que lo normaliza a `es`. Usa siempre `CURRENT_LOCALE`, no `LOCALE_ID`.
+- `es` is the source locale and is served at the root (`subPath: ""`). `en`, `fr`, `it`, `pl` live under `/<locale>/`, each with its own `<base href>`.
+- `i18nMissingTranslation: "error"`: a missing key in any `src/locale/messages.<locale>.json` fails the build.
+- Every visible text has an explicit id: `i18n="@@area.key"` in templates and `` $localize`:@@area.key:text` `` in TS. After adding or changing texts: `npm run extract-i18n` and copy the new or changed keys into the 4 translation files. Changing the source text of an existing id does not flag the translations as stale, so update them by hand.
+- Plain `ng serve` uses `LOCALE_ID` `en-US`, so the `CURRENT_LOCALE` token (`src/app/i18n/locales.ts`) normalises it to `es`. Always use `CURRENT_LOCALE`, never `LOCALE_ID`.
 
-**Slugs traducidos: una sola fuente de verdad.** `src/app/i18n/pages.json` mapea cada `PageKey` a su slug en cada idioma. De ahí salen:
+**Translated slugs: single source of truth.** `src/app/i18n/pages.json` maps each `PageKey` to its slug in every locale. It drives:
 
-- las rutas: `buildRoutes(locale)` en `app.routes.ts`, que se registra con un provider `ROUTES` con factory en `app.config.ts` (por eso `provideRouter([])` va vacío);
-- los enlaces del menú: `/${PAGE_SLUGS[page][locale]}`, relativos al `<base href>` del idioma;
-- el selector de idioma y las etiquetas `hreflang`/canonical: `pagePath()`;
-- el `sitemap.xml` (lo genera `postbuild.mjs`, que lee el mismo JSON).
+- the routes: `buildRoutes(locale)` in `app.routes.ts`, registered through a `ROUTES` factory provider in `app.config.ts` (which is why `provideRouter([])` is empty);
+- navigation links: `/${PAGE_SLUGS[page][locale]}`, relative to the locale's `<base href>`;
+- the language switcher and the `hreflang`/canonical tags: `pagePath()`;
+- `sitemap.xml` (generated by `postbuild.mjs`, which reads the same JSON).
 
-Añadir una página implica: una entrada en `pages.json` (los 5 idiomas), una ruta en `buildRoutes()` con `data: { page, description }` y los textos traducidos. El test `app.routes.spec.ts` comprueba que rutas y slugs coinciden.
+Adding a page means: an entry in `pages.json` (all 5 locales), a route in `buildRoutes()` with `data: { page, description }`, and the translated texts. `app.routes.spec.ts` checks that routes and slugs match.
 
-**Enlaces entre idiomas.** Cada idioma es otra app, así que se usan `<a href>` normales (`LanguageSwitcher`), nunca `routerLink`.
+**Cross-locale links.** Each locale is a separate app, so they are plain `<a href>` links (`LanguageSwitcher`), never `routerLink`.
 
-**SEO.** El servicio `src/app/seo/seo.ts` se arranca con `provideAppInitializer`. En cada `NavigationEnd` escribe la descripción, la canonical, `og:*` y los `hreflang` a partir de `route.data`. Las rutas sin `data.page` (404) llevan `noindex`. Las URLs canónicas terminan en `/`, porque Pages sirve `carta/index.html` en `/carta/`.
+**SEO.** `src/app/seo/seo.ts` starts from `provideAppInitializer`. On every `NavigationEnd` it writes the description, canonical, `og:*` and `hreflang` tags from `route.data`. Routes without `data.page` (404) get `noindex`. Canonical URLs end in `/`, because Pages serves `carta/index.html` at `/carta/`. It also injects the schema.org `Restaurant` JSON-LD (`seo/restaurant-schema.ts`), built from `SITE`. Titles and descriptions deliberately include "sin gluten" / "gluten-free" and "Alicante" in every language: gluten-free is the main SEO/SEM keyword.
 
-**Postbuild para Cloudflare Pages** (`scripts/postbuild.mjs`):
+**Postbuild for Cloudflare Pages** (`scripts/postbuild.mjs`):
 
-- mueve `404/index.html` → `404.html` en cada idioma (Pages sirve el `404.html` más cercano; sin él trataría el sitio como SPA);
-- genera `sitemap.xml`;
-- borra `_headers`, `_redirects` y `robots.txt` de las subcarpetas de idioma, porque Angular copia `public/` en cada una y Pages solo los lee en la raíz.
+- moves `404/index.html` → `404.html` in every locale (Pages serves the nearest `404.html`; without it the site would be treated as an SPA);
+- generates `sitemap.xml`;
+- removes `_headers`, `_redirects` and `robots.txt` from the locale subfolders, because Angular copies `public/` into each one and Pages only reads them at the root.
 
-`public/_headers` pone `noindex` en `*.pages.dev`.
+`public/_headers` sets `noindex` on `*.pages.dev`.
 
-**Contenido.**
+**Content.**
 
-- Los datos del negocio (teléfono, dirección, URL del widget de DISH Reservation) están en `src/app/config/site.ts`.
-- La carta está en `src/app/pages/menu/menu-data.ts`, como datos con un texto por idioma (`Localized`), no en los ficheros de traducción. Así podrá editarse desde el futuro `/admin`.
+- Business data (name, phone, address, geo, Google Maps, owner, DISH Reservation widget URL) lives in `src/app/config/site.ts`.
+- The menu lives in `src/app/pages/menu/menu-data.ts` as data with one text per locale (`Localized`), not in the i18n files, so it can be edited from the future `/admin`.
+- Gluten-free claims must stay accurate: every dish has a gluten-free option, some are always gluten-free, but regular bread is also served, so never say "100% gluten-free".
 
-**Futuro `/admin`** (aún no existe): SPA con `RenderMode.Client` en `app.routes.server.ts`, lazy loading, `noindex`, `Disallow: /admin` en `robots.txt` y `_redirects` con `/admin/* /index.csr.html 200`.
+**Future `/admin`** (does not exist yet): SPA with `RenderMode.Client` in `app.routes.server.ts`, lazy loading, `noindex`, `Disallow: /admin` in `robots.txt` and `_redirects` with `/admin/* /index.csr.html 200`.
 
 ## Angular / TypeScript conventions
 
