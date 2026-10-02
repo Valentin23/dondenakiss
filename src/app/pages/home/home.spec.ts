@@ -32,6 +32,11 @@ describe('Home', () => {
     expect(dishes.some((d) => d.querySelector('.chip-gf'))).toBe(false);
   });
 
+  it('shows a photo for every featured dish', async () => {
+    const dishes = [...(await render()).querySelectorAll('.dish')];
+    expect(dishes.every((d) => d.querySelector('.dish-photo img'))).toBe(true);
+  });
+
   it('points both CTAs at the booking and menu pages', async () => {
     const ctas = [...(await render()).querySelectorAll('.hero-ctas a')];
     expect(ctas.map((a) => a.getAttribute('href'))).toEqual(['/reservas', '/carta']);

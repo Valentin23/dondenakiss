@@ -652,6 +652,7 @@ export const MENUS: Record<MenuKey, MenuSection[]> = {
             'Kalmary w odświętnym wydaniu: nasza wielka specjalność. Chrupiące, pyszne… i z południowym akcentem!',
           ),
           price: 14.9,
+          photo: 'photos/calamares-andaluza',
         },
         {
           id: 'calamar-plancha',
