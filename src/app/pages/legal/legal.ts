@@ -6,6 +6,7 @@ import { CURRENT_LOCALE, PAGE_SLUGS } from '../../i18n/locales';
 
 @Component({
   selector: 'app-legal',
+  host: { class: 'page narrow' },
   imports: [DatePipe, RouterLink],
   templateUrl: './legal.html',
 })

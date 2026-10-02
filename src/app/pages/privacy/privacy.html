@@ -1,9 +1,11 @@
 <article class="legal">
-  <h1 i18n="@@privacy.heading">Política de privacidad</h1>
-  <p class="updated">
-    <ng-container i18n="@@legalPages.updated">Última actualización:</ng-container>
-    <time [attr.datetime]="site.legalUpdated">{{ site.legalUpdated | date: 'longDate' }}</time>
-  </p>
+  <header class="page-head">
+    <h1 i18n="@@privacy.heading">Política de privacidad</h1>
+    <p class="updated">
+      <ng-container i18n="@@legalPages.updated">Última actualización:</ng-container>
+      <time [attr.datetime]="site.legalUpdated">{{ site.legalUpdated | date: 'longDate' }}</time>
+    </p>
+  </header>
 
   <h2 i18n="@@privacy.controller.heading">1. Responsable del tratamiento</h2>
   <dl>

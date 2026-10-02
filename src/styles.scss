@@ -85,13 +85,59 @@ html:has(dialog[open]) {
   overflow: hidden;
 }
 
-// Pages lay out their own full-width sections. Pages that have not been
-// redesigned yet get a simple centred column.
-main > :not(router-outlet, app-home, app-menu) {
+// Inner pages (contact, bookings, legal, 404): a centred container and a
+// shared page header. Home and menu lay out their own full-width sections.
+.page {
   display: block;
-  max-width: 60rem;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: var(--dn-space-8) var(--dn-space-4) var(--dn-space-16);
+  padding: 0 var(--dn-space-4) 48px;
+
+  @media (min-width: 56.25rem) {
+    padding: 0 clamp(var(--dn-space-8), 5.5vw, 80px) 96px;
+  }
+
+  &.narrow {
+    max-width: calc(45rem + 2 * 80px);
+  }
+}
+
+.page-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dn-space-2);
+  padding: 40px 0 var(--dn-space-8);
+
+  @media (min-width: 56.25rem) {
+    padding: var(--dn-space-16) 0 48px;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--dn-ink-muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+
+    @media (min-width: 56.25rem) {
+      font: var(--dn-text-display);
+    }
+  }
+
+  .lead {
+    max-width: 36rem;
+    margin: var(--dn-space-2) 0 0;
+    color: var(--dn-ink-muted);
+
+    @media (min-width: 56.25rem) {
+      font-size: 1.125rem;
+      line-height: 1.875rem;
+    }
+  }
 }
 
 .visually-hidden {
@@ -175,7 +221,25 @@ main > :not(router-outlet, app-home, app-menu) {
 }
 
 .legal {
-  max-width: 45rem;
+  h2 {
+    margin: 48px 0 var(--dn-space-4);
+    font: var(--dn-text-dish);
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+  }
+
+  h3 {
+    margin: var(--dn-space-6) 0 var(--dn-space-2);
+    font-size: 1.25rem;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+  }
+
+  li + li {
+    margin-top: var(--dn-space-1);
+  }
 
   .updated,
   .language-note {
@@ -183,10 +247,32 @@ main > :not(router-outlet, app-home, app-menu) {
     color: var(--dn-ink-muted);
   }
 
+  .updated time {
+    margin-left: 0.3em;
+  }
+
+  .page-head + h2 {
+    margin-top: 0;
+  }
+
   dl {
     display: grid;
     grid-template-columns: max-content 1fr;
-    gap: var(--dn-space-1) var(--dn-space-4);
+    gap: var(--dn-space-2) var(--dn-space-6);
+    margin: 0 0 var(--dn-space-4);
+    padding: var(--dn-space-6);
+    border: 1px solid var(--dn-line);
+    border-radius: var(--dn-radius-md);
+    background: #fff;
+
+    @media (max-width: 30rem) {
+      grid-template-columns: 1fr;
+      gap: 0;
+
+      dd + dt {
+        margin-top: var(--dn-space-2);
+      }
+    }
   }
 
   dt {
@@ -195,5 +281,6 @@ main > :not(router-outlet, app-home, app-menu) {
 
   dd {
     margin: 0;
+    overflow-wrap: anywhere;
   }
 }
