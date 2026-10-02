@@ -238,14 +238,3 @@ $desktop: 56.25rem; // 900px
     margin-left: calc(-1 * var(--dn-space-2));
   }
 }
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  height: 28px;
-  padding: 0 var(--dn-space-4);
-  border-radius: var(--dn-radius-pill);
-  background: var(--dn-oak);
-  color: var(--dn-olive-deep);
-  font: var(--dn-text-eyebrow);
-}

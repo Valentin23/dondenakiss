@@ -1,7 +1,8 @@
 // Post-processing of the static build for Cloudflare Pages:
 // - 404.html at the root and in every locale (Pages serves the nearest 404.html).
 // - sitemap.xml with the hreflang alternates of every page.
-// - _headers and robots.txt only at the root (Angular copies public/ into every locale).
+// - _headers, robots.txt and photos/ only at the root (Angular copies public/ into every
+//   locale; photos are requested by absolute path, see src/app/config/photo-loader.ts).
 import { copyFileSync, existsSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -29,8 +30,8 @@ for (const locale of locales) {
   rmSync(join(dir, '404'), { recursive: true });
 
   if (locale !== DEFAULT_LOCALE) {
-    for (const file of ['_headers', '_redirects', 'robots.txt']) {
-      rmSync(join(dir, file), { force: true });
+    for (const file of ['_headers', '_redirects', 'robots.txt', 'photos']) {
+      rmSync(join(dir, file), { recursive: true, force: true });
     }
   }
 }

@@ -85,6 +85,15 @@ html:has(dialog[open]) {
   overflow: hidden;
 }
 
+// Pages lay out their own full-width sections. Pages that have not been
+// redesigned yet get a simple centred column.
+main > :not(router-outlet, app-home) {
+  display: block;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: var(--dn-space-8) var(--dn-space-4) var(--dn-space-16);
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -98,6 +107,24 @@ html:has(dialog[open]) {
   font: var(--dn-text-eyebrow);
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+// "Sin gluten" chip: always oak with dark text, on light and dark blocks alike.
+.chip-gf {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 28px;
+  padding: 0 var(--dn-space-4);
+  border-radius: var(--dn-radius-pill);
+  background: var(--dn-oak);
+  color: var(--dn-olive-deep);
+  font: var(--dn-text-eyebrow);
+
+  &.small {
+    height: 24px;
+    padding: 0 10px;
+  }
 }
 
 // Buttons (links styled as buttons). One primary action per screen.
