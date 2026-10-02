@@ -63,6 +63,15 @@ Adding a page means: an entry in `pages.json` (all 5 locales), a route in `build
 
 **Future `/admin`** (does not exist yet): SPA with `RenderMode.Client` in `app.routes.server.ts`, lazy loading, `noindex`, `Disallow: /admin` in `robots.txt` and `_redirects` with `/admin/* /index.csr.html 200`.
 
+## Design
+
+- **Read `design/README.md` before any UI work.** It holds the brand rules (voice, colour usage, typography, logo, components, motion).
+- Tokens: `design/tokens.css` (`--dn-*` CSS custom properties). Use them instead of hard-coded colours, fonts or radii. Import the file from `src/styles.scss` when the visual redesign starts.
+- Approved mockups: `design/mockups/*.html` (home, menu and mobile nav, desktop and mobile). Match their layout and hierarchy; take real content from `site.ts` and `menu-data.ts`, never from the mockups' placeholders.
+- Logo: `public/brand/logo-dark*.png` on light backgrounds, `logo-light*.png` on dark ones. Never recreate it with a font.
+- With the `frontend-design` plugin installed, use it for execution quality (composition, micro-interactions, transitions), not to redefine colours or typography.
+- Mobile first: most visitors come from Google Maps on a phone. Mobile CTAs are 64px tall and full width.
+
 ## Angular / TypeScript conventions
 
 ### TypeScript

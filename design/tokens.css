@@ -1,0 +1,72 @@
+/*
+ * Donde Nakiss design tokens.
+ * Source of truth for colours, type, spacing and radii. See design/README.md for usage rules.
+ * Fonts (Google Fonts): Marcellus 400, Poppins 400 and 500.
+ */
+:root {
+  /* Surfaces */
+  --dn-surface: #f6f4ea; /* page background, warm bone */
+  --dn-surface-carta: #d8dfae; /* menu sections, the lime paper of the printed menu */
+  --dn-line: #cfcdb9; /* hairlines, dish separators, input borders on --dn-surface */
+
+  /* Text */
+  --dn-ink: #252b1c; /* primary text on --dn-surface and --dn-surface-carta */
+  --dn-ink-muted: #5a6147; /* dish descriptions, secondary text on --dn-surface and --dn-surface-carta */
+
+  /* Brand dark blocks (hero, footer, menu cover) */
+  --dn-olive-deep: #272f1d;
+  --dn-olive-leaf: #36402a; /* leaf illustration on --dn-olive-deep, decorative only, never text */
+  --dn-on-deep: #d8dfae; /* text and logo on --dn-olive-deep */
+
+  /* Action */
+  --dn-facade: #1e7a5a; /* facade green: primary action (Reservar), links, active state */
+  --dn-facade-hover: #1f4d3a; /* hover/pressed of --dn-facade; the velvet stools */
+  --dn-on-facade: #f6f4ea; /* text and icons on --dn-facade / --dn-facade-hover */
+  --dn-link: var(--dn-facade);
+
+  /* Accent */
+  --dn-oak: #c8995f; /* wood of the ceiling: details, eyebrow on dark, "Sin gluten" chip on dark. Never text on light */
+
+  /* Type */
+  --dn-font-display: 'Marcellus', 'Times New Roman', serif; /* headings, dish names, prices */
+  --dn-font-sans: 'Poppins', system-ui, sans-serif; /* body copy, descriptions, UI */
+
+  --dn-text-display: 400 3.5rem/3.75rem var(--dn-font-display); /* 56/60 */
+  --dn-text-h1: 400 2.5rem/2.875rem var(--dn-font-display); /* 40/46 */
+  --dn-text-h2: 400 1.75rem/2.125rem var(--dn-font-display); /* 28/34 */
+  --dn-text-dish: 400 1.375rem/1.75rem var(--dn-font-display); /* 22/28 */
+  --dn-text-price: 400 1.25rem/1.625rem var(--dn-font-display); /* 20/26 */
+  --dn-text-body: 400 1rem/1.625rem var(--dn-font-sans); /* 16/26 */
+  --dn-text-small: 400 0.875rem/1.25rem var(--dn-font-sans); /* 14/20 */
+  --dn-text-eyebrow: 500 0.75rem/1rem var(--dn-font-sans); /* 12/16, uppercase, letter-spacing 0.12em */
+
+  /* Spacing */
+  --dn-space-1: 0.25rem; /* 4: icon and label */
+  --dn-space-2: 0.5rem; /* 8: dish name and description */
+  --dn-space-4: 1rem; /* 16: button/card padding, mobile side gutter */
+  --dn-space-6: 1.5rem; /* 24: between dishes */
+  --dn-space-8: 2rem; /* 32: mobile section padding, between groups */
+  --dn-space-16: 4rem; /* 64: between page sections on desktop */
+
+  /* Radii */
+  --dn-radius-sm: 4px; /* inputs, tags */
+  --dn-radius-md: 8px; /* buttons, cards, photos */
+  --dn-radius-pill: 999px; /* chips, segmented control */
+
+  /* Elevation */
+  --dn-shadow-card: 0 1px 2px rgb(37 43 28 / 8%), 0 8px 24px rgb(37 43 28 / 6%);
+
+  /* Motion */
+  --dn-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dn-duration: 250ms;
+
+  /* Touch targets */
+  --dn-target-min: 44px;
+  --dn-cta-height-mobile: 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dn-duration: 0ms;
+  }
+}
