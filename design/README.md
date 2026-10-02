@@ -39,7 +39,7 @@ Sources: the printed **menu** (deep olive cover with a leaf illustration, lime p
 Rules:
 
 - One primary action per screen: **Reservar mesa** in `--dn-facade`.
-- `--dn-oak` is an accent on dark surfaces and never text on light surfaces. One exception: the **"Sin gluten" chip is always oak with `--dn-olive-deep` text, on any surface** (global `.chip-gf` class, `.chip-gf.small` next to dishes).
+- `--dn-oak` is an accent on dark surfaces and never text on light surfaces. One exception: the **"Sin gluten" chip is always oak with `--dn-olive-deep` text, on any surface** (global `.chip-gf` class). The menu and the dish cards carry no chips: the whole menu has a gluten-free option.
 - Checked contrast (WCAG AA): ink/surface 13.2:1, ink-muted/surface 5.9:1, ink-muted/surface-carta 4.7:1, on-deep/olive-deep 10:1, facade/surface 4.8:1, on-facade/facade-hover 8.7:1, oak/olive-deep 5.4:1. Keep any new pair at 4.5:1 or more (3:1 for text ≥ 24px).
 - Colours were sampled from photos of the menu and the facade; replace them if the original menu files turn up.
 

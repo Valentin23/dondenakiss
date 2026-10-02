@@ -56,7 +56,9 @@
           Tostas, benedict, revueltos y tortitas. O el Completo: tosta o revuelto, zumo de naranja,
           café y algo dulce, por 20 €.
         </p>
-        <a class="more" [routerLink]="menuPath" i18n="@@home.brunchLink">Ver el brunch →</a>
+        <a class="more" [routerLink]="menuPath" fragment="brunch" i18n="@@home.brunchLink"
+          >Ver el brunch →</a
+        >
       </article>
       <article>
         <app-photo-slot
@@ -71,7 +73,9 @@
           Bravas, calamares a la andaluza, croquetas caseras con el secreto de la abuela, arroces y
           hamburguesas de ternera casera.
         </p>
-        <a class="more" [routerLink]="menuPath" i18n="@@home.tapasLink">Ver las tapas →</a>
+        <a class="more" [routerLink]="menuPath" fragment="tapas" i18n="@@home.tapasLink"
+          >Ver las tapas →</a
+        >
       </article>
     </div>
   </div>
@@ -104,9 +108,6 @@
               }
             </p>
           </div>
-          @if (dish.alwaysGlutenFree) {
-            <span class="chip-gf small" i18n="@@menu.glutenFreeBadge">sin gluten</span>
-          }
           @if (dish.description) {
             <p class="dish-desc">{{ dish.description[locale] }}</p>
           }
@@ -138,10 +139,13 @@
         </p>
       </li>
       <li>
-        <p i18n="@@home.association">
+        <p i18n="@@home.associations">
           Somos establecimiento miembro de
-          <a [href]="association.url" rel="noopener" target="_blank">{{ association.name }}</a
-          >, la Asociación de Celíacos de la Comunitat Valenciana.
+          <a [href]="associations.regional.url" rel="noopener" target="_blank">{{
+            associations.regional.name
+          }}</a
+          >, la Asociación de Celíacos de la Comunitat Valenciana, y de
+          {{ associations.national.name }}, asociación de ámbito nacional.
         </p>
       </li>
     </ul>

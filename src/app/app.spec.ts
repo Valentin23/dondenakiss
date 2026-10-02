@@ -30,7 +30,7 @@ describe('App', () => {
     const dialog = (await render()).querySelector('dialog#mobile-nav')!;
     expect(dialog.hasAttribute('open')).toBe(false);
     expect(hrefs(dialog, '.mobile-links a')).toEqual(['/', '/carta', '/contacto']);
-    expect(hrefs(dialog, '.mobile-ctas a')).toEqual(['/reservas', 'tel:+34625327863']);
+    expect(hrefs(dialog, '.mobile-ctas a')).toEqual(['/reservas', 'tel:+34624303646']);
   });
 
   it('links to every language from the footer switcher', async () => {

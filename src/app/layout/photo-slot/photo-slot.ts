@@ -24,6 +24,7 @@ import { LeafMotif } from '../leaf-motif/leaf-motif';
       display: block;
       overflow: hidden;
       border-radius: var(--dn-radius-md);
+      container-type: size;
     }
     :host(.dark) {
       background: var(--dn-olive-leaf);
@@ -48,6 +49,21 @@ import { LeafMotif } from '../leaf-motif/leaf-motif';
       max-width: 280px;
       rotate: 18deg;
       --dn-olive-leaf: var(--leaf);
+    }
+    /* Thumbnails: a centred, stronger sprig, so it reads as an illustration. */
+    @container (max-width: 160px) {
+      .leaf {
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        left: 50%;
+        width: 62%;
+        translate: -50% -50%;
+        rotate: 24deg;
+      }
+      :host(.bone) .leaf {
+        --leaf: rgb(from var(--dn-ink-muted) r g b / 22%);
+      }
     }
   `,
 })

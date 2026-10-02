@@ -87,7 +87,7 @@ html:has(dialog[open]) {
 
 // Pages lay out their own full-width sections. Pages that have not been
 // redesigned yet get a simple centred column.
-main > :not(router-outlet, app-home) {
+main > :not(router-outlet, app-home, app-menu) {
   display: block;
   max-width: 60rem;
   margin: 0 auto;
@@ -120,11 +120,6 @@ main > :not(router-outlet, app-home) {
   background: var(--dn-oak);
   color: var(--dn-olive-deep);
   font: var(--dn-text-eyebrow);
-
-  &.small {
-    height: 24px;
-    padding: 0 10px;
-  }
 }
 
 // Buttons (links styled as buttons). One primary action per screen.

@@ -25,11 +25,11 @@ describe('Home', () => {
     const dishes = [...(await render()).querySelectorAll('.dish')];
     expect(dishes.map((d) => d.querySelector('h3')?.textContent?.trim())).toEqual([
       'Benedict trufado',
-      'Arroz de solomillo ibérico con boletus',
+      'Fideuá de marisco',
       'Calamares a la andaluza',
       'Croquetas caseras de berenjena con queso',
     ]);
-    expect(dishes.filter((d) => d.querySelector('.chip-gf')).length).toBe(2);
+    expect(dishes.some((d) => d.querySelector('.chip-gf'))).toBe(false);
   });
 
   it('points both CTAs at the booking and menu pages', async () => {

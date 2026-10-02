@@ -20,7 +20,7 @@ export class Home {
 
   protected readonly site = SITE;
   protected readonly phoneHref = PHONE_HREF;
-  protected readonly association = SITE.celiacAssociation;
+  protected readonly associations = SITE.celiacAssociations;
   protected readonly dishes = FEATURED_DISHES;
 
   protected readonly menuPath = this.path('menu');

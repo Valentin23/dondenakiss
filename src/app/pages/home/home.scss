@@ -292,10 +292,11 @@ h2 {
 
 .moment-photo {
   width: 100%;
-  height: 220px;
+  // Square, so portrait photos (brunch) are not cropped too tight.
+  aspect-ratio: 1;
 
   @media (min-width: $desktop) {
-    height: 360px;
+    aspect-ratio: 6 / 5;
   }
 }
 
