@@ -1,0 +1,89 @@
+$desktop: 56.25rem; // 900px, same breakpoint as the header
+
+.site-footer {
+  padding: 40px var(--dn-space-4) var(--dn-space-6);
+  background: var(--dn-olive-deep);
+  color: var(--dn-on-deep);
+  font: var(--dn-text-small);
+  line-height: 22px;
+
+  @media (min-width: $desktop) {
+    padding: var(--dn-space-16) clamp(var(--dn-space-8), 5.5vw, 80px) var(--dn-space-8);
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: var(--dn-on-deep);
+
+    &:hover {
+      color: var(--dn-on-facade);
+    }
+  }
+
+  :focus-visible {
+    outline-color: var(--dn-on-deep);
+  }
+}
+
+.columns {
+  display: grid;
+  gap: var(--dn-space-8);
+
+  @media (min-width: $desktop) {
+    grid-template-columns: 1.4fr 1fr auto;
+    gap: var(--dn-space-16);
+  }
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dn-space-2);
+
+  .name {
+    font: 400 1.625rem/1.2 var(--dn-font-display);
+    color: var(--dn-on-facade);
+
+    @media (min-width: $desktop) {
+      font-size: 2rem;
+    }
+  }
+
+  address {
+    margin-top: var(--dn-space-2);
+    font-style: normal;
+  }
+}
+
+h2.eyebrow {
+  margin: 0 0 var(--dn-space-2);
+  font: var(--dn-text-eyebrow);
+  color: var(--dn-oak);
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dn-space-2) var(--dn-space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: $desktop) {
+    flex-direction: column;
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--dn-space-4);
+  margin-top: var(--dn-space-8);
+  padding-top: var(--dn-space-4);
+  border-top: 1px solid var(--dn-olive-leaf);
+}

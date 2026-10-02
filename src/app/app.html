@@ -1,41 +1,9 @@
-<a class="skip-link" href="#main" i18n="@@skipLink">Saltar al contenido</a>
+<a class="skip-link btn btn-primary" href="#main" i18n="@@skipLink">Saltar al contenido</a>
 
-<header class="site-header">
-  <a class="brand" [routerLink]="path('home')">
-    <span class="brand-name">{{ site.name }}</span>
-    <span class="brand-tagline" i18n="@@brand.tagline">Brunch & tapas sin gluten</span>
-  </a>
-  <nav aria-label="Principal" i18n-aria-label="@@nav.mainLabel">
-    <ul>
-      @for (link of mainNav; track link.path) {
-        <li>
-          <a [routerLink]="link.path" routerLinkActive="active" ariaCurrentWhenActive="page">{{
-            link.label
-          }}</a>
-        </li>
-      }
-    </ul>
-  </nav>
-  <app-language-switcher />
-</header>
+<app-site-header />
 
 <main id="main" tabindex="-1">
   <router-outlet />
 </main>
 
-<footer class="site-footer">
-  <p>
-    © {{ year }} {{ site.fullName }}<br />
-    {{ site.address }}<br />
-    <a [href]="site.instagramUrl" rel="noopener" target="_blank">Instagram</a>
-  </p>
-  <nav aria-label="Legal" i18n-aria-label="@@nav.legalLabel">
-    <ul>
-      @for (link of legalNav; track link.path) {
-        <li>
-          <a [routerLink]="link.path">{{ link.label }}</a>
-        </li>
-      }
-    </ul>
-  </nav>
-</footer>
+<app-site-footer />
