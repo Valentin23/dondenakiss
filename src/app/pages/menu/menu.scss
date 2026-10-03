@@ -50,6 +50,11 @@ $desktop: 56.25rem; // 900px, same breakpoint as the header
     @media (min-width: $desktop) {
       font: var(--dn-text-body);
     }
+
+    &.vat {
+      margin-top: var(--dn-space-1);
+      font: var(--dn-text-small);
+    }
   }
 }
 

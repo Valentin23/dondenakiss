@@ -390,6 +390,12 @@ h2 {
   }
 }
 
+.vat-note {
+  margin: var(--dn-space-6) 0 0;
+  font: var(--dn-text-small);
+  color: var(--dn-ink-muted);
+}
+
 .dish-desc {
   margin: 0;
   font: var(--dn-text-small);
