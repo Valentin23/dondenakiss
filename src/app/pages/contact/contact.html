@@ -1,0 +1,78 @@
+<header class="page-head">
+  <p class="eyebrow" i18n="@@contact.eyebrow">Contacto</p>
+  <h1 i18n="@@contact.heading">Contacto y ubicación</h1>
+  <p class="lead" i18n="@@contact.lead">
+    Estamos en la Rambla, en pleno centro de Alicante. Llámanos, escríbenos o, mejor, ven a vernos.
+  </p>
+</header>
+
+<div class="layout">
+  <div class="info">
+    <section class="block" aria-labelledby="address-heading">
+      <h2 id="address-heading" class="eyebrow" i18n="@@home.address">Dirección</h2>
+      <address>
+        <p class="big">{{ site.address }}</p>
+      </address>
+      <a class="btn btn-primary" [href]="site.googleMapsUrl" rel="noopener" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" />
+          <circle cx="12" cy="9.5" r="2.5" />
+        </svg>
+        <span i18n="@@contact.maps">Cómo llegar (Google Maps)</span>
+      </a>
+    </section>
+
+    <section class="block" aria-labelledby="phone-heading">
+      <h2 id="phone-heading" class="eyebrow" i18n="@@home.phone">Teléfono</h2>
+      <p class="big">
+        <a [href]="phoneHref">{{ site.phone }}</a>
+      </p>
+      <a class="btn btn-secondary" [href]="phoneHref">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"
+          />
+        </svg>
+        <span i18n="@@nav.call">Llamar</span>
+      </a>
+    </section>
+
+    <section class="block" aria-labelledby="online-heading">
+      <h2 id="online-heading" class="eyebrow" i18n="@@contact.online">Email e Instagram</h2>
+      <ul class="links">
+        <li>
+          <a [href]="'mailto:' + site.email">{{ site.email }}</a>
+        </li>
+        <li>
+          <a [href]="site.instagramUrl" rel="noopener" target="_blank"
+            >Instagram {{ instagramHandle }}</a
+          >
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <aside class="side">
+    <section class="hours-card" aria-labelledby="hours-heading">
+      <h2 id="hours-heading" i18n="@@contact.hours">Horario</h2>
+      <table class="hours">
+        <tbody>
+          @for (day of week; track day.day) {
+            <tr [class.closed]="!day.slots.length">
+              <th scope="row">{{ day.name }}</th>
+              <td>
+                @for (slot of day.slots; track slot.opens) {
+                  <span class="slot">{{ slot.opens }}–{{ slot.closes }}</span>
+                } @empty {
+                  <span i18n="@@contact.closed">Cerrado</span>
+                }
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      <a class="btn btn-primary" [routerLink]="reservationsPath" i18n="@@nav.book">Reservar mesa</a>
+    </section>
+    <app-photo-slot class="photo" />
+  </aside>
+</div>

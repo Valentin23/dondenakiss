@@ -22,4 +22,11 @@ describe('restaurantSchema', () => {
   it('points to the menu in the requested locale', () => {
     expect(restaurantSchema('fr')['hasMenu']).toBe('https://dondenakiss.es/fr/carte/');
   });
+
+  it('lists both coeliac associations', () => {
+    expect(restaurantSchema('es')['memberOf']).toEqual([
+      { '@type': 'Organization', name: 'ACECOVA', url: 'https://www.acecova.org' },
+      { '@type': 'Organization', name: 'Viviendo Sin Gluten' },
+    ]);
+  });
 });

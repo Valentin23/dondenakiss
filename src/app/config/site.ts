@@ -13,7 +13,7 @@ export const SITE = {
   name: 'Donde Nakiss',
   /** Full name, as on the shop sign and the Google Business Profile. */
   fullName: 'Donde Nakiss Brunch & Tapas Sin Gluten',
-  phone: '+34 625 32 78 63',
+  phone: '+34 624 30 36 46',
   // TODO: switch to the dondenakiss.es address once it exists.
   email: 'dondenakiss@gmail.com',
   address: 'Rambla de Méndez Núñez, 48, 03002 Alicante',
@@ -39,8 +39,12 @@ export const SITE = {
     { days: ['Saturday'], opens: '10:00', closes: '16:00' },
     { days: ['Friday', 'Saturday'], opens: '20:00', closes: '23:00' },
   ],
-  /** Coeliac association the restaurant belongs to. */
-  celiacAssociation: { name: 'ACECOVA', url: 'https://www.acecova.org' },
+  /** Coeliac associations the restaurant belongs to: the regional one and a national one. */
+  celiacAssociations: {
+    regional: { name: 'ACECOVA', url: 'https://www.acecova.org' },
+    // TODO: add the url once we have the association's official website.
+    national: { name: 'Viviendo Sin Gluten', url: '' },
+  },
   /** DISH Reservation widget URL (rendered in an iframe on the reservations page). */
   dishWidgetUrl: '',
   /** Website owner (LSSI art. 10), shown in the legal notice and the privacy policy. */

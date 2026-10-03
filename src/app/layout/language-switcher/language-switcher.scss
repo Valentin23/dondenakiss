@@ -1,0 +1,144 @@
+// Inherits the surrounding text colour, so it works on light and dark blocks.
+:host {
+  display: block;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+// `list` variant
+.inline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dn-space-1);
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+    border-radius: var(--dn-radius-sm);
+    font: var(--dn-text-eyebrow);
+    letter-spacing: 0.08em;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &[aria-current] {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+  }
+}
+
+// `dropdown` variant
+:host(.dropdown) nav {
+  position: relative;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dn-space-1);
+  min-height: var(--dn-target-min);
+  padding: 0 var(--dn-space-2);
+  border: 0;
+  border-radius: var(--dn-radius-sm);
+  background: transparent;
+  color: inherit;
+  font: var(--dn-text-eyebrow);
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color var(--dn-duration) var(--dn-ease-out);
+
+  &:hover,
+  &[aria-expanded='true'] {
+    color: var(--dn-ink);
+  }
+
+  svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .chevron {
+    transition: rotate var(--dn-duration) var(--dn-ease-out);
+  }
+
+  &[aria-expanded='true'] .chevron {
+    rotate: 180deg;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + var(--dn-space-2));
+  right: 0;
+  z-index: 20;
+  min-width: 11rem;
+  padding: var(--dn-space-1);
+  border: 1px solid var(--dn-line);
+  border-radius: var(--dn-radius-md);
+  background: var(--dn-surface);
+  box-shadow: var(--dn-shadow-card);
+  color: var(--dn-ink);
+  animation: menu-in var(--dn-duration) var(--dn-ease-out);
+
+  &[hidden] {
+    display: none;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--dn-space-4);
+    min-height: var(--dn-target-min);
+    padding: 0 var(--dn-space-4);
+    border-radius: var(--dn-radius-sm);
+    font: var(--dn-text-small);
+
+    &:hover {
+      background: rgb(from var(--dn-surface-carta) r g b / 50%);
+    }
+
+    &[aria-current] {
+      color: var(--dn-facade);
+      font-weight: 500;
+    }
+  }
+
+  .code {
+    font: var(--dn-text-eyebrow);
+    letter-spacing: 0.08em;
+    color: var(--dn-ink-muted);
+  }
+
+  a[aria-current] .code {
+    color: inherit;
+  }
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    translate: 0 -4px;
+  }
+}

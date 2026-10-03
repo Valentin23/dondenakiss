@@ -59,6 +59,7 @@ Adding a page means: an entry in `pages.json` (all 5 locales), a route in `build
 
 - Business data (name, phone, address, geo, Google Maps, owner, DISH Reservation widget URL) lives in `src/app/config/site.ts`.
 - The menu lives in `src/app/pages/menu/menu-data.ts` as data with one text per locale (`Localized`), not in the i18n files, so it can be edited from the future `/admin`.
+- Photos: `node scripts/optimize-photos.mjs <folder-with-originals>` writes `public/photos/<slug>-{480,960,1600}.webp` (originals stay out of the repo). Use them as `ngSrc="photos/<slug>"` (or `<app-photo-slot src="photos/<slug>">`) with a `sizes` in `vw`; `photoLoader` (`config/photo-loader.ts`) builds the `srcset`. The build keeps a single `photos/` at the root for every locale.
 - Gluten-free claims must stay accurate: every dish has a gluten-free option, some are always gluten-free, but regular bread is also served, so never say "100% gluten-free".
 
 **Future `/admin`** (does not exist yet): SPA with `RenderMode.Client` in `app.routes.server.ts`, lazy loading, `noindex`, `Disallow: /admin` in `robots.txt` and `_redirects` with `/admin/* /index.csr.html 200`.

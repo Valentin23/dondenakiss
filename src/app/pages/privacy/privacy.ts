@@ -6,6 +6,7 @@ import { SITE } from '../../config/site';
 // policy (recipients, cookies) and SITE.legalUpdated.
 @Component({
   selector: 'app-privacy',
+  host: { class: 'page narrow' },
   imports: [DatePipe],
   templateUrl: './privacy.html',
 })

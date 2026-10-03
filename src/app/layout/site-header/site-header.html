@@ -1,0 +1,120 @@
+<header class="site-header">
+  <a class="logo" [routerLink]="homePath">
+    <img
+      ngSrc="brand/logo-dark-192.png"
+      width="192"
+      height="145"
+      priority
+      alt="Donde Nakiss, inicio"
+      i18n-alt="@@nav.logoAlt"
+    />
+  </a>
+
+  <div class="desktop-nav">
+    <nav aria-label="Principal" i18n-aria-label="@@nav.mainLabel">
+      <ul>
+        @for (link of links; track link.path) {
+          <li>
+            <a [routerLink]="link.path" routerLinkActive="active" ariaCurrentWhenActive="page">{{
+              link.label
+            }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+    <a class="btn btn-primary" [routerLink]="reservationsPath" i18n="@@nav.book">Reservar mesa</a>
+    <app-language-switcher variant="dropdown" />
+  </div>
+
+  <button
+    type="button"
+    class="menu-toggle"
+    aria-haspopup="dialog"
+    aria-controls="mobile-nav"
+    [attr.aria-expanded]="menuOpen()"
+    (click)="openMenu()"
+  >
+    <span class="visually-hidden" i18n="@@nav.openMenu">Abrir menú</span>
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  </button>
+</header>
+
+<dialog
+  #mobileNav
+  id="mobile-nav"
+  class="mobile-nav"
+  aria-label="Menú"
+  i18n-aria-label="@@nav.mobileLabel"
+  (close)="menuOpen.set(false)"
+>
+  <app-leaf-motif class="leaf" />
+
+  <div class="mobile-nav-top">
+    <a class="logo" [routerLink]="homePath" (click)="closeMenu()">
+      <img
+        ngSrc="brand/logo-light-192.png"
+        width="192"
+        height="145"
+        alt="Donde Nakiss, inicio"
+        i18n-alt="@@nav.logoAlt"
+      />
+    </a>
+    <button type="button" class="menu-toggle" autofocus (click)="closeMenu()">
+      <span class="visually-hidden" i18n="@@nav.closeMenu">Cerrar menú</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
+  </div>
+
+  <nav aria-label="Principal" i18n-aria-label="@@nav.mainLabel">
+    <ul class="mobile-links">
+      @for (link of mobileLinks; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            (click)="closeMenu()"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            ariaCurrentWhenActive="page"
+          >
+            <span>{{ link.label }}</span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <div class="mobile-ctas">
+    <a
+      class="btn btn-primary btn-block"
+      [routerLink]="reservationsPath"
+      (click)="closeMenu()"
+      i18n="@@nav.book"
+      >Reservar mesa</a
+    >
+    <a class="btn btn-secondary btn-block" [href]="phoneHref">
+      <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"
+        />
+      </svg>
+      <span i18n="@@nav.call">Llamar</span>
+    </a>
+  </div>
+
+  <div class="mobile-info">
+    <span class="chip-gf" i18n="@@glutenFree.chip">Sin gluten</span>
+    <app-hours-summary />
+    <p>{{ site.address }}</p>
+    <p>
+      <a [href]="site.instagramUrl" rel="noopener" target="_blank"
+        >Instagram {{ instagramHandle }}</a
+      >
+    </p>
+    <app-language-switcher />
+  </div>
+</dialog>

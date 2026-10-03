@@ -1,0 +1,96 @@
+<section class="intro">
+  <p class="watermark" aria-hidden="true" i18n="@@menu.watermark">Menú</p>
+  <h1 i18n="@@menu.heading">La carta</h1>
+  <p class="intro-note" i18n="@@menu.glutenFreeNote">
+    Todos los platos tienen opción sin gluten: avísanos al pedir.
+  </p>
+</section>
+
+<div class="tabs-bar">
+  <div class="tabs" role="tablist" aria-label="Elegir carta" i18n-aria-label="@@menu.tabsLabel">
+    @for (key of keys; track key; let i = $index) {
+      <button
+        #tab
+        type="button"
+        role="tab"
+        [id]="'tab-' + key"
+        [attr.aria-controls]="'panel-' + key"
+        [attr.aria-selected]="active() === key"
+        [tabIndex]="active() === key ? 0 : -1"
+        (click)="select(key)"
+        (keydown)="onTabKeydown($event, i)"
+      >
+        {{ tabLabels[key] }}
+      </button>
+    }
+  </div>
+</div>
+
+@for (key of keys; track key) {
+  <div
+    class="panel"
+    role="tabpanel"
+    [id]="'panel-' + key"
+    [attr.aria-labelledby]="'tab-' + key"
+    [hidden]="active() !== key"
+  >
+    @for (section of menus[key]; track section.id) {
+      @if (section.id === 'completo') {
+        @let item = section.items[0];
+        <section class="completo" [attr.aria-labelledby]="'s-' + section.id">
+          <div class="dish-row">
+            <h2 [id]="'s-' + section.id">{{ item.name[locale] }}</h2>
+            <p class="price">{{ item.price | currency: 'EUR' }}</p>
+          </div>
+          @if (item.description) {
+            <p>{{ item.description[locale] }}</p>
+          }
+        </section>
+      } @else {
+        <section class="menu-section" [attr.aria-labelledby]="'s-' + section.id">
+          <div class="section-head">
+            <h2 [id]="'s-' + section.id">{{ section.title[locale] }}</h2>
+          </div>
+          @if (section.note) {
+            <p class="section-note">{{ section.note[locale] }}</p>
+          }
+          <ul>
+            @for (item of section.items; track item.id) {
+              <li class="dish">
+                <!-- The dish name next to it describes the photo, so alt is empty. Dishes
+                     without a photo get the decorative placeholder, so every row looks alike. -->
+                <app-photo-slot
+                  class="thumb"
+                  tone="bone"
+                  [src]="item.photo"
+                  sizes="(min-width: 900px) 10vw, 30vw"
+                />
+                <div class="dish-body">
+                  <div class="dish-row">
+                    <h3>{{ item.name[locale] }}</h3>
+                    <p class="price">{{ item.price | currency: 'EUR' }}</p>
+                  </div>
+                  @if (item.description) {
+                    <p class="dish-desc">{{ item.description[locale] }}</p>
+                  }
+                </div>
+              </li>
+            }
+          </ul>
+          @if (section.footnote) {
+            <p class="footnote">{{ section.footnote[locale] }}</p>
+          }
+        </section>
+      }
+    }
+  </div>
+}
+
+<p class="allergens" i18n="@@menu.allergens">
+  ¿Alguna alergia o intolerancia? Pregúntanos: te informamos de los alérgenos de cada plato.
+</p>
+
+<section class="hungry">
+  <p class="hungry-title" i18n="@@menu.hungry">¿Te ha entrado hambre?</p>
+  <a class="btn btn-primary" [routerLink]="reservationsPath" i18n="@@nav.book">Reservar mesa</a>
+</section>

@@ -1,0 +1,203 @@
+<section class="hero">
+  <app-leaf-motif class="hero-leaf" />
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow" i18n="@@home.eyebrow">Brunch & tapas sin gluten · Alicante</p>
+      <h1 i18n="@@home.headline">Aquí se come como en casa. Y sin gluten, también.</h1>
+      <p class="lead" i18n="@@home.lead">
+        Brunch por la mañana; tapas, arroces y hamburguesas el resto del día. Cocina casera, pocas
+        mesas y trato de familia.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" [routerLink]="reservationsPath" i18n="@@nav.book"
+          >Reservar mesa</a
+        >
+        <a class="btn btn-secondary" [routerLink]="menuPath" i18n="@@home.seeMenu">Ver la carta</a>
+      </div>
+    </div>
+    <app-photo-slot
+      class="hero-photo"
+      tone="dark"
+      src="photos/benedict-de-salmon"
+      alt="Huevos benedict con salmón y aguacate, vistos desde arriba"
+      i18n-alt="@@home.heroPhotoAlt"
+      sizes="(min-width: 900px) 40vw, 100vw"
+      priority
+    />
+  </div>
+</section>
+
+<section class="gf-band">
+  <div class="container gf-band-inner">
+    <span class="chip-gf" i18n="@@glutenFree.chip">Sin gluten</span>
+    <p i18n="@@home.band">Todo nuestro menú tiene opción sin gluten. Pregunta sin miedo.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="moments-heading">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow muted" i18n="@@home.momentsEyebrow">Dos momentos, una casa</p>
+      <h2 id="moments-heading" i18n="@@home.momentsHeading">
+        Del brunch de la mañana al tapeo de la noche
+      </h2>
+    </header>
+    <div class="moments">
+      <article>
+        <app-photo-slot
+          class="moment-photo"
+          src="photos/brunch-portada"
+          alt="Tostas y huevos benedict de nuestro brunch"
+          i18n-alt="@@home.brunchPhotoAlt"
+          sizes="(min-width: 900px) 45vw, 100vw"
+        />
+        <h3 i18n="@@home.brunchTitle">Brunch</h3>
+        <p i18n="@@home.brunchText">
+          Tostas, benedict, revueltos y tortitas. O el Completo: tosta o revuelto, zumo de naranja,
+          café y algo dulce, por 20 €.
+        </p>
+        <a class="more" [routerLink]="menuPath" fragment="brunch" i18n="@@home.brunchLink"
+          >Ver el brunch →</a
+        >
+      </article>
+      <article>
+        <app-photo-slot
+          class="moment-photo"
+          src="photos/tapas-portada"
+          alt="Mesa de tapas con calamares, croquetas y patatas bravas"
+          i18n-alt="@@home.tapasPhotoAlt"
+          sizes="(min-width: 900px) 45vw, 100vw"
+        />
+        <h3 i18n="@@home.tapasTitle">Tapas</h3>
+        <p i18n="@@home.tapasText">
+          Bravas, calamares a la andaluza, croquetas caseras con el secreto de la abuela, arroces y
+          hamburguesas de ternera casera.
+        </p>
+        <a class="more" [routerLink]="menuPath" fragment="tapas" i18n="@@home.tapasLink"
+          >Ver las tapas →</a
+        >
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section popular" aria-labelledby="popular-heading">
+  <div class="container">
+    <header class="section-head row">
+      <h2 id="popular-heading" i18n="@@home.popularHeading">Los que más se piden</h2>
+      <a class="more desktop-only" [routerLink]="menuPath" i18n="@@home.fullMenu"
+        >Carta completa →</a
+      >
+    </header>
+    <ul class="dishes">
+      @for (dish of dishes; track dish.name.es) {
+        <li class="dish">
+          <!-- The dish name right below describes the photo, so alt is empty. -->
+          <app-photo-slot
+            class="dish-photo"
+            tone="bone"
+            [src]="dish.photo"
+            sizes="(min-width: 900px) 22vw, 100vw"
+          />
+          <div class="dish-row">
+            <h3>{{ dish.name[locale] }}</h3>
+            <p class="price">
+              {{ dish.price | currency: 'EUR' }}
+              @if (dish.priceNote) {
+                <span class="price-note">{{ dish.priceNote[locale] }}</span>
+              }
+            </p>
+          </div>
+          @if (dish.description) {
+            <p class="dish-desc">{{ dish.description[locale] }}</p>
+          }
+        </li>
+      }
+    </ul>
+    <a class="more mobile-only" [routerLink]="menuPath" i18n="@@home.fullMenu">Carta completa →</a>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="gf-heading">
+  <div class="container gf">
+    <header class="section-head">
+      <p class="eyebrow muted" i18n="@@home.gfEyebrow">Para celíacos</p>
+      <h2 id="gf-heading" i18n="@@home.gfHeading">Sin gluten, sin sustos</h2>
+    </header>
+    <ul class="gf-points">
+      <li>
+        <p i18n="@@home.alwaysGlutenFree">
+          Los calamares rebozados, las croquetas y las tortitas son sin gluten para todo el mundo.
+          Para las hamburguesas y los desayunos tenemos pan con y sin gluten: solo tienes que
+          pedirlo.
+        </p>
+      </li>
+      <li>
+        <p i18n="@@home.crossContamination">
+          Controlamos la contaminación cruzada: todo lo que pasa por nuestra freidora es sin gluten,
+          y usamos tostadores distintos para el pan con gluten y el pan sin gluten.
+        </p>
+      </li>
+      <li>
+        <p i18n="@@home.associations">
+          Somos establecimiento miembro de
+          <a [href]="associations.regional.url" rel="noopener" target="_blank">{{
+            associations.regional.name
+          }}</a
+          >, la Asociación de Celíacos de la Comunitat Valenciana, y de
+          {{ associations.national.name }}, asociación de ámbito nacional.
+        </p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section booking" aria-labelledby="booking-heading">
+  <div class="container split">
+    <div class="split-copy">
+      <p class="eyebrow muted" i18n="@@home.bookingEyebrow">Reservas</p>
+      <h2 id="booking-heading" i18n="@@home.bookingHeading">Somos pocas mesas: mejor reserva</h2>
+      <p class="muted-text" i18n="@@home.bookingText">
+        Para grupos grandes, llámanos con un poco de antelación y te lo preparamos todo.
+      </p>
+    </div>
+    <app-booking-widget class="split-aside" />
+  </div>
+</section>
+
+<section class="section visit" aria-labelledby="visit-heading">
+  <div class="container split">
+    <div class="split-copy">
+      <h2 id="visit-heading" i18n="@@home.visitHeading">Ven a vernos</h2>
+      <dl class="facts">
+        <div>
+          <dt class="eyebrow muted" i18n="@@home.address">Dirección</dt>
+          <dd>{{ site.address }}</dd>
+        </div>
+        <div>
+          <dt class="eyebrow muted" i18n="@@contact.hours">Horario</dt>
+          <dd><app-hours-summary showClosed /></dd>
+        </div>
+        <div>
+          <dt class="eyebrow muted" i18n="@@home.phone">Teléfono</dt>
+          <dd>
+            <a [href]="phoneHref">{{ site.phone }}</a>
+          </dd>
+        </div>
+      </dl>
+      <a
+        class="btn btn-secondary directions"
+        [href]="site.googleMapsUrl"
+        rel="noopener"
+        target="_blank"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" />
+          <circle cx="12" cy="9.5" r="2.5" />
+        </svg>
+        <span i18n="@@home.directions">Cómo llegar</span>
+      </a>
+    </div>
+    <app-photo-slot class="split-aside visit-photo" />
+  </div>
+</section>

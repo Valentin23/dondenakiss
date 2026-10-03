@@ -1,15 +1,143 @@
+// Self-hosted fonts (no requests to Google). Only the latin and latin-ext subsets
+// (latin-ext covers Polish); unicode-range makes browsers download latin-ext only
+// when a page needs it.
+@use '@fontsource/marcellus/latin-400' as marcellus-latin;
+@use '@fontsource/marcellus/latin-ext-400' as marcellus-latin-ext;
+@use '@fontsource/poppins/latin-400' as poppins-latin-400;
+@use '@fontsource/poppins/latin-ext-400' as poppins-latin-ext-400;
+@use '@fontsource/poppins/latin-500' as poppins-latin-500;
+@use '@fontsource/poppins/latin-ext-500' as poppins-latin-ext-500;
+@use '../design/tokens';
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
-  font-family: system-ui, sans-serif;
-  line-height: 1.5;
-  color: #1a1a1a;
-  background: #fff;
+  font: var(--dn-text-body);
+  color: var(--dn-ink);
+  background: var(--dn-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 var(--dn-space-4);
+  font-weight: 400;
+  font-family: var(--dn-font-display);
+  text-wrap: balance;
+}
+
+h1 {
+  font: var(--dn-text-h1);
+}
+
+h2 {
+  font: var(--dn-text-h2);
+}
+
+h3 {
+  font: var(--dn-text-dish);
+}
+
+p {
+  margin: 0 0 var(--dn-space-4);
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--dn-link);
+  text-underline-offset: 0.2em;
+  transition: color var(--dn-duration) var(--dn-ease-out);
+
+  &:hover {
+    color: var(--dn-facade-hover);
+  }
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--dn-facade);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--dn-surface-carta);
+  color: var(--dn-ink);
+}
+
+// Page scroll is locked while the full-screen mobile nav is open.
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+// Inner pages (contact, bookings, legal, 404): a centred container and a
+// shared page header. Home and menu lay out their own full-width sections.
+.page {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--dn-space-4) 48px;
+
+  @media (min-width: 56.25rem) {
+    padding: 0 clamp(var(--dn-space-8), 5.5vw, 80px) 96px;
+  }
+
+  &.narrow {
+    max-width: calc(45rem + 2 * 80px);
+  }
+}
+
+.page-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dn-space-2);
+  padding: 40px 0 var(--dn-space-8);
+
+  @media (min-width: 56.25rem) {
+    padding: var(--dn-space-16) 0 48px;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--dn-ink-muted);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    line-height: 2.75rem;
+
+    @media (min-width: 56.25rem) {
+      font: var(--dn-text-display);
+    }
+  }
+
+  .lead {
+    max-width: 36rem;
+    margin: var(--dn-space-2) 0 0;
+    color: var(--dn-ink-muted);
+
+    @media (min-width: 56.25rem) {
+      font-size: 1.125rem;
+      line-height: 1.875rem;
+    }
+  }
 }
 
 .visually-hidden {
@@ -21,26 +149,138 @@ body {
   white-space: nowrap;
 }
 
+.eyebrow {
+  font: var(--dn-text-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+// "Sin gluten" chip: always oak with dark text, on light and dark blocks alike.
+.chip-gf {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: 28px;
+  padding: 0 var(--dn-space-4);
+  border-radius: var(--dn-radius-pill);
+  background: var(--dn-oak);
+  color: var(--dn-olive-deep);
+  font: var(--dn-text-eyebrow);
+}
+
+// Buttons (links styled as buttons). One primary action per screen.
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--dn-space-2);
+  min-height: 48px;
+  padding: 0 var(--dn-space-6);
+  border: 1.5px solid transparent;
+  border-radius: var(--dn-radius-md);
+  font: 500 1rem/1 var(--dn-font-sans);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--dn-duration) var(--dn-ease-out),
+    color var(--dn-duration) var(--dn-ease-out),
+    border-color var(--dn-duration) var(--dn-ease-out);
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.btn-primary {
+  background: var(--dn-facade);
+  color: var(--dn-on-facade);
+
+  &:hover {
+    background: var(--dn-facade-hover);
+    color: var(--dn-on-facade);
+  }
+}
+
+// Outlined in the surrounding text colour, so it works on light and dark blocks.
+.btn-secondary {
+  border-color: currentColor;
+  background: transparent;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    background: rgb(from currentColor r g b / 10%);
+  }
+}
+
+// Mobile CTAs: 64px tall, full width, 18px text.
+.btn-block {
+  width: 100%;
+  min-height: var(--dn-cta-height-mobile);
+  font-size: 1.125rem;
+}
+
 .legal {
-  max-width: 45rem;
+  h2 {
+    margin: 48px 0 var(--dn-space-4);
+    font: var(--dn-text-dish);
+    font-size: 1.5rem;
+    line-height: 1.875rem;
+  }
+
+  h3 {
+    margin: var(--dn-space-6) 0 var(--dn-space-2);
+    font-size: 1.25rem;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+  }
+
+  li + li {
+    margin-top: var(--dn-space-1);
+  }
 
   .updated,
   .language-note {
-    font-size: 0.875rem;
-    color: #555;
+    font: var(--dn-text-small);
+    color: var(--dn-ink-muted);
+  }
+
+  .updated time {
+    margin-left: 0.3em;
+  }
+
+  .page-head + h2 {
+    margin-top: 0;
   }
 
   dl {
     display: grid;
     grid-template-columns: max-content 1fr;
-    gap: 0.25rem 1rem;
+    gap: var(--dn-space-2) var(--dn-space-6);
+    margin: 0 0 var(--dn-space-4);
+    padding: var(--dn-space-6);
+    border: 1px solid var(--dn-line);
+    border-radius: var(--dn-radius-md);
+    background: #fff;
+
+    @media (max-width: 30rem) {
+      grid-template-columns: 1fr;
+      gap: 0;
+
+      dd + dt {
+        margin-top: var(--dn-space-2);
+      }
+    }
   }
 
   dt {
-    font-weight: 700;
+    font-weight: 500;
   }
 
   dd {
     margin: 0;
+    overflow-wrap: anywhere;
   }
 }

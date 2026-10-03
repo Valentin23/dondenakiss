@@ -40,10 +40,10 @@ export function restaurantSchema(locale: Locale): Record<string, unknown> {
     sameAs: [SITE.instagramUrl, SITE.googleMapsUrl],
     hasMenu: SITE_URL + pagePath('menu', locale),
     acceptsReservations: true,
-    memberOf: {
+    memberOf: Object.values(SITE.celiacAssociations).map(({ name, url }) => ({
       '@type': 'Organization',
-      name: SITE.celiacAssociation.name,
-      url: SITE.celiacAssociation.url,
-    },
+      name,
+      ...(url ? { url } : {}),
+    })),
   };
 }
