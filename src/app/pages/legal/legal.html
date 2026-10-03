@@ -25,15 +25,24 @@
     <dd>
       <a [href]="'mailto:' + site.email">{{ site.email }}</a>
     </dd>
+    <dt i18n="@@legalPages.phone">Teléfono</dt>
+    <dd>
+      <a [href]="phoneHref">{{ site.phone }}</a>
+    </dd>
     <dt i18n="@@legal.owner.activity">Actividad</dt>
     <dd i18n="@@legal.owner.activityValue">Restauración</dd>
+    @if (site.activityLicence.reference) {
+      <dt i18n="@@legal.owner.licence">Licencia de actividad</dt>
+      <dd>{{ site.activityLicence.reference }} ({{ site.activityLicence.authority }})</dd>
+    }
   </dl>
 
   <h2 i18n="@@legal.use.heading">2. Condiciones de uso</h2>
-  <p i18n="@@legal.use.body">
+  <p i18n="@@legal.use.text">
     El acceso a esta web es gratuito e implica la aceptación de este aviso legal. La información
     publicada (carta, precios, horarios) es orientativa y puede cambiar sin previo aviso; ante
-    cualquier duda, consúltanos directamente.
+    cualquier duda, consúltanos directamente. Todos los precios indicados incluyen el IVA. A través
+    de esta web no se vende ni se contrata ningún producto o servicio.
   </p>
 
   <h2 i18n="@@legal.ip.heading">3. Propiedad intelectual e industrial</h2>
@@ -44,10 +53,12 @@
   </p>
 
   <h2 i18n="@@legal.liability.heading">4. Responsabilidad y enlaces</h2>
-  <p i18n="@@legal.liability.body">
+  <p i18n="@@legal.liability.text">
     El titular no se hace responsable de las interrupciones del servicio ni de los daños derivados
-    de un uso indebido de la web. Esta web puede incluir enlaces a sitios de terceros, como Google
-    Maps, sobre cuyo contenido y políticas de privacidad no tenemos control.
+    de un uso indebido de la web. Esta web incluye enlaces a sitios de terceros, como Google Maps,
+    Instagram o las asociaciones de celíacos de las que somos miembros, sobre cuyo contenido y
+    políticas de privacidad no tenemos control. Estos sitios no reciben ningún dato tuyo hasta que
+    haces clic en el enlace.
   </p>
 
   <h2 i18n="@@legal.privacy.heading">5. Protección de datos</h2>

@@ -52,8 +52,16 @@ export const SITE = {
     name: 'Florin Cornel Nicolae',
     taxId: 'X8349407Q',
   },
+  /**
+   * Prior administrative authorisation of the activity (LSSI art. 10.1.c): the
+   * premises opened with a licence. Shown in the legal notice only once the
+   * reference is known.
+   * TODO: fill in the licence reference and the issuing body (ask the gestoría
+   * or the Ayuntamiento de Alicante). Never guess them.
+   */
+  activityLicence: { reference: '', authority: '' },
   /** Date of the last revision of the legal texts (ISO). */
-  legalUpdated: '2026-09-26',
+  legalUpdated: '2026-10-03',
 } as const;
 
 /** `tel:` URI for the phone number (RFC 3966 does not allow spaces). */
