@@ -26,7 +26,11 @@ describe('restaurantSchema', () => {
   it('lists both coeliac associations', () => {
     expect(restaurantSchema('es')['memberOf']).toEqual([
       { '@type': 'Organization', name: 'ACECOVA', url: 'https://www.acecova.org' },
-      { '@type': 'Organization', name: 'Viviendo Sin Gluten' },
+      {
+        '@type': 'Organization',
+        name: 'Viviendo Sin Gluten',
+        url: 'https://viviendosingluten.org/',
+      },
     ]);
   });
 });

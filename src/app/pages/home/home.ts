@@ -6,12 +6,13 @@ import { CURRENT_LOCALE, PAGE_SLUGS, PageKey } from '../../i18n/locales';
 import { BookingWidget } from '../../layout/booking-widget/booking-widget';
 import { HoursSummary } from '../../layout/hours-summary/hours-summary';
 import { LeafMotif } from '../../layout/leaf-motif/leaf-motif';
+import { MapEmbed } from '../../layout/map-embed/map-embed';
 import { PhotoSlot } from '../../layout/photo-slot/photo-slot';
 import { FEATURED_DISHES } from '../menu/menu-data';
 
 @Component({
   selector: 'app-home',
-  imports: [CurrencyPipe, RouterLink, BookingWidget, HoursSummary, LeafMotif, PhotoSlot],
+  imports: [CurrencyPipe, RouterLink, BookingWidget, HoursSummary, LeafMotif, MapEmbed, PhotoSlot],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

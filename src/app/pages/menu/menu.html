@@ -58,14 +58,31 @@
           <ul>
             @for (item of section.items; track item.id) {
               <li class="dish">
-                <!-- The dish name next to it describes the photo, so alt is empty. Dishes
-                     without a photo get the decorative placeholder, so every row looks alike. -->
-                <app-photo-slot
-                  class="thumb"
-                  tone="bone"
-                  [src]="item.photo"
-                  sizes="(min-width: 900px) 10vw, 30vw"
-                />
+                @if (item.photo) {
+                  <!-- Opens the photo full size. The dish name next to it describes the
+                       thumbnail, so its alt is empty; the button carries the label. -->
+                  <button
+                    type="button"
+                    class="thumb thumb-button"
+                    [attr.aria-label]="photoLabel(item.name[locale])"
+                    (click)="lightbox.open(item.photo, item.name[locale])"
+                  >
+                    <app-photo-slot
+                      class="thumb-photo"
+                      tone="bone"
+                      [src]="item.photo"
+                      sizes="(min-width: 900px) 10vw, 30vw"
+                    />
+                    <span class="zoom" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 24 24">
+                        <path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7" />
+                      </svg>
+                    </span>
+                  </button>
+                } @else {
+                  <!-- Decorative placeholder, so every row looks alike. -->
+                  <app-photo-slot class="thumb" tone="bone" />
+                }
                 <div class="dish-body">
                   <div class="dish-row">
                     <h3>{{ item.name[locale] }}</h3>
@@ -95,3 +112,5 @@
   <p class="hungry-title" i18n="@@menu.hungry">¿Te ha entrado hambre?</p>
   <a class="btn btn-primary" [routerLink]="reservationsPath" i18n="@@nav.book">Reservar mesa</a>
 </section>
+
+<app-photo-lightbox #lightbox />

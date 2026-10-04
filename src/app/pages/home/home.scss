@@ -331,10 +331,11 @@ h2 {
 }
 
 .dish {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--dn-space-2);
+  // Mobile: thumbnail on the left, like the menu rows.
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: start;
+  gap: var(--dn-space-2) var(--dn-space-4);
   padding: 20px 0;
   border-bottom: 1px solid rgb(from var(--dn-ink-muted) r g b / 25%);
 
@@ -342,7 +343,14 @@ h2 {
     padding-top: 0;
   }
 
+  > :not(.dish-photo) {
+    grid-column: 2;
+  }
+
   @media (min-width: $desktop) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 12px;
     padding: 0;
     border: 0;
@@ -350,10 +358,11 @@ h2 {
 }
 
 .dish-photo {
-  display: none;
+  grid-row: 1 / span 2;
+  width: 88px;
+  height: 88px;
 
   @media (min-width: $desktop) {
-    display: block;
     width: 100%;
     height: 240px;
   }
@@ -490,10 +499,10 @@ h2 {
   }
 }
 
-.visit-photo {
-  height: 200px;
+.visit-map {
+  height: 320px;
 
   @media (min-width: $desktop) {
-    height: 380px;
+    height: 420px;
   }
 }

@@ -85,6 +85,7 @@ export const MENUS: Record<MenuKey, MenuSection[]> = {
             'Indyk, awokado i jajko w koszulce.',
           ),
           price: 6.9,
+          photo: 'photos/tosta-super',
         },
         {
           id: 'tosta-charlie',
@@ -225,6 +226,7 @@ export const MENUS: Record<MenuKey, MenuSection[]> = {
           id: 'revuelto-bacon',
           name: t('Con bacón', 'With bacon', 'Au bacon', 'Con bacon', 'Z bekonem'),
           price: 7.5,
+          photo: 'photos/revuelto-bacon-queso',
         },
         {
           id: 'revuelto-mozzarella',
@@ -376,7 +378,7 @@ export const MENUS: Record<MenuKey, MenuSection[]> = {
             'Drapacz chmur wśród kanapek: kurczak, bekon, jajko, ser, sałata, pomidor i majonez na kilku piętrach. Więcej warstw niż w telenoweli. Z frytkami.',
           ),
           price: 13.9,
-          photo: 'photos/sandwich-club',
+          photo: 'photos/sandwich-club-2',
         },
       ],
     },
@@ -482,6 +484,7 @@ export const MENUS: Record<MenuKey, MenuSection[]> = {
           ),
           price: 8.5,
           alwaysGlutenFree: true,
+          photo: 'photos/bol-yogur-fresa-platano',
         },
       ],
     },
@@ -727,6 +730,7 @@ export const MENUS: Record<MenuKey, MenuSection[]> = {
             'Małe skarby morza, obtoczone i usmażone na chrupko.',
           ),
           price: 11,
+          photo: 'photos/boquerones-fritos',
         },
         {
           id: 'croquetas',

@@ -67,4 +67,29 @@ describe('Menu', () => {
     expect(el.querySelectorAll('.dish .thumb').length).toBe(dishes.length);
     expect(el.querySelectorAll('.dish .thumb img').length).toBeLessThan(dishes.length);
   });
+
+  it('opens dishes with a photo full size; placeholders are not clickable', async () => {
+    await configure();
+    const fixture = TestBed.createComponent(Menu);
+    await fixture.whenStable();
+    const el = fixture.nativeElement as HTMLElement;
+    // jsdom has no <dialog> API.
+    HTMLDialogElement.prototype.showModal ??= function (this: HTMLDialogElement) {
+      this.open = true;
+    };
+
+    const buttons = [...el.querySelectorAll<HTMLButtonElement>('.thumb-button')];
+    const withPhoto = el.querySelectorAll('.thumb-button app-photo-slot').length;
+    expect(buttons.length).toBe(withPhoto);
+    expect(el.querySelectorAll('.dish > app-photo-slot.thumb button').length).toBe(0);
+    expect(buttons[0].getAttribute('aria-label')).toMatch(/^Ver en grande la foto de /);
+
+    const dialog = el.querySelector('app-photo-lightbox dialog')!;
+    expect(dialog.querySelector('img')).toBeNull();
+    buttons[0].click();
+    await fixture.whenStable();
+    // The photo loader (app config) is not provided here, so the src is the raw path.
+    expect(dialog.querySelector('img')?.getAttribute('src')).toContain('photos/');
+    expect(dialog.querySelector('figcaption')?.textContent?.trim()).toBeTruthy();
+  });
 });
