@@ -3,6 +3,7 @@ import { Component, ElementRef, inject, linkedSignal, viewChildren } from '@angu
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CURRENT_LOCALE, PAGE_SLUGS } from '../../i18n/locales';
+import { PhotoLightbox } from '../../layout/photo-lightbox/photo-lightbox';
 import { PhotoSlot } from '../../layout/photo-slot/photo-slot';
 import { MENUS, MenuKey } from './menu-data';
 
@@ -14,7 +15,7 @@ const KEYS: MenuKey[] = ['brunch', 'tapas'];
  */
 @Component({
   selector: 'app-menu',
-  imports: [CurrencyPipe, RouterLink, PhotoSlot],
+  imports: [CurrencyPipe, RouterLink, PhotoLightbox, PhotoSlot],
   templateUrl: './menu.html',
   styleUrl: './menu.scss',
 })
@@ -35,6 +36,10 @@ export class Menu {
   protected readonly active = linkedSignal<MenuKey>(() =>
     this.fragment() === 'tapas' ? 'tapas' : 'brunch',
   );
+
+  protected photoLabel(dish: string): string {
+    return $localize`:@@menu.photoOpen:Ver en grande la foto de ${dish}:dish:`;
+  }
 
   protected select(key: MenuKey): void {
     this.active.set(key);

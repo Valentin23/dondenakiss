@@ -44,6 +44,8 @@ describe('Privacy policy', () => {
     // Free Gmail has no Art. 28 GDPR contract: Google must not be listed as a processor.
     const processors = el.querySelector('h2 + p + ul')?.textContent ?? '';
     expect(processors).not.toContain('Google');
-    expect(text).toContain('no instala cookies');
+    // Google Maps is the only source of third-party cookies, and only with consent.
+    expect(text).toContain('solo usa cookies de terceros para el mapa de Google Maps');
+    expect(text).toContain('Configurar cookies');
   });
 });

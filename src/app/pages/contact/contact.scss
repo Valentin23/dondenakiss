@@ -168,11 +168,6 @@ $desktop: 56.25rem; // 900px, same breakpoint as the header
   }
 }
 
-.photo {
-  display: none;
-
-  @media (min-width: $desktop) {
-    display: block;
-    aspect-ratio: 4 / 3;
-  }
+.map {
+  height: 320px;
 }

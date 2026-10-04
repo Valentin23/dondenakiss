@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { PHONE_HREF, SITE } from '../../config/site';
+import { Consent } from '../../consent/consent';
 import { CURRENT_LOCALE, PAGE_SLUGS, PageKey } from '../../i18n/locales';
 import { HoursSummary } from '../hours-summary/hours-summary';
 import { LanguageSwitcher } from '../language-switcher/language-switcher';
@@ -35,6 +36,16 @@ import { LanguageSwitcher } from '../language-switcher/language-switcher';
                 <a [routerLink]="link.path">{{ link.label }}</a>
               </li>
             }
+            <li>
+              <button
+                type="button"
+                class="link-button"
+                (click)="consent.reopen()"
+                i18n="@@cookies.settings"
+              >
+                Configurar cookies
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
@@ -50,6 +61,7 @@ import { LanguageSwitcher } from '../language-switcher/language-switcher';
 export class SiteFooter {
   private readonly locale = inject(CURRENT_LOCALE);
 
+  protected readonly consent = inject(Consent);
   protected readonly site = SITE;
   protected readonly phoneHref = PHONE_HREF;
   protected readonly year = new Date().getFullYear();

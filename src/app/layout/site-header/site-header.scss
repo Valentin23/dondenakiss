@@ -71,6 +71,20 @@ $desktop: 56.25rem; // 900px
   }
 }
 
+.mobile-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--dn-space-1);
+
+  @media (min-width: $desktop) {
+    display: none;
+  }
+
+  app-language-switcher {
+    color: var(--dn-ink-muted);
+  }
+}
+
 .menu-toggle {
   display: inline-flex;
   align-items: center;
@@ -91,12 +105,6 @@ $desktop: 56.25rem; // 900px
     stroke-width: 1.5;
     stroke-linecap: round;
   }
-
-  @media (min-width: $desktop) {
-    .site-header & {
-      display: none;
-    }
-  }
 }
 
 // Full-screen mobile nav.
@@ -115,17 +123,19 @@ $desktop: 56.25rem; // 900px
   color: var(--dn-on-deep);
   opacity: 0;
   translate: 0 -8px;
-  transition:
-    opacity var(--dn-duration) var(--dn-ease-out),
-    translate var(--dn-duration) var(--dn-ease-out),
-    overlay var(--dn-duration) allow-discrete,
-    display var(--dn-duration) allow-discrete;
+  // No exit transition: after tapping a link the new page must show at once,
+  // not behind a fading panel while the router swaps the content.
+  transition: none;
 
   &[open] {
     display: flex;
     flex-direction: column;
     opacity: 1;
     translate: 0 0;
+    // Entry animation only: a transition applies when entering this state.
+    transition:
+      opacity var(--dn-duration) var(--dn-ease-out),
+      translate var(--dn-duration) var(--dn-ease-out);
 
     @starting-style {
       opacity: 0;

@@ -91,7 +91,7 @@ a {
   position: absolute;
   top: calc(100% + var(--dn-space-2));
   right: 0;
-  z-index: 20;
+  z-index: 40; // above the cookie banner (30)
   min-width: 11rem;
   padding: var(--dn-space-1);
   border: 1px solid var(--dn-line);

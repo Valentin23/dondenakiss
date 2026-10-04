@@ -27,6 +27,12 @@ export const SITE = {
   geo: { latitude: 38.3472456, longitude: -0.4844562 },
   /** Google Maps listing (Google Business Profile), by CID. */
   googleMapsUrl: 'https://maps.google.com/?cid=9919217617028969137',
+  /**
+   * Keyless Google Maps embed of the listing (what maps.google.com/maps?q=…&output=embed
+   * redirects to). Loaded only on click: see layout/map-embed.
+   */
+  googleMapsEmbedUrl:
+    'https://www.google.com/maps/embed?origin=mfe&pb=!1m3!2m1!1sDonde+Nakiss+Alicante!6i17',
   instagramUrl: 'https://www.instagram.com/dondenakiss12/',
   /** Price range per person, as shown on the Google Business Profile. */
   priceRange: '10-20 €',
@@ -42,8 +48,7 @@ export const SITE = {
   /** Coeliac associations the restaurant belongs to: the regional one and a national one. */
   celiacAssociations: {
     regional: { name: 'ACECOVA', url: 'https://www.acecova.org' },
-    // TODO: add the url once we have the association's official website.
-    national: { name: 'Viviendo Sin Gluten', url: '' },
+    national: { name: 'Viviendo Sin Gluten', url: 'https://viviendosingluten.org/' },
   },
   /** DISH Reservation widget URL (rendered in an iframe on the reservations page). */
   dishWidgetUrl: '',
@@ -61,7 +66,7 @@ export const SITE = {
    */
   activityLicence: { reference: '', authority: '' },
   /** Date of the last revision of the legal texts (ISO). */
-  legalUpdated: '2026-10-03',
+  legalUpdated: '2026-10-04',
 } as const;
 
 /** `tel:` URI for the phone number (RFC 3966 does not allow spaces). */

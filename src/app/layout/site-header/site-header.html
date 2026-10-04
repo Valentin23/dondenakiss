@@ -26,19 +26,22 @@
     <app-language-switcher variant="dropdown" />
   </div>
 
-  <button
-    type="button"
-    class="menu-toggle"
-    aria-haspopup="dialog"
-    aria-controls="mobile-nav"
-    [attr.aria-expanded]="menuOpen()"
-    (click)="openMenu()"
-  >
-    <span class="visually-hidden" i18n="@@nav.openMenu">Abrir menú</span>
-    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M4 7h16M4 12h16M4 17h16" />
-    </svg>
-  </button>
+  <div class="mobile-actions">
+    <app-language-switcher variant="dropdown" />
+    <button
+      type="button"
+      class="menu-toggle"
+      aria-haspopup="dialog"
+      aria-controls="mobile-nav"
+      [attr.aria-expanded]="menuOpen()"
+      (click)="openMenu()"
+    >
+      <span class="visually-hidden" i18n="@@nav.openMenu">Abrir menú</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </svg>
+    </button>
+  </div>
 </header>
 
 <dialog

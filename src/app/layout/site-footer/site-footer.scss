@@ -64,6 +64,21 @@ h2.eyebrow {
   color: var(--dn-oak);
 }
 
+.link-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--dn-on-deep);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--dn-on-facade);
+  }
+}
+
 nav ul {
   display: flex;
   flex-wrap: wrap;

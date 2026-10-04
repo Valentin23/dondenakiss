@@ -3,11 +3,11 @@ import { RouterLink } from '@angular/router';
 import { dayName, hoursByDay } from '../../config/opening-hours';
 import { PHONE_HREF, SITE } from '../../config/site';
 import { CURRENT_LOCALE, PAGE_SLUGS } from '../../i18n/locales';
-import { PhotoSlot } from '../../layout/photo-slot/photo-slot';
+import { MapEmbed } from '../../layout/map-embed/map-embed';
 
 @Component({
   selector: 'app-contact',
-  imports: [RouterLink, PhotoSlot],
+  imports: [RouterLink, MapEmbed],
   host: { class: 'page' },
   templateUrl: './contact.html',
   styleUrl: './contact.scss',

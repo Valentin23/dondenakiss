@@ -50,9 +50,10 @@ import { HoursSummary } from '../../layout/hours-summary/hours-summary';
       flex-direction: column;
       gap: var(--dn-space-8);
     }
-    section {
-      padding-top: var(--dn-space-4);
-      border-top: 2px solid var(--dn-olive-deep);
+    /* A separator between the side blocks, not above the first one. */
+    section + section {
+      padding-top: var(--dn-space-8);
+      border-top: 1px solid var(--dn-line);
     }
     h2 {
       margin: 0 0 var(--dn-space-2);
