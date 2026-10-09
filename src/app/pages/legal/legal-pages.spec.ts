@@ -26,6 +26,7 @@ describe('Legal notice', () => {
       'Email',
       'Teléfono',
       'Actividad',
+      'Licencia de actividad',
     ]);
     expect(el.querySelector('a[href^="tel:"]')).not.toBeNull();
   });
