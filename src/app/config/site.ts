@@ -63,12 +63,11 @@ export const SITE = {
   },
   /**
    * Prior administrative authorisation of the activity (LSSI art. 10.1.c): the
-   * premises opened with a licence. Shown in the legal notice only once the
-   * reference is known.
-   * TODO: fill in the licence reference and the issuing body (ask the gestoría
-   * or the Ayuntamiento de Alicante). Never guess them.
+   * opening licence the premises started with. Its file number stays the same
+   * when the holder changes (confirmed by the owners); the transfer to the
+   * current owner is still being processed by the Ayuntamiento.
    */
-  activityLicence: { reference: '', authority: '' },
+  activityLicence: { reference: '1079/94', authority: 'Ayuntamiento de Alicante' },
   /** Date of the last revision of the legal texts (ISO). */
   legalUpdated: '2026-10-09',
 } as const;
