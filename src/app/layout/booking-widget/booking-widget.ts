@@ -1,10 +1,22 @@
 import { Component, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PHONE_HREF, SITE } from '../../config/site';
+import { CURRENT_LOCALE } from '../../i18n/locales';
 
 /**
- * The DISH Reservation widget. Until `SITE.dishWidgetUrl` is set, a card that
- * asks guests to call instead.
+ * Brand colours for the DISH widget, which inserts them into its own CSS (so CSS
+ * custom properties cannot be used). They mirror `--dn-facade`, `--dn-on-facade`
+ * and `--dn-facade-hover` in `design/tokens.css`.
+ */
+const WIDGET_COLORS = {
+  primaryButtonBackgroundColor: '#1e7a5a',
+  primaryButtonForegroundColor: '#f6f4ea',
+  linkColor: '#1f4d3a',
+};
+
+/**
+ * The DISH Reservation widget, in the page's language. Without
+ * `SITE.dishWidgetUrl`, a card that asks guests to call instead.
  */
 @Component({
   selector: 'app-booking-widget',
@@ -35,10 +47,13 @@ import { PHONE_HREF, SITE } from '../../config/site';
     :host {
       display: block;
     }
+    /* DISH sends no height messages and is cross-origin, so the height is fixed:
+       its tallest step (the allergy notice before "Enviar", a fixed 300px box
+       in DISH's CSS) is about 435px at both 358px and 635px wide. */
     iframe {
       display: block;
       width: 100%;
-      min-height: 40rem;
+      height: 29rem;
       border: 0;
       border-radius: var(--dn-radius-md);
     }
@@ -87,6 +102,8 @@ export class BookingWidget {
   protected readonly phone = SITE.phone;
   protected readonly phoneHref = PHONE_HREF;
   protected readonly widgetUrl = SITE.dishWidgetUrl
-    ? inject(DomSanitizer).bypassSecurityTrustResourceUrl(SITE.dishWidgetUrl)
+    ? inject(DomSanitizer).bypassSecurityTrustResourceUrl(
+        `${SITE.dishWidgetUrl}?${new URLSearchParams({ lang: inject(CURRENT_LOCALE), ...WIDGET_COLORS })}`,
+      )
     : null;
 }
