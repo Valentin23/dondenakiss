@@ -15,9 +15,9 @@ import { Consent } from './consent';
     @if (consent.bannerVisible()) {
       <section class="banner" aria-labelledby="cookie-banner-title">
         <h2 id="cookie-banner-title" i18n="@@cookies.title">Cookies de Google Maps</h2>
-        <p i18n="@@cookies.text">
-          Esta web solo usa cookies de terceros para mostrarte nuestra ubicación en un mapa de
-          Google Maps: Google recibirá tu dirección IP y puede instalar sus cookies. Si las
+        <p i18n="@@cookies.textConsent">
+          Solo te pedimos permiso para las cookies de terceros del mapa de Google Maps, que muestra
+          nuestra ubicación: Google recibirá tu dirección IP y puede instalar sus cookies. Si las
           rechazas, puedes seguir usando la web con normalidad, sin el mapa.
           <a [routerLink]="privacyPath">Más información</a>
         </p>

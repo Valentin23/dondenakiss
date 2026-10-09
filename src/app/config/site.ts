@@ -50,8 +50,12 @@ export const SITE = {
     regional: { name: 'ACECOVA', url: 'https://www.acecova.org' },
     national: { name: 'Viviendo Sin Gluten', url: 'https://viviendosingluten.org/' },
   },
-  /** DISH Reservation widget URL (rendered in an iframe on the reservations page). */
-  dishWidgetUrl: '',
+  /**
+   * DISH Reservation widget, rendered in an iframe on the home and reservations
+   * pages. DISH's embed snippet loads a script that only builds this iframe, so
+   * the iframe is used directly; `?lang=` (added per locale) picks its language.
+   */
+  dishWidgetUrl: 'https://reservation.dish.co/widget/hydra-06933495-a3ac-403d-9ac6-a94eaec9ea9c',
   /** Website owner (LSSI art. 10), shown in the legal notice and the privacy policy. */
   owner: {
     name: 'Florin Cornel Nicolae',

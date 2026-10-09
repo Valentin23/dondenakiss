@@ -73,18 +73,23 @@
     Pasado ese plazo los suprimimos, salvo que una ley nos obligue a conservarlos bloqueados durante
     más tiempo para atender posibles responsabilidades (art. 32 de la LOPDGDD).
   </p>
-  <p i18n="@@privacy.bookings.dish">
-    Si reservas con DISH, DISH Digital Solutions GmbH (Alemania) es responsable de su plataforma y
-    te informa en su <a [href]="dishPrivacyUrl" rel="noopener">política de privacidad</a>; nosotros
-    somos responsables de los datos de la reserva que recibimos. En DISH guardamos también el
-    historial de tus reservas, incluidas las que no se presentaron, para organizar mejor las mesas.
-    Base legal: nuestro interés legítimo (art. 6.1.f del RGPD); puedes oponerte escribiéndonos a
+  <p i18n="@@privacy.bookings.dishWidget">
+    Puedes reservar con DISH desde su app o desde el formulario de reservas de esta web, en la
+    página de inicio y en la de reservas. Ese formulario es de DISH y se carga desde sus servidores,
+    así que al abrir esas páginas DISH recibe tu dirección IP y los datos técnicos de tu navegador.
+    DISH Digital Solutions GmbH (Alemania) es responsable de su plataforma y te informa en su
+    <a [href]="dishPrivacyUrl" rel="noopener">política de privacidad</a>; nosotros somos
+    responsables de los datos de la reserva que recibimos. En DISH guardamos también el historial de
+    tus reservas, incluidas las que no se presentaron, para organizar mejor las mesas. Base legal:
+    nuestro interés legítimo (art. 6.1.f del RGPD); puedes oponerte escribiéndonos a
     {{ site.email }}.
   </p>
-  <p i18n="@@privacy.health.text">
-    Si nos informas de alergias o intolerancias, son datos de salud. Solo los anotamos en la comanda
-    cuando nos lo pides expresamente para adaptar tu plato, con tu consentimiento explícito (art.
-    9.2.a del RGPD), no los usamos para nada más y los eliminamos una vez prestado el servicio.
+  <p i18n="@@privacy.health.withBookings">
+    Si nos informas de alergias o intolerancias, son datos de salud. Solo los usamos para adaptar tu
+    plato, con tu consentimiento explícito (art. 9.2.a del RGPD), y para nada más. Si nos lo dices
+    en la mesa, lo anotamos en la comanda solo con el número de mesa y la eliminamos al terminar el
+    servicio. Si lo escribes en los comentarios de tu reserva, se guarda con ella y se suprime con
+    el resto de los datos de la reserva.
   </p>
 
   <h2 i18n="@@privacy.recipients.heading">3. Destinatarios</h2>
@@ -121,22 +126,24 @@
   </p>
 
   <h2 i18n="@@privacy.cookies.heading">5. Cookies</h2>
-  <p i18n="@@privacy.cookies.banner">
-    Esta web solo usa cookies de terceros para el mapa de Google Maps, y solo si las aceptas. Al
-    entrar por primera vez te preguntamos con un aviso en el que aceptar y rechazar están al mismo
-    nivel; puedes cambiar tu decisión cuando quieras desde «Configurar cookies», en el pie de cada
-    página. Google explica qué cookies usa en su
+  <p i18n="@@privacy.cookies.consent">
+    Las únicas cookies de terceros que necesitan tu consentimiento son las del mapa de Google Maps,
+    y solo se instalan si las aceptas. Al entrar por primera vez te preguntamos con un aviso en el
+    que aceptar y rechazar están al mismo nivel; puedes cambiar tu decisión cuando quieras desde
+    «Configurar cookies», en el pie de cada página. Google explica qué cookies usa en su
     <a href="https://policies.google.com/technologies/cookies" rel="noopener"
       >página sobre cookies</a
     >.
   </p>
 
-  <p i18n="@@privacy.cookies.storage">
+  <p i18n="@@privacy.cookies.technical">
     Para recordar tu decisión guardamos en el almacenamiento local de tu navegador si aceptaste o
     rechazaste y la fecha, durante 12 meses; después te volvemos a preguntar. Es un dato técnico,
-    necesario para respetar tu elección, y está exento de consentimiento. Si en algún momento
-    Cloudflare necesitara una cookie técnica de seguridad para proteger la web frente a ataques
-    automatizados, también estaría exenta (art. 22.2 de la LSSI).
+    necesario para respetar tu elección, y está exento de consentimiento. El formulario de reservas
+    de DISH puede intentar guardar una cookie técnica de sesión, necesaria para que funcione, que
+    también está exenta. Si en algún momento Cloudflare necesitara una cookie técnica de seguridad
+    para proteger la web frente a ataques automatizados, también estaría exenta (art. 22.2 de la
+    LSSI).
   </p>
 
   <h2 i18n="@@privacy.rights.heading">6. Tus derechos</h2>
