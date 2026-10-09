@@ -48,4 +48,19 @@ describe('Privacy policy', () => {
     expect(text).toContain('solo usa cookies de terceros para el mapa de Google Maps');
     expect(text).toContain('Configurar cookies');
   });
+
+  it('covers every contact channel: phone, WhatsApp, email, DISH and Instagram', async () => {
+    const el = await render(Privacy);
+    const text = el.textContent ?? '';
+    expect(text).toContain('teléfono, WhatsApp, email o la app de DISH');
+    expect(text).toContain('mensaje privado de Instagram');
+    // DISH keeps the regular-guest and no-show history for the restaurant, so it is a processor.
+    // WhatsApp and Instagram (Meta) act under their own terms, like Gmail, so they are not.
+    const processors = el.querySelector('h2 + p + ul')?.textContent ?? '';
+    expect(processors).toContain('DISH Digital Solutions GmbH');
+    expect(processors).not.toContain('WhatsApp');
+    expect(processors).not.toContain('Instagram');
+    const dishLink = el.querySelector<HTMLAnchorElement>('a[href*="reservation.dish.co"]');
+    expect(dishLink?.href).toContain('privacy_ES.pdf');
+  });
 });

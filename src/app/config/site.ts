@@ -66,7 +66,7 @@ export const SITE = {
    */
   activityLicence: { reference: '', authority: '' },
   /** Date of the last revision of the legal texts (ISO). */
-  legalUpdated: '2026-10-04',
+  legalUpdated: '2026-10-09',
 } as const;
 
 /** `tel:` URI for the phone number (RFC 3966 does not allow spaces). */
