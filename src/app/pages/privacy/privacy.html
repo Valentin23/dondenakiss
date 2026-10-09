@@ -59,10 +59,12 @@
     configuración de tu navegador.
   </p>
 
-  <h3 i18n="@@privacy.contact.heading">Contacto y reservas por email o teléfono</h3>
-  <p i18n="@@privacy.contact.body">
-    Si nos escribes o nos llamas, tratamos los datos que nos facilites (nombre, email, teléfono y el
-    contenido de tu mensaje) para responderte y, en su caso, gestionar tu reserva.
+  <h3 i18n="@@privacy.bookings.heading">Reservas y contacto</h3>
+  <p i18n="@@privacy.bookings.channels">
+    Puedes reservar o escribirnos por teléfono, WhatsApp, email o la app de DISH, y enviarnos
+    consultas por mensaje privado de Instagram. Tratamos los datos que nos facilites (nombre,
+    teléfono, email, usuario de Instagram, fecha, hora, número de comensales y el contenido de tu
+    mensaje) para responderte y, en su caso, gestionar tu reserva.
   </p>
   <p i18n="@@privacy.contact.legalBasis">
     Base legal: la gestión de tu solicitud o reserva (art. 6.1.b del RGPD). Para reservarte mesa
@@ -70,6 +72,14 @@
     Conservamos estos datos el tiempo necesario para atenderte y, como máximo, un año después.
     Pasado ese plazo los suprimimos, salvo que una ley nos obligue a conservarlos bloqueados durante
     más tiempo para atender posibles responsabilidades (art. 32 de la LOPDGDD).
+  </p>
+  <p i18n="@@privacy.bookings.dish">
+    Si reservas con DISH, DISH Digital Solutions GmbH (Alemania) es responsable de su plataforma y
+    te informa en su <a [href]="dishPrivacyUrl" rel="noopener">política de privacidad</a>; nosotros
+    somos responsables de los datos de la reserva que recibimos. En DISH guardamos también el
+    historial de tus reservas, incluidas las que no se presentaron, para organizar mejor las mesas.
+    Base legal: nuestro interés legítimo (art. 6.1.f del RGPD); puedes oponerte escribiéndonos a
+    {{ site.email }}.
   </p>
   <p i18n="@@privacy.health.text">
     Si nos informas de alergias o intolerancias, son datos de salud. Solo los anotamos en la comanda
@@ -86,20 +96,28 @@
     <li i18n="@@privacy.recipients.cloudflare">
       Cloudflare, Inc. (EE. UU.): alojamiento de la web, seguridad y estadísticas de visitas.
     </li>
+    <li i18n="@@privacy.recipients.dish">
+      DISH Digital Solutions GmbH (Alemania): historial de reservas y de reservas no presentadas.
+    </li>
   </ul>
-  <p i18n="@@privacy.recipients.email">
-    Para el correo electrónico usamos Gmail, de Google Ireland Limited (Irlanda). Google presta este
-    servicio con sus propias condiciones y trata los datos de los correos conforme a su
-    <a href="https://policies.google.com/privacy" rel="noopener">política de privacidad</a>.
+  <p i18n="@@privacy.recipients.messaging">
+    Para el correo electrónico usamos Gmail, de Google Ireland Limited (Irlanda), y para los
+    mensajes, WhatsApp, de WhatsApp Ireland Limited (Irlanda), e Instagram, de Meta Platforms
+    Ireland Limited (Irlanda). Prestan el servicio con sus propias condiciones y tratan los datos
+    conforme a sus políticas de privacidad:
+    <a href="https://policies.google.com/privacy" rel="noopener">la de Google</a>,
+    <a href="https://www.whatsapp.com/legal/privacy-policy-eea" rel="noopener">la de WhatsApp</a> y
+    <a href="https://privacycenter.instagram.com/policy" rel="noopener">la de Instagram</a>.
   </p>
 
   <h2 i18n="@@privacy.transfers.heading">4. Transferencias internacionales</h2>
-  <p i18n="@@privacy.transfers.withMaps">
+  <p i18n="@@privacy.transfers.withMessaging">
     Cloudflare puede tratar datos en Estados Unidos. Estas transferencias se amparan en el Marco de
     Privacidad de Datos UE-EE. UU. y, en su defecto, en las cláusulas contractuales tipo aprobadas
     por la Comisión Europea; puedes pedirnos una copia escribiéndonos a {{ site.email }}. Google
     también puede tratar fuera de la UE los datos de los correos y, si cargas el mapa, los de tu
-    navegación, con las garantías que describe en su política.
+    navegación, y Meta los de los mensajes de WhatsApp e Instagram, con las garantías que describen
+    en sus políticas.
   </p>
 
   <h2 i18n="@@privacy.cookies.heading">5. Cookies</h2>
