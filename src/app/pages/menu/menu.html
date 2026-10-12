@@ -9,34 +9,37 @@
 
 <div class="tabs-bar">
   <div class="tabs" role="tablist" aria-label="Elegir carta" i18n-aria-label="@@menu.tabsLabel">
-    @for (key of keys; track key; let i = $index) {
+    @for (menu of menus; track menu.key; let i = $index) {
       <button
         #tab
         type="button"
         role="tab"
-        [id]="'tab-' + key"
-        [attr.aria-controls]="'panel-' + key"
-        [attr.aria-selected]="active() === key"
-        [tabIndex]="active() === key ? 0 : -1"
-        (click)="select(key)"
+        [id]="'tab-' + menu.key"
+        [attr.aria-controls]="'panel-' + menu.key"
+        [attr.aria-selected]="active() === menu.key"
+        [tabIndex]="active() === menu.key ? 0 : -1"
+        (click)="select(menu.key)"
         (keydown)="onTabKeydown($event, i)"
       >
-        {{ tabLabels[key] }}
+        {{ menu.name[locale] }}
       </button>
     }
   </div>
 </div>
 
-@for (key of keys; track key) {
+@for (menu of menus; track menu.key) {
   <div
     class="panel"
     role="tabpanel"
-    [id]="'panel-' + key"
-    [attr.aria-labelledby]="'tab-' + key"
-    [hidden]="active() !== key"
+    [id]="'panel-' + menu.key"
+    [attr.aria-labelledby]="'tab-' + menu.key"
+    [hidden]="active() !== menu.key"
   >
-    @for (section of menus[key]; track section.id) {
-      @if (section.id === 'completo') {
+    @if (menu.note) {
+      <p class="section-note">{{ menu.note[locale] }}</p>
+    }
+    @for (section of menu.sections; track section.id) {
+      @if (isSingleDish(section)) {
         @let item = section.items[0];
         <section class="completo" [attr.aria-labelledby]="'s-' + section.id">
           <div class="dish-row">

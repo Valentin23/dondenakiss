@@ -113,8 +113,6 @@
     "menu.tabsLabel": "Elegir carta",
     "menu.allergens": " ¿Alguna alergia o intolerancia? Pregúntanos: te informamos de los alérgenos de cada plato.\n",
     "menu.hungry": "¿Te ha entrado hambre?",
-    "menu.tabBrunch": "Brunch",
-    "menu.tabTapas": "Tapas",
     "menu.photoOpen": "Ver en grande la foto de {$dish}",
     "notFound.eyebrow": "Error 404",
     "notFound.heading": "Página no encontrada",

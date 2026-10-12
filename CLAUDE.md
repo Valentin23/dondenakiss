@@ -58,8 +58,8 @@ Adding a page means: an entry in `pages.json` (all 5 locales), a route in `build
 **Content.**
 
 - Business data (name, phone, address, geo, Google Maps, owner, DISH Reservation widget URL) lives in `src/app/config/site.ts`.
-- The menu lives in `src/app/pages/menu/menu-data.ts` as data with one text per locale (`Localized`), not in the i18n files, so it can be edited from the future `/admin`.
-- Photos: `node scripts/optimize-photos.mjs <folder-with-originals>` writes `public/photos/<slug>-{480,960,1600}.webp` (originals stay out of the repo). Use them as `ngSrc="photos/<slug>"` (or `<app-photo-slot src="photos/<slug>">`) with a `sizes` in `vw`; `photoLoader` (`config/photo-loader.ts`) builds the `srcset`. The build keeps a single `photos/` at the root for every locale.
+- The menu is edited in Sobremesa (reservas.dondenakiss.es), the restaurant's own booking and menu app. `npm run menu:sync` (`scripts/sync-menu.mjs`) copies it into `src/app/pages/menu/menu.json`, with one text per locale, and its photos into `public/photos/menu/`; commit both. Cloudflare Pages builds sync on their own first (`prebuild`) and keep the committed copy if Sobremesa can't be reached. Never edit `menu.json` by hand: change the menu in Sobremesa and sync. Featured dishes (home page) and "Un completo" (a section with one dish of the same name, shown as a card) come from the same data.
+- Other photos (home page): `node scripts/optimize-photos.mjs <folder-with-originals>` writes `public/photos/<slug>-{480,960,1600}.webp` (originals stay out of the repo). Use them as `ngSrc="photos/<slug>"` (or `<app-photo-slot src="photos/<slug>">`) with a `sizes` in `vw`; `photoLoader` (`config/photo-loader.ts`) builds the `srcset`. The build keeps a single `photos/` at the root for every locale.
 - Gluten-free claims must stay accurate: every dish has a gluten-free option, some are always gluten-free, but regular bread is also served, so never say "100% gluten-free".
 
 **Future `/admin`** (does not exist yet): SPA with `RenderMode.Client` in `app.routes.server.ts`, lazy loading, `noindex`, `Disallow: /admin` in `robots.txt` and `_redirects` with `/admin/* /index.csr.html 200`.
@@ -68,7 +68,7 @@ Adding a page means: an entry in `pages.json` (all 5 locales), a route in `build
 
 - **Read `design/README.md` before any UI work.** It holds the brand rules (voice, colour usage, typography, logo, components, motion).
 - Tokens: `design/tokens.css` (`--dn-*` CSS custom properties). Use them instead of hard-coded colours, fonts or radii. Import the file from `src/styles.scss` when the visual redesign starts.
-- Approved mockups: `design/mockups/*.html` (home, menu and mobile nav, desktop and mobile). Match their layout and hierarchy; take real content from `site.ts` and `menu-data.ts`, never from the mockups' placeholders.
+- Approved mockups: `design/mockups/*.html` (home, menu and mobile nav, desktop and mobile). Match their layout and hierarchy; take real content from `site.ts` and `menu.json`, never from the mockups' placeholders.
 - Logo: `public/brand/logo-dark*.png` on light backgrounds, `logo-light*.png` on dark ones. Never recreate it with a font.
 - With the `frontend-design` plugin installed, use it for execution quality (composition, micro-interactions, transitions), not to redefine colours or typography.
 - Mobile first: most visitors come from Google Maps on a phone. Mobile CTAs are 64px tall and full width.
