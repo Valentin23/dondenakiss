@@ -41,8 +41,10 @@ Node 24 LTS; the exact version is in `.nvmrc` (Angular 22 requires >= 24.15.0).
 
   The build fails if a translation is missing (`i18nMissingTranslation: "error"`).
 
-- **Menu**: not in the translation files. It lives in `src/app/pages/menu/menu-data.ts`, with one text per
-  language for each dish.
+- **Menu**: not in the translation files. The owners edit it in Sobremesa (reservas.dondenakiss.es);
+  `npm run menu:sync` copies it, with one text per language for each dish, into
+  `src/app/pages/menu/menu.json` and its photos into `public/photos/menu/`. Cloudflare Pages builds sync
+  it on their own, and keep the committed copy if Sobremesa can't be reached.
 
 ## Workflow
 
@@ -87,6 +89,5 @@ https://dondenakiss.es/?utm_source=google&utm_medium=organic&utm_campaign=gbp
 - In `src/app/config/site.ts`: DISH widget URL, and the email on the domain (currently the Gmail address).
 - When adding the DISH widget or any other third-party service: update the privacy policy (recipients
   and cookies) and `SITE.legalUpdated`.
-- Real menu in `menu-data.ts`.
 - `/admin` (SPA): `RenderMode.Client` in `app.routes.server.ts`, `noindex`, `Disallow: /admin` in
   `robots.txt` and `_redirects` with `/admin/* /index.csr.html 200`.

@@ -10,9 +10,8 @@
 import { mkdir, readdir } from 'node:fs/promises';
 import { extname, join, parse } from 'node:path';
 import sharp from 'sharp';
+import { QUALITY, WIDTHS } from './photo-sizes.mjs';
 
-export const WIDTHS = [480, 960, 1600];
-const QUALITY = 78;
 const OUT_DIR = 'public/photos';
 const INPUT = new Set(['.jpg', '.jpeg', '.png', '.heic', '.heif', '.webp']);
 

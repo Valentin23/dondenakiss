@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { Home } from './home';
+import { FEATURED_DISHES } from '../menu/menu-data';
 
 describe('Home', () => {
   async function render(): Promise<HTMLElement> {
@@ -21,14 +22,11 @@ describe('Home', () => {
     );
   });
 
-  it('lists the featured dishes in Spanish with their prices', async () => {
+  it('lists the dishes featured in the menu, in Spanish', async () => {
     const dishes = [...(await render()).querySelectorAll('.dish')];
-    expect(dishes.map((d) => d.querySelector('h3')?.textContent?.trim())).toEqual([
-      'Benedict trufado',
-      'Fideuá de marisco',
-      'Calamares a la andaluza',
-      'Croquetas caseras de berenjena con queso',
-    ]);
+    expect(dishes.map((d) => d.querySelector('h3')?.textContent?.trim())).toEqual(
+      FEATURED_DISHES.map((d) => d.name.es),
+    );
     expect(dishes.some((d) => d.querySelector('.chip-gf'))).toBe(false);
   });
 

@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start:en": "ng serve --configuration en",
+    "prebuild": "node scripts/sync-menu.mjs --on-pages",
     "build": "ng build",
     "postbuild": "node scripts/postbuild.mjs",
     "watch": "ng build --watch --configuration development",
@@ -12,7 +13,8 @@
     "lint": "ng lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "extract-i18n": "ng extract-i18n"
+    "extract-i18n": "ng extract-i18n",
+    "menu:sync": "node scripts/sync-menu.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.1",

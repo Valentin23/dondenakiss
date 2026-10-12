@@ -113,8 +113,6 @@
     "menu.tabsLabel": "Choose a menu",
     "menu.allergens": "Any allergies or intolerances? Just ask: we’ll tell you the allergens in every dish.",
     "menu.hungry": "Feeling hungry?",
-    "menu.tabBrunch": "Brunch",
-    "menu.tabTapas": "Tapas",
     "menu.photoOpen": "View the photo of {$dish} full size",
     "notFound.eyebrow": "Error 404",
     "notFound.heading": "Page not found",

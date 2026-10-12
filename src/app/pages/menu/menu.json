@@ -1,0 +1,1295 @@
+{
+  "menus": [
+    {
+      "key": "brunch",
+      "name": {
+        "es": "Brunch",
+        "en": "Brunch",
+        "fr": "Brunch",
+        "it": "Brunch",
+        "pl": "Brunch"
+      },
+      "sections": [
+        {
+          "id": "7c5eeea8-4ad9-4706-a5fa-b2d20e642422",
+          "title": {
+            "es": "Tostas",
+            "en": "Toasts",
+            "fr": "Tartines",
+            "it": "Toast",
+            "pl": "Tosty"
+          },
+          "items": [
+            {
+              "id": "e1668474-1bea-4b53-b4f2-b476e3c7a753",
+              "name": {
+                "es": "Super",
+                "en": "Super",
+                "fr": "Super",
+                "it": "Super",
+                "pl": "Super"
+              },
+              "description": {
+                "es": "Pavo, aguacate y un huevo poché.",
+                "en": "Turkey, avocado and a poached egg.",
+                "fr": "Dinde, avocat et un œuf poché.",
+                "it": "Tacchino, avocado e un uovo in camicia.",
+                "pl": "Indyk, awokado i jajko w koszulce."
+              },
+              "price": 6.9,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/e1668474-1bea-4b53-b4f2-b476e3c7a753-893cfe32"
+            },
+            {
+              "id": "d2a86c80-adc6-48ab-a357-8a7b40d6df63",
+              "name": {
+                "es": "Charlie",
+                "en": "Charlie",
+                "fr": "Charlie",
+                "it": "Charlie",
+                "pl": "Charlie"
+              },
+              "description": {
+                "es": "Jamón serrano, tomate en rodaja y revuelto de huevos.",
+                "en": "Serrano ham, sliced tomato and scrambled eggs.",
+                "fr": "Jambon serrano, tomate en tranches et œufs brouillés.",
+                "it": "Prosciutto serrano, pomodoro a fette e uova strapazzate.",
+                "pl": "Szynka serrano, plastry pomidora i jajecznica."
+              },
+              "price": 6.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "7b17526e-66b2-4e12-8816-a5abe1a11004",
+              "name": {
+                "es": "Light",
+                "en": "Light",
+                "fr": "Light",
+                "it": "Light",
+                "pl": "Light"
+              },
+              "description": {
+                "es": "Salmón ahumado, crema de queso y rúcula, con un huevo poché.",
+                "en": "Smoked salmon, cream cheese and rocket, with a poached egg.",
+                "fr": "Saumon fumé, fromage frais et roquette, avec un œuf poché.",
+                "it": "Salmone affumicato, crema di formaggio e rucola, con un uovo in camicia.",
+                "pl": "Wędzony łosoś, serek śmietankowy i rukola, z jajkiem w koszulce."
+              },
+              "price": 8.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "096e0bf3-3acf-4e7a-a15e-e6966fa2eb01",
+              "name": {
+                "es": "Suprema",
+                "en": "Suprema",
+                "fr": "Suprema",
+                "it": "Suprema",
+                "pl": "Suprema"
+              },
+              "description": {
+                "es": "Bacon crujiente, queso de cabra y cebolla caramelizada con rúcula.",
+                "en": "Crispy bacon, goat’s cheese and caramelised onion with rocket.",
+                "fr": "Bacon croustillant, chèvre et oignon caramélisé avec roquette.",
+                "it": "Bacon croccante, formaggio di capra e cipolla caramellata con rucola.",
+                "pl": "Chrupiący bekon, kozi ser i karmelizowana cebula z rukolą."
+              },
+              "price": 7.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/096e0bf3-3acf-4e7a-a15e-e6966fa2eb01-8980f7aa"
+            },
+            {
+              "id": "5204f054-6edb-47ba-97ca-04c47907bb50",
+              "name": {
+                "es": "Fit",
+                "en": "Fit",
+                "fr": "Fit",
+                "it": "Fit",
+                "pl": "Fit"
+              },
+              "description": {
+                "es": "Queso cottage con un falso tartar de tomate y aguacate.",
+                "en": "Cottage cheese with a mock tomato and avocado tartare.",
+                "fr": "Cottage cheese avec un faux tartare de tomate et d’avocat.",
+                "it": "Fiocchi di latte con un finto tartare di pomodoro e avocado.",
+                "pl": "Serek wiejski z „tatarem” z pomidora i awokado."
+              },
+              "price": 6.9,
+              "allergens": [],
+              "featured": false
+            }
+          ]
+        },
+        {
+          "id": "c8d60665-4004-4ac7-877f-b995e3a931db",
+          "title": {
+            "es": "Benedict",
+            "en": "Eggs Benedict",
+            "fr": "Œufs Bénédicte",
+            "it": "Uova alla Benedict",
+            "pl": "Jajka po benedyktyńsku"
+          },
+          "items": [
+            {
+              "id": "552ade95-c2ee-4328-a24c-8ed6968b2122",
+              "name": {
+                "es": "Con jamón serrano",
+                "en": "With Serrano ham",
+                "fr": "Au jambon serrano",
+                "it": "Con prosciutto serrano",
+                "pl": "Z szynką serrano"
+              },
+              "description": {
+                "es": "Huevos poché con salsa holandesa, jamón serrano, sobre pan brioche.",
+                "en": "Poached eggs with hollandaise sauce, Serrano ham, on brioche.",
+                "fr": "Œufs pochés, sauce hollandaise, jambon serrano, sur pain brioché.",
+                "it": "Uova in camicia con salsa olandese, prosciutto serrano, su pan brioche.",
+                "pl": "Jajka w koszulce z sosem holenderskim, szynka serrano, na brioszce."
+              },
+              "price": 11,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "8930e116-9bd7-4b55-9dba-320a982b5f0e",
+              "name": {
+                "es": "Con salmón y aguacate",
+                "en": "With salmon and avocado",
+                "fr": "Au saumon et à l’avocat",
+                "it": "Con salmone e avocado",
+                "pl": "Z łososiem i awokado"
+              },
+              "description": {
+                "es": "Huevos poché con salsa holandesa, salmón y aguacate, sobre pan brioche.",
+                "en": "Poached eggs with hollandaise sauce, salmon and avocado, on brioche.",
+                "fr": "Œufs pochés, sauce hollandaise, saumon et avocat, sur pain brioché.",
+                "it": "Uova in camicia con salsa olandese, salmone e avocado, su pan brioche.",
+                "pl": "Jajka w koszulce z sosem holenderskim, łosoś i awokado, na brioszce."
+              },
+              "price": 12,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/8930e116-9bd7-4b55-9dba-320a982b5f0e-53195b10"
+            },
+            {
+              "id": "d95de1be-f142-4849-a078-fd53c60328f8",
+              "name": {
+                "es": "Con bacón y mozzarella",
+                "en": "With bacon and mozzarella",
+                "fr": "Au bacon et à la mozzarella",
+                "it": "Con bacon e mozzarella",
+                "pl": "Z bekonem i mozzarellą"
+              },
+              "description": {
+                "es": "Huevos poché con salsa holandesa, bacón y mozzarella, sobre pan brioche.",
+                "en": "Poached eggs with hollandaise sauce, bacon and mozzarella, on brioche.",
+                "fr": "Œufs pochés, sauce hollandaise, bacon et mozzarella, sur pain brioché.",
+                "it": "Uova in camicia con salsa olandese, bacon e mozzarella, su pan brioche.",
+                "pl": "Jajka w koszulce z sosem holenderskim, bekon i mozzarella, na brioszce."
+              },
+              "price": 12,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "03ebdae3-f1b3-4483-902f-b063c23a0b91",
+              "name": {
+                "es": "Trufado",
+                "en": "Truffled",
+                "fr": "À la truffe",
+                "it": "Al tartufo",
+                "pl": "Z truflą"
+              },
+              "description": {
+                "es": "Huevos poché con salsa holandesa, jamón ahumado y trufa, sobre pan brioche.",
+                "en": "Poached eggs with hollandaise sauce, smoked ham and truffle, on brioche.",
+                "fr": "Œufs pochés, sauce hollandaise, jambon fumé et truffe, sur pain brioché.",
+                "it": "Uova in camicia con salsa olandese, prosciutto affumicato e tartufo, su pan brioche.",
+                "pl": "Jajka w koszulce z sosem holenderskim, wędzona szynka i trufla, na brioszce."
+              },
+              "price": 12.5,
+              "allergens": [],
+              "featured": true,
+              "photo": "photos/menu/03ebdae3-f1b3-4483-902f-b063c23a0b91-912f0868"
+            }
+          ]
+        },
+        {
+          "id": "e8297079-39ff-4894-b532-a162f159da9e",
+          "title": {
+            "es": "Revueltos",
+            "en": "Scrambled eggs",
+            "fr": "Œufs brouillés",
+            "it": "Uova strapazzate",
+            "pl": "Jajecznica"
+          },
+          "items": [
+            {
+              "id": "96e409b4-36b3-4937-81c3-60b8ab96cc29",
+              "name": {
+                "es": "Con bacón",
+                "en": "With bacon",
+                "fr": "Au bacon",
+                "it": "Con bacon",
+                "pl": "Z bekonem"
+              },
+              "price": 7.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/96e409b4-36b3-4937-81c3-60b8ab96cc29-1f8098af"
+            },
+            {
+              "id": "d317e995-b97b-4175-a10c-2175a000ffdb",
+              "name": {
+                "es": "Con mozzarella",
+                "en": "With mozzarella",
+                "fr": "À la mozzarella",
+                "it": "Con mozzarella",
+                "pl": "Z mozzarellą"
+              },
+              "price": 7.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "7131357d-7402-4d70-aded-1e18104e619d",
+              "name": {
+                "es": "Con bacón y queso",
+                "en": "With bacon and cheese",
+                "fr": "Au bacon et fromage",
+                "it": "Con bacon e formaggio",
+                "pl": "Z bekonem i serem"
+              },
+              "price": 9,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/7131357d-7402-4d70-aded-1e18104e619d-9e4fa325"
+            },
+            {
+              "id": "66a35da5-1743-4676-a4d0-ffdef6af6589",
+              "name": {
+                "es": "Con salmón ahumado",
+                "en": "With smoked salmon",
+                "fr": "Au saumon fumé",
+                "it": "Con salmone affumicato",
+                "pl": "Z wędzonym łososiem"
+              },
+              "price": 9.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "73c3fd8c-6d91-43a2-982e-b510bbe33993",
+              "name": {
+                "es": "Con tomate, cebolla y champiñones",
+                "en": "With tomato, onion and mushrooms",
+                "fr": "Tomate, oignon et champignons",
+                "it": "Con pomodoro, cipolla e funghi",
+                "pl": "Z pomidorem, cebulą i pieczarkami"
+              },
+              "price": 9,
+              "allergens": [],
+              "featured": false
+            }
+          ]
+        },
+        {
+          "id": "dc5dfd00-d6ec-4eac-aa7a-d580984c13eb",
+          "title": {
+            "es": "Desayunos de campeones",
+            "en": "Breakfast of champions",
+            "fr": "Petits-déjeuners de champions",
+            "it": "Colazioni da campioni",
+            "pl": "Śniadania mistrzów"
+          },
+          "items": [
+            {
+              "id": "dd28e5c8-4cce-4d02-aeb7-e138faa0df71",
+              "name": {
+                "es": "English breakfast",
+                "en": "English breakfast",
+                "fr": "English breakfast",
+                "it": "English breakfast",
+                "pl": "English breakfast"
+              },
+              "description": {
+                "es": "Alubias, champiñones, tomate, salchichas, bacón y huevos fritos, con tostas con mantequilla.",
+                "en": "Beans, mushrooms, tomato, sausages, bacon and fried eggs, with buttered toast.",
+                "fr": "Haricots, champignons, tomate, saucisses, bacon et œufs au plat, avec tartines beurrées.",
+                "it": "Fagioli, funghi, pomodoro, salsicce, bacon e uova fritte, con toast imburrati.",
+                "pl": "Fasolka, pieczarki, pomidor, kiełbaski, bekon i jajka sadzone, z tostami z masłem."
+              },
+              "price": 11.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/dd28e5c8-4cce-4d02-aeb7-e138faa0df71-5f0b7fb1"
+            },
+            {
+              "id": "c28c8257-ca2b-4879-9b3d-cb6a83714d50",
+              "name": {
+                "es": "Veget",
+                "en": "Veget",
+                "fr": "Veget",
+                "it": "Veget",
+                "pl": "Veget"
+              },
+              "description": {
+                "es": "Huevos fritos, alubias, champiñones, tomate y aguacate con timbal de patatas, con tostas con AOVE.",
+                "en": "Fried eggs, beans, mushrooms, tomato and avocado with a potato timbale, with toast and extra virgin olive oil.",
+                "fr": "Œufs au plat, haricots, champignons, tomate et avocat avec timbale de pommes de terre, tartines à l’huile d’olive vierge extra.",
+                "it": "Uova fritte, fagioli, funghi, pomodoro e avocado con tortino di patate, toast con olio extravergine.",
+                "pl": "Jajka sadzone, fasolka, pieczarki, pomidor i awokado z ziemniakami, tosty z oliwą z oliwek."
+              },
+              "price": 11.5,
+              "allergens": [],
+              "featured": false
+            }
+          ]
+        },
+        {
+          "id": "56ffde9e-e4f7-4f32-9a46-d1f1eb4a2029",
+          "title": {
+            "es": "El bocata",
+            "en": "Sandwiches",
+            "fr": "Sandwichs",
+            "it": "Panini",
+            "pl": "Kanapki"
+          },
+          "items": [
+            {
+              "id": "85be62be-2af4-4b08-8e85-40051e3fe7a2",
+              "name": {
+                "es": "Calamares",
+                "en": "Squid",
+                "fr": "Calamars",
+                "it": "Calamari",
+                "pl": "Z kalmarami"
+              },
+              "description": {
+                "es": "Nuestro famoso bocadillo de calamar, que no te dejará indiferente. ¡Suculento y delicioso!",
+                "en": "Our famous squid sandwich: it won’t leave you indifferent. Juicy and delicious!",
+                "fr": "Notre célèbre sandwich aux calamars, qui ne vous laissera pas indifférent. Succulent et délicieux !",
+                "it": "Il nostro famoso panino con calamari, che non ti lascerà indifferente. Succulento e delizioso!",
+                "pl": "Nasza słynna kanapka z kalmarami, która nikogo nie zostawi obojętnym. Soczysta i pyszna!"
+              },
+              "price": 9.9,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/85be62be-2af4-4b08-8e85-40051e3fe7a2-f0e6b4b1"
+            },
+            {
+              "id": "91c9109c-d8b7-419a-a392-2d08fcf9bc50",
+              "name": {
+                "es": "Nakiss",
+                "en": "Nakiss",
+                "fr": "Nakiss",
+                "it": "Nakiss",
+                "pl": "Nakiss"
+              },
+              "description": {
+                "es": "Pollo crujiente y tierno con brotes tiernos y nuestra salsa casera Nakiss. Irresistible.",
+                "en": "Crispy, tender chicken with baby leaves and our homemade Nakiss sauce. Irresistible.",
+                "fr": "Poulet croustillant et tendre, jeunes pousses et notre sauce maison Nakiss. Irrésistible.",
+                "it": "Pollo croccante e tenero con germogli e la nostra salsa fatta in casa Nakiss. Irresistibile.",
+                "pl": "Chrupiący, delikatny kurczak z młodymi listkami i naszym domowym sosem Nakiss. Nie do odparcia."
+              },
+              "price": 8.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/91c9109c-d8b7-419a-a392-2d08fcf9bc50-39931ea7"
+            },
+            {
+              "id": "e25cd425-69bf-41c7-b991-988131787da7",
+              "name": {
+                "es": "Vegetal",
+                "en": "Vegetal",
+                "fr": "Vegetal",
+                "it": "Vegetal",
+                "pl": "Vegetal"
+              },
+              "description": {
+                "es": "«El fit»: atún sobre brotes tiernos con tomate en rodaja, queso manchego, huevo duro y mayonesa.",
+                "en": "“The fit one”: tuna on baby leaves with sliced tomato, Manchego cheese, hard-boiled egg and mayonnaise.",
+                "fr": "« Le fit » : thon sur jeunes pousses, tomate en tranches, manchego, œuf dur et mayonnaise.",
+                "it": "«Il fit»: tonno su germogli con pomodoro a fette, formaggio manchego, uovo sodo e maionese.",
+                "pl": "„Fit”: tuńczyk na młodych listkach z pomidorem, serem manchego, jajkiem na twardo i majonezem."
+              },
+              "price": 8.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "2edb4dd2-59ae-46f1-a004-daf4d7101e0d",
+              "name": {
+                "es": "Sándwich club",
+                "en": "Club sandwich",
+                "fr": "Club sandwich",
+                "it": "Club sandwich",
+                "pl": "Club sandwich"
+              },
+              "description": {
+                "es": "El rascacielos de los bocadillos: pollo, bacon, huevo, queso, lechuga, tomate y mayonesa en varias alturas. Con más capas que una telenovela. Con patatas fritas.",
+                "en": "The skyscraper of sandwiches: chicken, bacon, egg, cheese, lettuce, tomato and mayonnaise on several floors. More layers than a soap opera. With chips.",
+                "fr": "Le gratte-ciel des sandwichs : poulet, bacon, œuf, fromage, salade, tomate et mayonnaise sur plusieurs étages. Plus de rebondissements qu’une telenovela. Avec frites.",
+                "it": "Il grattacielo dei panini: pollo, bacon, uovo, formaggio, lattuga, pomodoro e maionese su più piani. Più strati di una telenovela. Con patatine fritte.",
+                "pl": "Drapacz chmur wśród kanapek: kurczak, bekon, jajko, ser, sałata, pomidor i majonez na kilku piętrach. Więcej warstw niż w telenoweli. Z frytkami."
+              },
+              "price": 13.9,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/2edb4dd2-59ae-46f1-a004-daf4d7101e0d-ead2b54e"
+            }
+          ]
+        },
+        {
+          "id": "cc6eb60a-028b-4db9-a961-aebf72366ae4",
+          "title": {
+            "es": "Cuídate con…",
+            "en": "Treat yourself…",
+            "fr": "Faites-vous plaisir…",
+            "it": "Coccolati con…",
+            "pl": "Rozpieść się…"
+          },
+          "items": [
+            {
+              "id": "6e6ee55b-c1d4-40ce-99e8-3daca0dd9fa8",
+              "name": {
+                "es": "Tortitas con nata",
+                "en": "Pancakes with cream",
+                "fr": "Pancakes à la chantilly",
+                "it": "Pancake con panna",
+                "pl": "Pancakes z bitą śmietaną"
+              },
+              "description": {
+                "es": "Con chocolate o dulce de leche.",
+                "en": "With chocolate or dulce de leche.",
+                "fr": "Au chocolat ou à la confiture de lait.",
+                "it": "Con cioccolato o dulce de leche.",
+                "pl": "Z czekoladą lub dulce de leche."
+              },
+              "price": 7.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "bbe459ac-155d-4c02-88ee-085fb3118ad2",
+              "name": {
+                "es": "Tortitas con plátano",
+                "en": "Pancakes with banana",
+                "fr": "Pancakes à la banane",
+                "it": "Pancake con banana",
+                "pl": "Pancakes z bananem"
+              },
+              "description": {
+                "es": "Con chocolate o dulce de leche.",
+                "en": "With chocolate or dulce de leche.",
+                "fr": "Au chocolat ou à la confiture de lait.",
+                "it": "Con cioccolato o dulce de leche.",
+                "pl": "Z czekoladą lub dulce de leche."
+              },
+              "price": 8.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "ec2674bc-e246-4138-811d-d38895d5f944",
+              "name": {
+                "es": "Tortitas con fresas",
+                "en": "Pancakes with strawberries",
+                "fr": "Pancakes aux fraises",
+                "it": "Pancake con fragole",
+                "pl": "Pancakes z truskawkami"
+              },
+              "description": {
+                "es": "Con chocolate o dulce de leche.",
+                "en": "With chocolate or dulce de leche.",
+                "fr": "Au chocolat ou à la confiture de lait.",
+                "it": "Con cioccolato o dulce de leche.",
+                "pl": "Z czekoladą lub dulce de leche."
+              },
+              "price": 9.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "c85814a3-08cb-46e7-8b39-dd0f7653561f",
+              "name": {
+                "es": "Tortitas con mantequilla y sirope de arce",
+                "en": "Pancakes with butter and maple syrup",
+                "fr": "Pancakes beurre et sirop d’érable",
+                "it": "Pancake con burro e sciroppo d’acero",
+                "pl": "Pancakes z masłem i syropem klonowym"
+              },
+              "price": 12.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "947d7d5b-0a35-4f26-af38-74c0529ecd97",
+              "name": {
+                "es": "Bol de yogur con miel, chía y uva",
+                "en": "Yoghurt bowl with honey, chia and grapes",
+                "fr": "Bol de yaourt, miel, chia et raisin",
+                "it": "Bowl di yogurt con miele, chia e uva",
+                "pl": "Miska jogurtu z miodem, chia i winogronami"
+              },
+              "price": 6.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "cb697439-b7b5-4a24-80e3-19cd6d7ed0ea",
+              "name": {
+                "es": "Bol de yogur con miel, chía, fresa y plátano",
+                "en": "Yoghurt bowl with honey, chia, strawberry and banana",
+                "fr": "Bol de yaourt, miel, chia, fraise et banane",
+                "it": "Bowl di yogurt con miele, chia, fragola e banana",
+                "pl": "Miska jogurtu z miodem, chia, truskawką i bananem"
+              },
+              "price": 8.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/cb697439-b7b5-4a24-80e3-19cd6d7ed0ea-0f64b858"
+            }
+          ]
+        },
+        {
+          "id": "57488e32-4eec-41d8-963e-825880b1067c",
+          "title": {
+            "es": "Un completo",
+            "en": "The Completo",
+            "fr": "Le Completo",
+            "it": "Il Completo",
+            "pl": "Zestaw Completo"
+          },
+          "items": [
+            {
+              "id": "c9df92c5-83ad-49a9-be6d-91e974dea5c9",
+              "name": {
+                "es": "Un completo",
+                "en": "The Completo",
+                "fr": "Le Completo",
+                "it": "Il Completo",
+                "pl": "Zestaw Completo"
+              },
+              "description": {
+                "es": "Una tosta o un revuelto a elegir + zumo de naranja + café + tortitas (chocolate o dulce de leche y nata) o bol de yogur.",
+                "en": "Any toast or scrambled eggs + orange juice + coffee + pancakes (chocolate or dulce de leche, and cream) or a yoghurt bowl.",
+                "fr": "Une tartine ou des œufs brouillés au choix + jus d’orange + café + pancakes (chocolat ou confiture de lait, et chantilly) ou bol de yaourt.",
+                "it": "Un toast o uova strapazzate a scelta + spremuta d’arancia + caffè + pancake (cioccolato o dulce de leche e panna) o bowl di yogurt.",
+                "pl": "Dowolny tost lub jajecznica + sok pomarańczowy + kawa + pancakes (czekolada lub dulce de leche i bita śmietana) albo miska jogurtu."
+              },
+              "price": 20,
+              "allergens": [],
+              "featured": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "tapas",
+      "name": {
+        "es": "Tapas",
+        "en": "Tapas",
+        "fr": "Tapas",
+        "it": "Tapas",
+        "pl": "Tapas"
+      },
+      "sections": [
+        {
+          "id": "5bde4dcd-5fb1-4d55-861d-3c3616379901",
+          "title": {
+            "es": "Entradas frías",
+            "en": "Cold starters",
+            "fr": "Entrées froides",
+            "it": "Antipasti freddi",
+            "pl": "Przystawki na zimno"
+          },
+          "items": [
+            {
+              "id": "7983e396-2b86-4a48-a3ab-bda0e42f5383",
+              "name": {
+                "es": "Ensalada de salazones",
+                "en": "Salt-cured fish salad",
+                "fr": "Salade de salaisons",
+                "it": "Insalata di salagioni",
+                "pl": "Sałatka z solonych ryb"
+              },
+              "description": {
+                "es": "Salazones tradicionales con huevo duro, tomate, alcaparras y piparras, aliñada con AOVE.",
+                "en": "Traditional salt-cured fish with hard-boiled egg, tomato, capers and guindilla peppers, dressed with extra virgin olive oil.",
+                "fr": "Salaisons traditionnelles avec œuf dur, tomate, câpres et piments guindilla, à l’huile d’olive vierge extra.",
+                "it": "Salagioni tradizionali con uovo sodo, pomodoro, capperi e peperoncini piparras, condita con olio extravergine.",
+                "pl": "Tradycyjne solone ryby z jajkiem na twardo, pomidorem, kaparami i papryczkami piparras, z oliwą z oliwek."
+              },
+              "price": 16,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/7983e396-2b86-4a48-a3ab-bda0e42f5383-2b903372"
+            },
+            {
+              "id": "e9adba8e-823c-492b-ae73-4030241ced5a",
+              "name": {
+                "es": "Ensalada César",
+                "en": "Caesar salad",
+                "fr": "Salade César",
+                "it": "Insalata Caesar",
+                "pl": "Sałatka Cezar"
+              },
+              "description": {
+                "es": "Lechuga romana, pollo crujiente, lascas de parmesano, salsa César y tomatitos cherry.",
+                "en": "Romaine lettuce, crispy chicken, Parmesan shavings, Caesar dressing and cherry tomatoes.",
+                "fr": "Laitue romaine, poulet croustillant, copeaux de parmesan, sauce César et tomates cerises.",
+                "it": "Lattuga romana, pollo croccante, scaglie di parmigiano, salsa Caesar e pomodorini.",
+                "pl": "Sałata rzymska, chrupiący kurczak, płatki parmezanu, sos Cezar i pomidorki koktajlowe."
+              },
+              "price": 13,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/e9adba8e-823c-492b-ae73-4030241ced5a-204bd53d"
+            },
+            {
+              "id": "c217de25-b58e-4cf6-931b-6dfa2e472eb9",
+              "name": {
+                "es": "Ensalada Chester",
+                "en": "Chester salad",
+                "fr": "Salade Chester",
+                "it": "Insalata Chester",
+                "pl": "Sałatka Chester"
+              },
+              "description": {
+                "es": "Queso de cabra caramelizado sobre brotes tiernos, con tomatitos cherry, nueces caramelizadas, jamón serrano y crema balsámica.",
+                "en": "Caramelised goat’s cheese on baby leaves, with cherry tomatoes, caramelised walnuts, Serrano ham and balsamic glaze.",
+                "fr": "Chèvre caramélisé sur jeunes pousses, tomates cerises, noix caramélisées, jambon serrano et crème balsamique.",
+                "it": "Formaggio di capra caramellato su germogli, con pomodorini, noci caramellate, prosciutto serrano e crema di balsamico.",
+                "pl": "Karmelizowany kozi ser na młodych listkach, z pomidorkami, karmelizowanymi orzechami, szynką serrano i kremem balsamicznym."
+              },
+              "price": 12.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "08dc26fa-1ea0-4de1-808b-71babfc3cc3a",
+              "name": {
+                "es": "Gazpacho andaluz",
+                "en": "Andalusian gazpacho",
+                "fr": "Gaspacho andalou",
+                "it": "Gazpacho andaluso",
+                "pl": "Gazpacho andaluzyjskie"
+              },
+              "description": {
+                "es": "Sopa fría y refrescante de tomate, pimiento y pepino con AOVE. El emblema del verano andaluz.",
+                "en": "Cold, refreshing tomato, pepper and cucumber soup with extra virgin olive oil. The emblem of Andalusian summer.",
+                "fr": "Soupe froide et rafraîchissante de tomate, poivron et concombre à l’huile d’olive. L’emblème de l’été andalou.",
+                "it": "Zuppa fredda e rinfrescante di pomodoro, peperone e cetriolo con olio extravergine. Il simbolo dell’estate andalusa.",
+                "pl": "Zimna, orzeźwiająca zupa z pomidorów, papryki i ogórka z oliwą z oliwek. Symbol andaluzyjskiego lata."
+              },
+              "price": 7.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "910b342a-2b03-4b59-8e72-25427ac1ed8b",
+              "name": {
+                "es": "Ensaladilla rusa",
+                "en": "Russian salad",
+                "fr": "Salade russe",
+                "it": "Insalata russa",
+                "pl": "Sałatka jarzynowa"
+              },
+              "description": {
+                "es": "Un clásico: patata, zanahoria y atún con suave mayonesa. Cremosa, sabrosa y siempre apetecible.",
+                "en": "A classic: potato, carrot and tuna in a light mayonnaise. Creamy, tasty and always tempting.",
+                "fr": "Un classique : pomme de terre, carotte et thon à la mayonnaise douce. Crémeuse et toujours appétissante.",
+                "it": "Un classico: patate, carote e tonno con maionese delicata. Cremosa, saporita e sempre invitante.",
+                "pl": "Klasyk: ziemniaki, marchewka i tuńczyk w delikatnym majonezie. Kremowa i zawsze apetyczna."
+              },
+              "price": 6.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/910b342a-2b03-4b59-8e72-25427ac1ed8b-a78fcff7"
+            }
+          ]
+        },
+        {
+          "id": "d0631fb6-0d15-4e10-a927-602e94c6986e",
+          "title": {
+            "es": "Tapeo",
+            "en": "Tapas",
+            "fr": "Tapas",
+            "it": "Tapas",
+            "pl": "Tapas"
+          },
+          "items": [
+            {
+              "id": "6d359db7-b16d-4c16-8d94-7bb7d5882868",
+              "name": {
+                "es": "Patatas bravas",
+                "en": "Patatas bravas",
+                "fr": "Patatas bravas",
+                "it": "Patatas bravas",
+                "pl": "Patatas bravas"
+              },
+              "description": {
+                "es": "Crujientes por fuera, tiernas por dentro, con una salsa picante que despierta el paladar.",
+                "en": "Crispy outside, tender inside, with a spicy sauce that wakes up your palate.",
+                "fr": "Croustillantes dehors, fondantes dedans, avec une sauce piquante qui réveille les papilles.",
+                "it": "Croccanti fuori, tenere dentro, con una salsa piccante che risveglia il palato.",
+                "pl": "Chrupiące z zewnątrz, miękkie w środku, z pikantnym sosem, który budzi kubki smakowe."
+              },
+              "price": 8.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/6d359db7-b16d-4c16-8d94-7bb7d5882868-3631a137"
+            },
+            {
+              "id": "db9ad33d-bdc8-481c-b27f-a398c4e74f5a",
+              "name": {
+                "es": "Calamares a la andaluza",
+                "en": "Andalusian-style fried squid",
+                "fr": "Calamars à l’andalouse",
+                "it": "Calamari all’andalusa",
+                "pl": "Kalmary po andaluzyjsku"
+              },
+              "description": {
+                "es": "Los calamares que se visten de fiesta: nuestra gran especialidad. Crujientes, sabrosos… ¡y con acento del sur!",
+                "en": "Squid dressed up for a party: our great speciality. Crispy, tasty… and with a southern accent!",
+                "fr": "Des calamars sur leur trente-et-un : notre grande spécialité. Croustillants, savoureux… et avec l’accent du sud !",
+                "it": "Calamari vestiti a festa: la nostra grande specialità. Croccanti, saporiti… e con l’accento del sud!",
+                "pl": "Kalmary w odświętnym wydaniu: nasza wielka specjalność. Chrupiące, pyszne… i z południowym akcentem!"
+              },
+              "price": 14.9,
+              "allergens": [],
+              "featured": true,
+              "photo": "photos/menu/db9ad33d-bdc8-481c-b27f-a398c4e74f5a-eacbe074"
+            },
+            {
+              "id": "e320ff32-4b25-4341-b0cb-e4d326ce8027",
+              "name": {
+                "es": "Calamar nacional a la plancha",
+                "en": "Grilled local squid",
+                "fr": "Calamar local à la plancha",
+                "it": "Calamaro nostrano alla piastra",
+                "pl": "Grillowany kalmar z hiszpańskich wód"
+              },
+              "description": {
+                "es": "Calamar fresco, dorado en la plancha con ajo y perejil. Sabe a verano y mar.",
+                "en": "Fresh squid, golden on the griddle with garlic and parsley. It tastes of summer and the sea.",
+                "fr": "Calamar frais, doré à la plancha avec ail et persil. Un goût d’été et de mer.",
+                "it": "Calamaro fresco, dorato alla piastra con aglio e prezzemolo. Sa d’estate e di mare.",
+                "pl": "Świeży kalmar z grilla z czosnkiem i natką pietruszki. Smakuje latem i morzem."
+              },
+              "price": 21,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/e320ff32-4b25-4341-b0cb-e4d326ce8027-a3787266"
+            },
+            {
+              "id": "3b903d08-62da-4cdd-9491-85850adebc3a",
+              "name": {
+                "es": "Gambas a la gabardina",
+                "en": "Battered prawns",
+                "fr": "Crevettes en beignet",
+                "it": "Gamberi in pastella",
+                "pl": "Krewetki w cieście"
+              },
+              "description": {
+                "es": "Gambas crujientes envueltas en su abrigo dorado. Un clásico de barra… ¡no te comes solo una!",
+                "en": "Crispy prawns in a golden coat. A bar classic… you won’t stop at one!",
+                "fr": "Des crevettes croustillantes dans leur manteau doré. Un classique du comptoir… impossible d’en manger une seule !",
+                "it": "Gamberi croccanti nel loro cappotto dorato. Un classico da bancone… non ne mangi solo uno!",
+                "pl": "Chrupiące krewetki w złocistym płaszczyku. Barowy klasyk… na jednej się nie skończy!"
+              },
+              "price": 14,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "472e880c-6781-4e49-a3a2-17b5ea0cefb9",
+              "name": {
+                "es": "Tiras de pollo crujiente",
+                "en": "Crispy chicken strips",
+                "fr": "Aiguillettes de poulet croustillant",
+                "it": "Straccetti di pollo croccante",
+                "pl": "Chrupiące paski kurczaka"
+              },
+              "description": {
+                "es": "Jugosas por dentro, doradas por fuera. Perfectas para mojar, picar… ¡y repetir!",
+                "en": "Juicy inside, golden outside. Perfect for dipping, sharing… and ordering again!",
+                "fr": "Juteuses dedans, dorées dehors. Parfaites à tremper, à partager… et à recommander !",
+                "it": "Succosi dentro, dorati fuori. Perfetti da intingere, stuzzicare… e ripetere!",
+                "pl": "Soczyste w środku, złociste z zewnątrz. Idealne do maczania, podjadania… i na dokładkę!"
+              },
+              "price": 10.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/472e880c-6781-4e49-a3a2-17b5ea0cefb9-d7e675e1"
+            },
+            {
+              "id": "3c785a30-17de-46b1-bad1-3908a881b3c7",
+              "name": {
+                "es": "Boquerones fritos",
+                "en": "Fried anchovies",
+                "fr": "Anchois frits",
+                "it": "Alici fritte",
+                "pl": "Smażone sardele"
+              },
+              "description": {
+                "es": "Pequeños tesoros del mar, rebozados y fritos hasta quedar crujientes.",
+                "en": "Little treasures of the sea, coated and fried until crispy.",
+                "fr": "Petits trésors de la mer, enrobés et frits jusqu’à être croustillants.",
+                "it": "Piccoli tesori del mare, infarinati e fritti fino a diventare croccanti.",
+                "pl": "Małe skarby morza, obtoczone i usmażone na chrupko."
+              },
+              "price": 11,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/3c785a30-17de-46b1-bad1-3908a881b3c7-44d9df49"
+            },
+            {
+              "id": "cfd24f45-e7df-44b8-a0a7-0a77471435eb",
+              "name": {
+                "es": "Croquetas caseras",
+                "en": "Homemade croquettes",
+                "fr": "Croquettes maison",
+                "it": "Crocchette fatte in casa",
+                "pl": "Domowe krokiety"
+              },
+              "description": {
+                "es": "De bacalao, berenjena con queso, jamón, seta trufada con queso o sepia. Con el secreto de la abuela: crujientes por fuera, irresistibles por dentro.",
+                "en": "Cod, aubergine and cheese, ham, truffled mushroom and cheese, or cuttlefish. Grandma’s secret: crispy outside, irresistible inside.",
+                "fr": "Morue, aubergine et fromage, jambon, champignon truffé et fromage, ou seiche. Le secret de grand-mère : croustillantes dehors, irrésistibles dedans.",
+                "it": "Baccalà, melanzane e formaggio, prosciutto, funghi tartufati e formaggio, o seppia. Il segreto della nonna: croccanti fuori, irresistibili dentro.",
+                "pl": "Z dorszem, bakłażanem i serem, szynką, truflowymi grzybami i serem albo mątwą. Sekret babci: chrupiące z zewnątrz, nieodparte w środku."
+              },
+              "price": 2.5,
+              "allergens": [],
+              "featured": true,
+              "photo": "photos/menu/cfd24f45-e7df-44b8-a0a7-0a77471435eb-5c99875e"
+            },
+            {
+              "id": "35af7c7a-3ac9-4d11-9615-06d615577dab",
+              "name": {
+                "es": "Provolone al horno",
+                "en": "Baked provolone",
+                "fr": "Provolone au four",
+                "it": "Provola al forno",
+                "pl": "Zapiekany provolone"
+              },
+              "description": {
+                "es": "Queso provolone fundido, calentito y cremoso, listo para untar.",
+                "en": "Melted provolone, warm and creamy, ready to spread.",
+                "fr": "Provolone fondu, chaud et crémeux, prêt à tartiner.",
+                "it": "Provola fusa, calda e cremosa, pronta da spalmare.",
+                "pl": "Roztopiony ser provolone, ciepły i kremowy, gotowy do smarowania."
+              },
+              "price": 10.5,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "46260669-9db5-4512-acf5-43816ec28e70",
+              "name": {
+                "es": "Huevos rotos con jamón",
+                "en": "Broken eggs with ham",
+                "fr": "Œufs cassés au jambon",
+                "it": "Uova rotte con prosciutto",
+                "pl": "Rozbite jajka z szynką"
+              },
+              "description": {
+                "es": "Huevos fritos con la yema en su punto sobre patatas caseras, con pimientos de Padrón. Y alguno que pica.",
+                "en": "Fried eggs with runny yolks on homemade chips, with Padrón peppers. Some of them are hot.",
+                "fr": "Œufs au plat, jaune coulant, sur frites maison, avec piments de Padrón. Certains piquent.",
+                "it": "Uova fritte con il tuorlo al punto giusto su patate fatte in casa, con peperoni di Padrón. Qualcuno pizzica.",
+                "pl": "Jajka sadzone z płynnym żółtkiem na domowych frytkach, z papryczkami z Padrón. Niektóre są ostre."
+              },
+              "price": 12,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/46260669-9db5-4512-acf5-43816ec28e70-34934ea0"
+            }
+          ]
+        },
+        {
+          "id": "1d5a743d-33ff-42e5-9db4-171df5eeea67",
+          "title": {
+            "es": "Arroces y fideuá",
+            "en": "Rice dishes and fideuà",
+            "fr": "Riz et fideuà",
+            "it": "Risi e fideuà",
+            "pl": "Dania z ryżu i fideuà"
+          },
+          "note": {
+            "es": "Todos se pueden pedir también en fideuá. Precio por ración, mínimo 2 raciones.",
+            "en": "All of them are also available as fideuà (noodle paella). Price per serving, minimum 2 servings.",
+            "fr": "Tous existent aussi en fideuà (paella de vermicelles). Prix par portion, minimum 2 portions.",
+            "it": "Tutti si possono ordinare anche come fideuà (paella di spaghettini). Prezzo a porzione, minimo 2 porzioni.",
+            "pl": "Każde danie można zamówić także jako fideuà (paella z makaronem). Cena za porcję, minimum 2 porcje."
+          },
+          "items": [
+            {
+              "id": "22f30de6-54c0-4c3a-bec9-9369b0bbb790",
+              "name": {
+                "es": "Senyoret, arroz negro o arroz a banda",
+                "en": "Senyoret, black rice or arroz a banda",
+                "fr": "Senyoret, riz noir ou arroz a banda",
+                "it": "Senyoret, riso nero o arroz a banda",
+                "pl": "Senyoret, czarny ryż lub arroz a banda"
+              },
+              "description": {
+                "es": "Arroz seco o meloso con marisco pelado y pescado limpio, para que comas como un señor: mucho sabor, cero trabajo.",
+                "en": "Dry or creamy rice with peeled seafood and boned fish, so you can eat like a lord: lots of flavour, zero work.",
+                "fr": "Riz sec ou crémeux aux fruits de mer décortiqués et poisson sans arêtes, pour manger comme un seigneur : beaucoup de goût, zéro effort.",
+                "it": "Riso asciutto o cremoso con frutti di mare sgusciati e pesce pulito, per mangiare come un signore: tanto sapore, zero fatica.",
+                "pl": "Ryż na sucho lub kremowy z obranymi owocami morza i rybą bez ości, żeby jeść jak pan: dużo smaku, zero wysiłku."
+              },
+              "price": 14.9,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/22f30de6-54c0-4c3a-bec9-9369b0bbb790-822da0bf"
+            },
+            {
+              "id": "a940a69f-b7cc-45d1-a024-35b06da9762b",
+              "name": {
+                "es": "Fideuá de marisco",
+                "en": "Seafood fideuà",
+                "fr": "Fideuà aux fruits de mer",
+                "it": "Fideuà di mare",
+                "pl": "Fideuà z owocami morza"
+              },
+              "description": {
+                "es": "Fideos finos con marisco pelado y pescado limpio, para que comas como un señor: mucho sabor, cero trabajo.",
+                "en": "Thin noodles with peeled seafood and boned fish, so you can eat like a lord: lots of flavour, zero work.",
+                "fr": "Vermicelles aux fruits de mer décortiqués et poisson sans arêtes, pour manger comme un seigneur : beaucoup de goût, zéro effort.",
+                "it": "Spaghettini con frutti di mare sgusciati e pesce pulito, per mangiare come un signore: tanto sapore, zero fatica.",
+                "pl": "Cienki makaron z obranymi owocami morza i rybą bez ości, żeby jeść jak pan: dużo smaku, zero wysiłku."
+              },
+              "price": 14.9,
+              "priceNote": {
+                "es": "por ración, mín. 2",
+                "en": "per serving, min. 2",
+                "fr": "par portion, min. 2",
+                "it": "a porzione, min. 2",
+                "pl": "za porcję, min. 2"
+              },
+              "allergens": [],
+              "featured": true,
+              "photo": "photos/menu/a940a69f-b7cc-45d1-a024-35b06da9762b-eb1d2f9d"
+            },
+            {
+              "id": "fd42d5f8-d28d-4df6-a83c-6fab0486930e",
+              "name": {
+                "es": "Solomillo ibérico con boletus",
+                "en": "Iberian pork tenderloin with porcini",
+                "fr": "Filet de porc ibérique aux cèpes",
+                "it": "Filetto di maiale iberico con porcini",
+                "pl": "Polędwiczka iberyjska z borowikami"
+              },
+              "description": {
+                "es": "Arroz meloso con trocitos de solomillo tierno y el aroma irresistible de los boletus.",
+                "en": "Creamy rice with tender pieces of tenderloin and the irresistible aroma of porcini.",
+                "fr": "Riz crémeux aux morceaux de filet tendre et au parfum irrésistible des cèpes.",
+                "it": "Riso cremoso con bocconcini di filetto tenero e il profumo irresistibile dei porcini.",
+                "pl": "Kremowy ryż z kawałkami delikatnej polędwiczki i niezwykłym aromatem borowików."
+              },
+              "price": 15,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "71d1cc84-21ce-4f54-99ee-df68a0e391d1",
+              "name": {
+                "es": "Verduras",
+                "en": "Vegetables",
+                "fr": "Légumes",
+                "it": "Verdure",
+                "pl": "Z warzywami"
+              },
+              "description": {
+                "es": "Arroz con verduras de temporada al punto justo. Ligero, sano… y nada aburrido.",
+                "en": "Rice with seasonal vegetables cooked just right. Light, healthy… and anything but boring.",
+                "fr": "Riz aux légumes de saison cuits à point. Léger, sain… et pas du tout ennuyeux.",
+                "it": "Riso con verdure di stagione cotte al punto giusto. Leggero, sano… e per niente noioso.",
+                "pl": "Ryż z sezonowymi warzywami ugotowanymi w punkt. Lekki, zdrowy… i wcale nie nudny."
+              },
+              "price": 13.9,
+              "allergens": [],
+              "featured": false
+            }
+          ]
+        },
+        {
+          "id": "53da07d8-57ab-40cb-bab1-290ed0af6f7e",
+          "title": {
+            "es": "Platazo",
+            "en": "Mains",
+            "fr": "Plats",
+            "it": "Piatti forti",
+            "pl": "Dania główne"
+          },
+          "items": [
+            {
+              "id": "bdd11470-a50d-4f04-b875-d95a53a60974",
+              "name": {
+                "es": "Fish and chips",
+                "en": "Fish and chips",
+                "fr": "Fish and chips",
+                "it": "Fish and chips",
+                "pl": "Fish and chips"
+              },
+              "description": {
+                "es": "Filete de pescado rebozado con patatas fritas al estilo inglés. Un clásico de pub que nunca falla… ni con vinagre.",
+                "en": "Battered fish fillet with chips, English style. A pub classic that never fails… vinegar included.",
+                "fr": "Filet de poisson pané et frites à l’anglaise. Un classique de pub qui ne déçoit jamais… même au vinaigre.",
+                "it": "Filetto di pesce in pastella con patatine all’inglese. Un classico da pub che non delude mai… nemmeno con l’aceto.",
+                "pl": "Ryba w cieście z frytkami po angielsku. Pubowy klasyk, który nigdy nie zawodzi… nawet z octem."
+              },
+              "price": 14.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "a7b497ce-9f53-4705-ad48-e13ea70b6ac2",
+              "name": {
+                "es": "Solomillo ibérico trinchado con ajetes",
+                "en": "Sliced Iberian pork tenderloin with young garlic",
+                "fr": "Filet de porc ibérique tranché aux aillets",
+                "it": "Filetto di maiale iberico a fette con aglio fresco",
+                "pl": "Plastry polędwiczki iberyjskiej z młodym czosnkiem"
+              },
+              "description": {
+                "es": "Jugoso solomillo ibérico en lonchas, salteado con ajetes tiernos. Pura gloria en cada bocado.",
+                "en": "Juicy Iberian tenderloin, sliced and sautéed with tender young garlic. Pure glory in every bite.",
+                "fr": "Filet ibérique juteux en tranches, sauté aux aillets tendres. Un pur bonheur à chaque bouchée.",
+                "it": "Succoso filetto iberico a fette, saltato con aglio fresco. Pura gloria a ogni boccone.",
+                "pl": "Soczysta polędwiczka iberyjska w plastrach, smażona z młodym czosnkiem. Czysta rozkosz w każdym kęsie."
+              },
+              "price": 14.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "cca58e1c-9fa1-4976-be0d-014f9b7ac30f",
+              "name": {
+                "es": "Entrecot",
+                "en": "Entrecôte steak",
+                "fr": "Entrecôte",
+                "it": "Entrecôte",
+                "pl": "Antrykot"
+              },
+              "description": {
+                "es": "Corte noble, jugoso y sabroso, marcado al punto justo. Puro placer carnívoro.",
+                "en": "A noble cut, juicy and tasty, seared just right. Pure carnivore pleasure.",
+                "fr": "Une pièce noble, juteuse et savoureuse, saisie à point. Un pur plaisir carnivore.",
+                "it": "Un taglio nobile, succoso e saporito, scottato al punto giusto. Puro piacere carnivoro.",
+                "pl": "Szlachetny, soczysty kawałek mięsa, wysmażony w punkt. Czysta przyjemność dla mięsożerców."
+              },
+              "price": 24,
+              "allergens": [],
+              "featured": false
+            }
+          ]
+        },
+        {
+          "id": "5c75aee3-4d65-49af-865f-559401faa6d3",
+          "title": {
+            "es": "Hamburguesas",
+            "en": "Burgers",
+            "fr": "Burgers",
+            "it": "Hamburger",
+            "pl": "Burgery"
+          },
+          "footnote": {
+            "es": "Todas nuestras hamburguesas vienen con patatas fritas y nuestra salsa casera Chiri. ¡Una delicia!",
+            "en": "All our burgers come with chips and our homemade Chiri sauce. Delicious!",
+            "fr": "Tous nos burgers sont servis avec des frites et notre sauce maison Chiri. Un délice !",
+            "it": "Tutti i nostri hamburger sono serviti con patatine fritte e la nostra salsa fatta in casa Chiri. Una delizia!",
+            "pl": "Wszystkie nasze burgery podajemy z frytkami i domowym sosem Chiri. Pycha!"
+          },
+          "items": [
+            {
+              "id": "ec24f571-43af-4edf-ac4a-896fd7a90e94",
+              "name": {
+                "es": "Nakiss",
+                "en": "Nakiss",
+                "fr": "Nakiss",
+                "it": "Nakiss",
+                "pl": "Nakiss"
+              },
+              "description": {
+                "es": "Bacon crujiente, queso fundido, lechuga, tomate, cebolla crispy, huevo y carne 100 % ternera casera. Una torre de sabor para valientes.",
+                "en": "Crispy bacon, melted cheese, lettuce, tomato, crispy onion, egg and a homemade 100% beef patty. A tower of flavour for the brave.",
+                "fr": "Bacon croustillant, fromage fondu, salade, tomate, oignon frit, œuf et steak maison 100 % bœuf. Une tour de saveurs pour les courageux.",
+                "it": "Bacon croccante, formaggio fuso, lattuga, pomodoro, cipolla croccante, uovo e carne 100% manzo fatta in casa. Una torre di sapore per i coraggiosi.",
+                "pl": "Chrupiący bekon, roztopiony ser, sałata, pomidor, chrupiąca cebulka, jajko i domowy kotlet ze 100% wołowiny. Wieża smaku dla odważnych."
+              },
+              "price": 15.5,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/ec24f571-43af-4edf-ac4a-896fd7a90e94-9af91598"
+            },
+            {
+              "id": "b1fcbe8b-8e51-4f9c-ad7f-a9e9fbf2f7dc",
+              "name": {
+                "es": "Gourmet",
+                "en": "Gourmet",
+                "fr": "Gourmet",
+                "it": "Gourmet",
+                "pl": "Gourmet"
+              },
+              "description": {
+                "es": "Queso de cabra caramelizado, rúcula fresca, cebolla crujiente y bacon dorado sobre carne 100 % ternera. Dulce, salada y crujiente.",
+                "en": "Caramelised goat’s cheese, fresh rocket, crispy onion and golden bacon on a 100% beef patty. Sweet, salty and crunchy.",
+                "fr": "Chèvre caramélisé, roquette fraîche, oignon croustillant et bacon doré sur steak 100 % bœuf. Sucré, salé et croquant.",
+                "it": "Formaggio di capra caramellato, rucola fresca, cipolla croccante e bacon dorato su carne 100% manzo. Dolce, salata e croccante.",
+                "pl": "Karmelizowany kozi ser, świeża rukola, chrupiąca cebulka i złocisty bekon na kotlecie ze 100% wołowiny. Słodki, słony i chrupiący."
+              },
+              "price": 15.9,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/b1fcbe8b-8e51-4f9c-ad7f-a9e9fbf2f7dc-8453d576"
+            },
+            {
+              "id": "c21aa8b0-bbf9-446f-bba4-1906a1813b94",
+              "name": {
+                "es": "Americana",
+                "en": "American",
+                "fr": "Américain",
+                "it": "Americana",
+                "pl": "Amerykański"
+              },
+              "description": {
+                "es": "Doble de carne 100 % ternera, doble de queso cheddar, pepinillo, bacon y lechuga. Para los que no se andan con tonterías.",
+                "en": "Double 100% beef patty, double cheddar, pickles, bacon and lettuce. For those who mean business.",
+                "fr": "Double steak 100 % bœuf, double cheddar, cornichons, bacon et salade. Pour ceux qui ne font pas dans la dentelle.",
+                "it": "Doppia carne 100% manzo, doppio cheddar, cetriolini, bacon e lattuga. Per chi non scherza.",
+                "pl": "Podwójny kotlet ze 100% wołowiny, podwójny cheddar, ogórek konserwowy, bekon i sałata. Dla tych, którzy nie żartują."
+              },
+              "price": 18.9,
+              "allergens": [],
+              "featured": false,
+              "photo": "photos/menu/c21aa8b0-bbf9-446f-bba4-1906a1813b94-a78f7671"
+            }
+          ]
+        },
+        {
+          "id": "2d2a45da-c968-4100-9fd3-eaa65e09b43d",
+          "title": {
+            "es": "Postres",
+            "en": "Desserts",
+            "fr": "Desserts",
+            "it": "Dolci",
+            "pl": "Desery"
+          },
+          "items": [
+            {
+              "id": "bdd91e71-68c0-4459-b0ad-73024f2b28dd",
+              "name": {
+                "es": "Pan de Calatrava",
+                "en": "Pan de Calatrava",
+                "fr": "Pan de Calatrava",
+                "it": "Pan de Calatrava",
+                "pl": "Pan de Calatrava"
+              },
+              "description": {
+                "es": "Tradición dulce con final caramelizado.",
+                "en": "A sweet Murcian tradition with a caramelised finish.",
+                "fr": "Une douceur traditionnelle au final caramélisé.",
+                "it": "Una dolce tradizione con finale caramellato.",
+                "pl": "Słodka tradycja z karmelizowanym wykończeniem."
+              },
+              "price": 5.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "cacc87e3-b2c7-456e-939f-3de192e9f6ba",
+              "name": {
+                "es": "Tiramisú",
+                "en": "Tiramisu",
+                "fr": "Tiramisu",
+                "it": "Tiramisù",
+                "pl": "Tiramisu"
+              },
+              "description": {
+                "es": "Capas suaves de mascarpone y bizcocho bañadas en café, coronadas con cacao.",
+                "en": "Soft layers of mascarpone and sponge soaked in coffee, topped with cocoa.",
+                "fr": "Couches moelleuses de mascarpone et de biscuit imbibé de café, saupoudrées de cacao.",
+                "it": "Morbidi strati di mascarpone e pan di Spagna bagnati nel caffè, con una spolverata di cacao.",
+                "pl": "Delikatne warstwy mascarpone i biszkoptu nasączonego kawą, posypane kakao."
+              },
+              "price": 5.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "170725fa-230f-4d7d-9c39-f8b8bd6eafd1",
+              "name": {
+                "es": "Panna cotta",
+                "en": "Panna cotta",
+                "fr": "Panna cotta",
+                "it": "Panna cotta",
+                "pl": "Panna cotta"
+              },
+              "description": {
+                "es": "Cremosidad italiana con fresas frescas y un toque de caramelo hecho en casa.",
+                "en": "Italian creaminess with fresh strawberries and a touch of homemade caramel.",
+                "fr": "Onctuosité italienne aux fraises fraîches et une touche de caramel maison.",
+                "it": "Cremosità italiana con fragole fresche e un tocco di caramello fatto in casa.",
+                "pl": "Włoska kremowość ze świeżymi truskawkami i odrobiną domowego karmelu."
+              },
+              "price": 5.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "4a1242a4-6914-4d6e-a866-8364e7166eb1",
+              "name": {
+                "es": "Brownie de chocolate",
+                "en": "Chocolate brownie",
+                "fr": "Brownie au chocolat",
+                "it": "Brownie al cioccolato",
+                "pl": "Brownie czekoladowe"
+              },
+              "description": {
+                "es": "Intenso y jugoso, servido caliente con helado de vainilla y sirope de dulce de leche.",
+                "en": "Rich and moist, served warm with vanilla ice cream and dulce de leche syrup.",
+                "fr": "Intense et fondant, servi chaud avec glace vanille et sirop de confiture de lait.",
+                "it": "Intenso e umido, servito caldo con gelato alla vaniglia e sciroppo di dulce de leche.",
+                "pl": "Intensywne i wilgotne, podawane na ciepło z lodami waniliowymi i syropem dulce de leche."
+              },
+              "price": 5.9,
+              "allergens": [],
+              "featured": false
+            },
+            {
+              "id": "0b9404d7-b639-4ac5-a61f-948fe7d1ad14",
+              "name": {
+                "es": "Tarta Toblerone",
+                "en": "Toblerone cake",
+                "fr": "Gâteau Toblerone",
+                "it": "Torta Toblerone",
+                "pl": "Tort Toblerone"
+              },
+              "description": {
+                "es": "Un homenaje al chocolate más icónico, en versión tarta.",
+                "en": "A tribute to the most iconic chocolate, as a cake.",
+                "fr": "Un hommage au chocolat le plus iconique, version gâteau.",
+                "it": "Un omaggio al cioccolato più iconico, in versione torta.",
+                "pl": "Hołd dla najbardziej kultowej czekolady, w wersji tortu."
+              },
+              "price": 4.9,
+              "allergens": [],
+              "featured": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

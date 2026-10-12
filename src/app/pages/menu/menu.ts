@@ -5,13 +5,13 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CURRENT_LOCALE, PAGE_SLUGS } from '../../i18n/locales';
 import { PhotoLightbox } from '../../layout/photo-lightbox/photo-lightbox';
 import { PhotoSlot } from '../../layout/photo-slot/photo-slot';
-import { MENUS, MenuKey } from './menu-data';
+import { isSingleDish, MENUS } from './menu-data';
 
-const KEYS: MenuKey[] = ['brunch', 'tapas'];
+const KEYS = MENUS.map((menu) => menu.key);
 
 /**
- * The menu, in two tabs: Brunch and Tapas (rest of the day, desserts
- * included). Both panels are prerendered; `/carta#tapas` opens the Tapas tab.
+ * The menu, one tab per menu in Sobremesa (Brunch and Tapas today). Every
+ * panel is prerendered; `/carta#tapas` opens the Tapas tab.
  */
 @Component({
   selector: 'app-menu',
@@ -26,22 +26,18 @@ export class Menu {
 
   protected readonly locale = inject(CURRENT_LOCALE);
   protected readonly menus = MENUS;
-  protected readonly keys = KEYS;
+  protected readonly isSingleDish = isSingleDish;
   protected readonly reservationsPath = `/${PAGE_SLUGS.reservations[this.locale]}`;
-  protected readonly tabLabels: Record<MenuKey, string> = {
-    brunch: $localize`:@@menu.tabBrunch:Brunch`,
-    tapas: $localize`:@@menu.tabTapas:Tapas`,
-  };
-
-  protected readonly active = linkedSignal<MenuKey>(() =>
-    this.fragment() === 'tapas' ? 'tapas' : 'brunch',
-  );
+  protected readonly active = linkedSignal<string>(() => {
+    const fragment = this.fragment();
+    return fragment && KEYS.includes(fragment) ? fragment : KEYS[0];
+  });
 
   protected photoLabel(dish: string): string {
     return $localize`:@@menu.photoOpen:Ver en grande la foto de ${dish}:dish:`;
   }
 
-  protected select(key: MenuKey): void {
+  protected select(key: string): void {
     this.active.set(key);
     // Keep the tab in the URL (shareable) without a router navigation, which
     // would scroll back to the top.
