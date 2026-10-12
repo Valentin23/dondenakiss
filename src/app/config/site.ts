@@ -14,8 +14,8 @@ export const SITE = {
   /** Full name, as on the shop sign and the Google Business Profile. */
   fullName: 'Donde Nakiss Brunch & Tapas Sin Gluten',
   phone: '+34 624 30 36 46',
-  // TODO: switch to the dondenakiss.es address once it exists.
-  email: 'dondenakiss@gmail.com',
+  /** Received through Cloudflare Email Routing, which forwards it to the restaurant's Gmail. */
+  email: 'hola@dondenakiss.es',
   address: 'Rambla de Méndez Núñez, 48, 03002 Alicante',
   postalAddress: {
     streetAddress: 'Rambla de Méndez Núñez, 48',
@@ -69,7 +69,7 @@ export const SITE = {
    */
   activityLicence: { reference: '1079/94', authority: 'Ayuntamiento de Alicante' },
   /** Date of the last revision of the legal texts (ISO). */
-  legalUpdated: '2026-10-09',
+  legalUpdated: '2026-10-11',
 } as const;
 
 /** `tel:` URI for the phone number (RFC 3966 does not allow spaces). */
