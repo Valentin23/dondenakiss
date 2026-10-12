@@ -86,7 +86,6 @@ https://dondenakiss.es/?utm_source=google&utm_medium=organic&utm_campaign=gbp
 
 ## To do
 
-- In `src/app/config/site.ts`: DISH widget URL, and the email on the domain (currently the Gmail address).
 - When adding the DISH widget or any other third-party service: update the privacy policy (recipients
   and cookies) and `SITE.legalUpdated`.
 - `/admin` (SPA): `RenderMode.Client` in `app.routes.server.ts`, `noindex`, `Disallow: /admin` in

@@ -135,7 +135,7 @@
     "privacy.health.withBookings": "Se ci comunichi allergie o intolleranze, si tratta di dati relativi alla salute. Li usiamo solo per adattare il tuo piatto, con il tuo consenso esplicito (art. 9.2.a del GDPR), e per nient’altro. Se ce lo dici al tavolo, lo annotiamo nella comanda solo con il numero del tavolo e la buttiamo alla fine del servizio. Se lo scrivi nei commenti della prenotazione, viene conservato con essa e cancellato insieme al resto dei dati della prenotazione.",
     "privacy.recipients.heading": "3. Destinatari",
     "privacy.recipients.body": "Non cediamo i tuoi dati a terzi, salvo obbligo di legge. Per fornire il servizio ci avvaliamo dei seguenti fornitori, che agiscono come responsabili del trattamento:",
-    "privacy.recipients.cloudflare": "Cloudflare, Inc. (USA): hosting del sito, sicurezza e statistiche delle visite.",
+    "privacy.recipients.cloudflare": "Cloudflare, Inc. (USA): hosting del sito, sicurezza, statistiche delle visite e inoltro alla nostra casella della posta inviata ai nostri indirizzi @dondenakiss.es.",
     "privacy.recipients.dish": "DISH Digital Solutions GmbH (Germania): storico delle prenotazioni e delle mancate presentazioni.",
     "privacy.recipients.messaging": "Per la posta elettronica usiamo Gmail, di Google Ireland Limited (Irlanda), e per i messaggi WhatsApp, di WhatsApp Ireland Limited (Irlanda), e Instagram, di Meta Platforms Ireland Limited (Irlanda). Forniscono il servizio secondo le proprie condizioni e trattano i dati in conformità alle loro informative sulla privacy: {$START_LINK}quella di Google{$CLOSE_LINK}, {$START_LINK_1}quella di WhatsApp{$CLOSE_LINK} e {$START_LINK_2}quella di Instagram{$CLOSE_LINK}.",
     "privacy.transfers.heading": "4. Trasferimenti internazionali",
