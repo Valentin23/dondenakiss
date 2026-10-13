@@ -4,7 +4,12 @@ import {
   provideAppInitializer,
   provideBrowserGlobalErrorListeners,
 } from '@angular/core';
-import { IMAGE_CONFIG, IMAGE_LOADER } from '@angular/common';
+import {
+  IMAGE_CONFIG,
+  IMAGE_LOADER,
+  LocationStrategy,
+  TrailingSlashPathLocationStrategy,
+} from '@angular/common';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { ROUTES, provideRouter, withInMemoryScrolling } from '@angular/router';
 import { buildRoutes } from './app.routes';
@@ -16,6 +21,9 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter([], withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })),
+    // Pages are prerendered as folders (/carta/index.html), so Cloudflare Pages serves
+    // them at /carta/ and redirects /carta to it. Links must point at the final URL.
+    { provide: LocationStrategy, useClass: TrailingSlashPathLocationStrategy },
     { provide: ROUTES, multi: true, useFactory: () => buildRoutes(inject(CURRENT_LOCALE)) },
     provideClientHydration(withEventReplay()),
     provideAppInitializer(() => inject(Seo).init()),
