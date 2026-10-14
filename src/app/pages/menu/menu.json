@@ -21,7 +21,7 @@
           },
           "items": [
             {
-              "id": "e1668474-1bea-4b53-b4f2-b476e3c7a753",
+              "id": "74470a1f-645e-40fd-a7fa-a33b6c062fb5",
               "name": {
                 "es": "Super",
                 "en": "Super",
@@ -39,7 +39,7 @@
               "price": 6.9,
               "allergens": [],
               "featured": false,
-              "photo": "photos/menu/e1668474-1bea-4b53-b4f2-b476e3c7a753-893cfe32"
+              "photo": "photos/menu/74470a1f-645e-40fd-a7fa-a33b6c062fb5-88b88923"
             },
             {
               "id": "d2a86c80-adc6-48ab-a357-8a7b40d6df63",
@@ -82,7 +82,7 @@
               "featured": false
             },
             {
-              "id": "096e0bf3-3acf-4e7a-a15e-e6966fa2eb01",
+              "id": "32ea8775-38b1-407f-bb96-b428d999fa2c",
               "name": {
                 "es": "Suprema",
                 "en": "Suprema",
@@ -100,7 +100,7 @@
               "price": 7.5,
               "allergens": [],
               "featured": false,
-              "photo": "photos/menu/096e0bf3-3acf-4e7a-a15e-e6966fa2eb01-8980f7aa"
+              "photo": "photos/menu/32ea8775-38b1-407f-bb96-b428d999fa2c-84e8cf26"
             },
             {
               "id": "5204f054-6edb-47ba-97ca-04c47907bb50",

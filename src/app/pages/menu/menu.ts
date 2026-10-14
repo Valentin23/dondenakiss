@@ -10,7 +10,7 @@ import { isSingleDish, MENUS } from './menu-data';
 const KEYS = MENUS.map((menu) => menu.key);
 
 /**
- * The menu, one tab per menu in Sobremesa (Brunch and Tapas today). Every
+ * The menu, one tab per menu in Taulada (Brunch and Tapas today). Every
  * panel is prerendered; `/carta#tapas` opens the Tapas tab.
  */
 @Component({

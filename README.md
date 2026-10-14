@@ -41,10 +41,10 @@ Node 24 LTS; the exact version is in `.nvmrc` (Angular 22 requires >= 24.15.0).
 
   The build fails if a translation is missing (`i18nMissingTranslation: "error"`).
 
-- **Menu**: not in the translation files. The owners edit it in Sobremesa (reservas.dondenakiss.es);
+- **Menu**: not in the translation files. The owners edit it in Taulada (taulada.com);
   `npm run menu:sync` copies it, with one text per language for each dish, into
   `src/app/pages/menu/menu.json` and its photos into `public/photos/menu/`. Cloudflare Pages builds sync
-  it on their own, and keep the committed copy if Sobremesa can't be reached.
+  it on their own, and keep the committed copy if Taulada can't be reached.
 
 ## Workflow
 
