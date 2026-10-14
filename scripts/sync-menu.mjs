@@ -1,4 +1,4 @@
-// Brings the menu from Sobremesa, where the owners edit it, into the site:
+// Brings the menu from Taulada, where the owners edit it, into the site:
 // writes src/app/pages/menu/menu.json with every text in every locale, and
 // public/photos/menu/<name>-{480,960,1600}.webp for each dish photo (photo
 // names change on every upload, so existing files are kept as they are).
@@ -7,7 +7,7 @@
 //   node scripts/sync-menu.mjs --on-pages   # in a Cloudflare Pages build only
 //
 // The committed copy is what local builds, tests and CI use. Pages builds
-// refresh it first (`prebuild`), and keep it if Sobremesa can't be reached,
+// refresh it first (`prebuild`), and keep it if Taulada can't be reached,
 // so a deploy never fails because of the menu.
 import { existsSync } from 'node:fs';
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises';
@@ -15,7 +15,7 @@ import { join } from 'node:path';
 import sharp from 'sharp';
 import { QUALITY, WIDTHS } from './photo-sizes.mjs';
 
-const SOBREMESA = process.env.SOBREMESA_URL ?? 'https://reservas.dondenakiss.es';
+const TAULADA = process.env.TAULADA_URL ?? 'https://taulada.com';
 const RESTAURANT = 'dondenakiss';
 const OUT_JSON = 'src/app/pages/menu/menu.json';
 const PHOTO_DIR = 'public/photos/menu';
@@ -30,8 +30,8 @@ const pages = JSON.parse(await readFile('src/app/i18n/pages.json', 'utf8'));
 const LOCALES = Object.keys(pages.home);
 
 async function fetchMenu(lang) {
-  const res = await fetch(`${SOBREMESA}/api/restaurants/${RESTAURANT}/menu?lang=${lang}`);
-  if (!res.ok) throw new Error(`Sobremesa answered ${res.status} for ${lang}`);
+  const res = await fetch(`${TAULADA}/api/restaurants/${RESTAURANT}/menu?lang=${lang}`);
+  if (!res.ok) throw new Error(`Taulada answered ${res.status} for ${lang}`);
   return res.json();
 }
 

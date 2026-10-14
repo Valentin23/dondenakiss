@@ -2,7 +2,7 @@ import { Locale } from '../../i18n/locales';
 import data from './menu.json';
 
 /**
- * The menu comes from Sobremesa, where the owners edit it. menu.json and
+ * The menu comes from Taulada, where the owners edit it. menu.json and
  * public/photos/menu/ are a copy that `node scripts/sync-menu.mjs` refreshes;
  * Cloudflare Pages builds refresh it on their own before building.
  */

@@ -8,7 +8,7 @@ function texts(...values: (Localized | undefined)[]): Localized[] {
   return values.filter((v): v is Localized => v !== undefined);
 }
 
-describe('menu data (synced from Sobremesa)', () => {
+describe('menu data (synced from Taulada)', () => {
   it('has the Brunch and Tapas tabs, with unique ids', () => {
     expect(MENUS.map((m) => m.key)).toEqual(['brunch', 'tapas']);
     const ids = [...sections.map((s) => s.id), ...items.map((i) => i.id)];
@@ -35,7 +35,7 @@ describe('menu data (synced from Sobremesa)', () => {
     }
   });
 
-  it('features the dishes marked in Sobremesa, in menu order', () => {
+  it('features the dishes marked in Taulada, in menu order', () => {
     expect(FEATURED_DISHES.length).toBeGreaterThan(0);
     expect(FEATURED_DISHES.every((d) => d.featured)).toBe(true);
     expect(FEATURED_DISHES.map((d) => d.name.es)).toContain('Fideuá de marisco');
