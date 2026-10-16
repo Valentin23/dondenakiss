@@ -57,8 +57,9 @@ export const SITE = {
    * - `dish`: DISH Reservation's widget. DISH's embed snippet loads a script
    *   that only builds this iframe, so the iframe is used directly; `?lang=`
    *   (added per locale) picks its language.
-   * - `taulada`: the booking page on taulada.com in embed mode, which tells
-   *   the website its height.
+   * - `taulada`: Taulada's booking form, through its widget script
+   *   (taulada.com/widget.js), the snippet any restaurant gets in Taulada's
+   *   Ajustes → Tu web.
    * The privacy policy follows this setting (booking channels, recipients,
    * cookies). When switching, also set `legalUpdated` to that day. The
    * switch-over steps are in taulada#59.
@@ -66,7 +67,7 @@ export const SITE = {
   booking: {
     provider: 'dish' as BookingProvider,
     dishWidgetUrl: 'https://reservation.dish.co/widget/hydra-06933495-a3ac-403d-9ac6-a94eaec9ea9c',
-    tauladaUrl: 'https://taulada.com/r/dondenakiss',
+    taulada: { origin: 'https://taulada.com', slug: 'dondenakiss' },
   },
   /** Website owner (LSSI art. 10), shown in the legal notice and the privacy policy. */
   owner: {

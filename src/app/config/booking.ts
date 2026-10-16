@@ -8,8 +8,11 @@ export interface BookingConfig {
   provider: BookingProvider;
   /** DISH Reservation's widget, loaded directly in an iframe. */
   dishWidgetUrl: string;
-  /** The restaurant's booking page on Taulada, shown in embed mode. */
-  tauladaUrl: string;
+  /**
+   * The restaurant on Taulada: its booking form comes from Taulada's widget
+   * script, as on any restaurant's website.
+   */
+  taulada: { origin: string; slug: string };
 }
 
 /**

@@ -1,12 +1,4 @@
-import {
-  afterNextRender,
-  Component,
-  DestroyRef,
-  type ElementRef,
-  inject,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { afterNextRender, Component, type ElementRef, inject, viewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { BOOKING } from '../../config/booking';
 import { PHONE_HREF, SITE } from '../../config/site';
@@ -25,18 +17,27 @@ const WIDGET_COLORS = {
 
 /**
  * The online booking form, in the page's language: DISH Reservation's widget
- * or Taulada's booking page, as `SITE.booking.provider` says. Without a URL,
- * a card that asks guests to call instead.
+ * or Taulada's, as `SITE.booking.provider` says. Without either, a card that
+ * asks guests to call instead.
  */
 @Component({
   selector: 'app-booking-widget',
   template: `
-    @if (widgetUrl) {
+    @if (taulada) {
+      <!-- Taulada's widget script turns this into the booking form; the link is for
+           visitors without JavaScript. -->
+      <div
+        #slot
+        [attr.data-taulada-booking]="taulada.slug"
+        [attr.data-lang]="locale"
+        data-title="Reservas Donde Nakiss"
+        i18n-data-title="@@reservations.widgetTitle"
+      >
+        <a class="btn btn-primary" [href]="tauladaPage" i18n="@@nav.book">Reservar mesa</a>
+      </div>
+    } @else if (widgetUrl) {
       <iframe
-        #frame
         [src]="widgetUrl"
-        [class.taulada]="taulada"
-        [style.height]="height()"
         title="Reservas Donde Nakiss"
         i18n-title="@@reservations.widgetTitle"
         loading="lazy"
@@ -69,12 +70,6 @@ const WIDGET_COLORS = {
       height: 29rem;
       border: 0;
       border-radius: var(--dn-radius-md);
-    }
-    /* Taulada's page reports its height (BookingWidget sets it), so this is
-       only the height until the first report. */
-    iframe.taulada {
-      height: 36rem;
-      scroll-margin-top: var(--dn-space-4);
     }
     .fallback {
       display: flex;
@@ -119,47 +114,39 @@ const WIDGET_COLORS = {
 })
 export class BookingWidget {
   private readonly booking = inject(BOOKING);
-  private readonly locale = inject(CURRENT_LOCALE);
+  protected readonly locale = inject(CURRENT_LOCALE);
   protected readonly phone = SITE.phone;
   protected readonly phoneHref = PHONE_HREF;
-  protected readonly taulada = this.booking.provider === 'taulada';
-  protected readonly widgetUrl = this.frameUrl();
-  /** The frame's height as Taulada's page reports it; null until then. */
-  protected readonly height = signal<string | null>(null);
-  private readonly frame = viewChild<ElementRef<HTMLIFrameElement>>('frame');
+  protected readonly taulada = this.booking.provider === 'taulada' ? this.booking.taulada : null;
+  protected readonly tauladaPage = this.taulada
+    ? `${this.taulada.origin}/r/${this.taulada.slug}`
+    : null;
+  protected readonly widgetUrl = this.dishUrl();
+  private readonly slot = viewChild<ElementRef<HTMLElement>>('slot');
 
   constructor() {
-    if (!this.taulada) return;
-    // Taulada's page (embed mode) posts { source: 'taulada', type: 'height' | 'step' }
-    // to its parent. Only messages from this frame's window and Taulada's origin count.
-    const origin = new URL(this.booking.tauladaUrl).origin;
-    const destroyRef = inject(DestroyRef);
+    // Once hydrated (the page is prerendered), load Taulada's widget script,
+    // which mounts every [data-taulada-booking] on the page; if it's already
+    // loaded (navigating between pages), mount this one.
     afterNextRender(() => {
-      const onMessage = (event: MessageEvent<unknown>) => {
-        const frame = this.frame()?.nativeElement;
-        const data = event.data as { source?: unknown; type?: unknown; height?: unknown } | null;
-        if (!frame || event.origin !== origin || event.source !== frame.contentWindow) return;
-        if (data?.source !== 'taulada') return;
-        if (data.type === 'height' && typeof data.height === 'number' && data.height > 0) {
-          this.height.set(`${Math.ceil(data.height)}px`);
-        } else if (data.type === 'step') {
-          frame.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      };
-      window.addEventListener('message', onMessage);
-      destroyRef.onDestroy(() => window.removeEventListener('message', onMessage));
+      const element = this.slot()?.nativeElement;
+      if (!element || !this.taulada) return;
+      const taulada = (window as Window & { Taulada?: { mount(element: Element): void } }).Taulada;
+      if (taulada) return taulada.mount(element);
+      const src = `${this.taulada.origin}/widget.js`;
+      if (document.querySelector(`script[src="${src}"]`)) return;
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      document.head.append(script);
     });
   }
 
-  private frameUrl() {
-    const { provider, dishWidgetUrl, tauladaUrl } = this.booking;
-    const [base, params] =
-      provider === 'taulada'
-        ? [tauladaUrl, { embed: '1', lang: this.locale }]
-        : [dishWidgetUrl, { lang: this.locale, ...WIDGET_COLORS }];
-    if (!base) return null;
+  private dishUrl() {
+    const { provider, dishWidgetUrl } = this.booking;
+    if (provider !== 'dish' || !dishWidgetUrl) return null;
     return inject(DomSanitizer).bypassSecurityTrustResourceUrl(
-      `${base}?${new URLSearchParams(params)}`,
+      `${dishWidgetUrl}?${new URLSearchParams({ lang: this.locale, ...WIDGET_COLORS })}`,
     );
   }
 }

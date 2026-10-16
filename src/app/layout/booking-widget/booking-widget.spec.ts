@@ -3,48 +3,49 @@ import { BOOKING, type BookingConfig } from '../../config/booking';
 import { SITE } from '../../config/site';
 import { BookingWidget } from './booking-widget';
 
-async function render(booking: Partial<BookingConfig> = {}) {
+const WIDGET_SCRIPT = 'https://taulada.com/widget.js';
+
+async function render(booking: Partial<BookingConfig>) {
   await TestBed.configureTestingModule({
     imports: [BookingWidget],
     providers: [{ provide: BOOKING, useValue: { ...SITE.booking, ...booking } }],
   }).compileComponents();
   const fixture = TestBed.createComponent(BookingWidget);
   await fixture.whenStable();
-  const iframe = (fixture.nativeElement as HTMLElement).querySelector('iframe')!;
-  return { fixture, iframe };
+  return fixture.nativeElement as HTMLElement;
 }
 
-/** A message as Taulada's page sends it, from `source`. */
-function post(data: unknown, source: Window | null, origin = 'https://taulada.com') {
-  window.dispatchEvent(new MessageEvent('message', { data, origin, source }));
-}
+type WithTaulada = Window & { Taulada?: { mount(element: Element): void } };
 
 describe('BookingWidget', () => {
+  afterEach(() => {
+    document.querySelectorAll(`script[src="${WIDGET_SCRIPT}"]`).forEach((s) => s.remove());
+    delete (window as WithTaulada).Taulada;
+  });
+
   it("shows DISH's widget in the page's language while DISH takes the bookings", async () => {
-    const { iframe } = await render({ provider: 'dish' });
-    const src = new URL(iframe.getAttribute('src')!);
+    const el = await render({ provider: 'dish' });
+    const src = new URL(el.querySelector('iframe')!.getAttribute('src')!);
     expect(src.origin + src.pathname).toBe(SITE.booking.dishWidgetUrl);
     expect(src.searchParams.get('lang')).toBe('es');
+    expect(document.querySelector(`script[src="${WIDGET_SCRIPT}"]`)).toBeNull();
   });
 
-  it("shows Taulada's booking page in embed mode and takes the height it reports", async () => {
-    const { fixture, iframe } = await render({ provider: 'taulada' });
-    expect(iframe.getAttribute('src')).toBe('https://taulada.com/r/dondenakiss?embed=1&lang=es');
-
-    post({ source: 'taulada', type: 'height', height: 812.4 }, iframe.contentWindow);
-    await fixture.whenStable();
-    expect(iframe.style.height).toBe('813px');
+  it("uses Taulada's widget script, with a link for visitors without JavaScript", async () => {
+    const el = await render({ provider: 'taulada' });
+    const slot = el.querySelector('[data-taulada-booking]')!;
+    expect(slot.getAttribute('data-taulada-booking')).toBe('dondenakiss');
+    expect(slot.getAttribute('data-lang')).toBe('es');
+    expect(slot.querySelector('a')?.getAttribute('href')).toBe('https://taulada.com/r/dondenakiss');
+    expect(el.querySelector('iframe')).toBeNull();
+    expect(document.querySelectorAll(`script[src="${WIDGET_SCRIPT}"]`)).toHaveLength(1);
   });
 
-  it('ignores messages from other sites or other frames', async () => {
-    const { fixture, iframe } = await render({ provider: 'taulada' });
-    post(
-      { source: 'taulada', type: 'height', height: 5000 },
-      iframe.contentWindow,
-      'https://evil.example',
-    );
-    post({ source: 'taulada', type: 'height', height: 5000 }, window);
-    await fixture.whenStable();
-    expect(iframe.style.height).toBe('');
+  it('mounts on its own when the script is already loaded (moving between pages)', async () => {
+    const mount = vi.fn();
+    (window as WithTaulada).Taulada = { mount };
+    const el = await render({ provider: 'taulada' });
+    expect(mount).toHaveBeenCalledWith(el.querySelector('[data-taulada-booking]'));
+    expect(document.querySelector(`script[src="${WIDGET_SCRIPT}"]`)).toBeNull();
   });
 });
