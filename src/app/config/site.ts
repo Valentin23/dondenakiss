@@ -69,7 +69,7 @@ export const SITE = {
    */
   activityLicence: { reference: '1079/94', authority: 'Ayuntamiento de Alicante' },
   /** Date of the last revision of the legal texts (ISO). */
-  legalUpdated: '2026-10-11',
+  legalUpdated: '2026-10-16',
 } as const;
 
 /** `tel:` URI for the phone number (RFC 3966 does not allow spaces). */
