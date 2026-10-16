@@ -1,3 +1,5 @@
+import type { BookingProvider } from './booking';
+
 export type DayOfWeek =
   'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
 
@@ -51,11 +53,21 @@ export const SITE = {
     national: { name: 'Viviendo Sin Gluten', url: 'https://viviendosingluten.org/' },
   },
   /**
-   * DISH Reservation widget, rendered in an iframe on the home and reservations
-   * pages. DISH's embed snippet loads a script that only builds this iframe, so
-   * the iframe is used directly; `?lang=` (added per locale) picks its language.
+   * Online bookings on the home and reservations pages, in an iframe:
+   * - `dish`: DISH Reservation's widget. DISH's embed snippet loads a script
+   *   that only builds this iframe, so the iframe is used directly; `?lang=`
+   *   (added per locale) picks its language.
+   * - `taulada`: the booking page on taulada.com in embed mode, which tells
+   *   the website its height.
+   * The privacy policy follows this setting (booking channels, recipients,
+   * cookies). When switching, also set `legalUpdated` to that day. The
+   * switch-over steps are in taulada#59.
    */
-  dishWidgetUrl: 'https://reservation.dish.co/widget/hydra-06933495-a3ac-403d-9ac6-a94eaec9ea9c',
+  booking: {
+    provider: 'dish' as BookingProvider,
+    dishWidgetUrl: 'https://reservation.dish.co/widget/hydra-06933495-a3ac-403d-9ac6-a94eaec9ea9c',
+    tauladaUrl: 'https://taulada.com/r/dondenakiss',
+  },
   /** Website owner (LSSI art. 10), shown in the legal notice and the privacy policy. */
   owner: {
     name: 'Florin Cornel Nicolae',
