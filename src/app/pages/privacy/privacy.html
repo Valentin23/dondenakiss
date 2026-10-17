@@ -60,12 +60,22 @@
   </p>
 
   <h3 i18n="@@privacy.bookings.heading">Reservas y contacto</h3>
-  <p i18n="@@privacy.bookings.channels">
-    Puedes reservar o escribirnos por teléfono, WhatsApp, email o la app de DISH, y enviarnos
-    consultas por mensaje privado de Instagram. Tratamos los datos que nos facilites (nombre,
-    teléfono, email, usuario de Instagram, fecha, hora, número de comensales y el contenido de tu
-    mensaje) para responderte y, en su caso, gestionar tu reserva.
-  </p>
+  @if (taulada) {
+    <p i18n="@@privacy.bookings.channelsTaulada">
+      Puedes reservar o escribirnos por teléfono, WhatsApp o email, reservar desde el formulario de
+      reservas de esta web o desde Google Maps, y enviarnos consultas por mensaje privado de
+      Instagram. Tratamos los datos que nos facilites (nombre, teléfono, email, usuario de
+      Instagram, fecha, hora, número de comensales y el contenido de tu mensaje) para responderte y,
+      en su caso, gestionar tu reserva.
+    </p>
+  } @else {
+    <p i18n="@@privacy.bookings.channels">
+      Puedes reservar o escribirnos por teléfono, WhatsApp, email o la app de DISH, y enviarnos
+      consultas por mensaje privado de Instagram. Tratamos los datos que nos facilites (nombre,
+      teléfono, email, usuario de Instagram, fecha, hora, número de comensales y el contenido de tu
+      mensaje) para responderte y, en su caso, gestionar tu reserva.
+    </p>
+  }
   <p i18n="@@privacy.contact.legalBasis">
     Base legal: la gestión de tu solicitud o reserva (art. 6.1.b del RGPD). Para reservarte mesa
     necesitamos al menos tu nombre y un teléfono; sin ellos no podemos gestionar la reserva. Los
@@ -78,17 +88,40 @@
     una ley nos obligue a conservarlos bloqueados durante más tiempo para atender posibles
     responsabilidades (art. 32 de la LOPDGDD).
   </p>
-  <p i18n="@@privacy.bookings.dishWidget">
-    Puedes reservar con DISH desde su app o desde el formulario de reservas de esta web, en la
-    página de inicio y en la de reservas. Ese formulario es de DISH y se carga desde sus servidores,
-    así que al abrir esas páginas DISH recibe tu dirección IP y los datos técnicos de tu navegador.
-    DISH Digital Solutions GmbH (Alemania) es responsable de su plataforma y te informa en su
-    <a [href]="dishPrivacyUrl" rel="noopener">política de privacidad</a>; nosotros somos
-    responsables de los datos de la reserva que recibimos. En DISH guardamos también el historial de
-    tus reservas, incluidas las que no se presentaron, para organizar mejor las mesas. Base legal:
-    nuestro interés legítimo (art. 6.1.f del RGPD); puedes oponerte escribiéndonos a
-    {{ site.email }}.
-  </p>
+  @if (taulada) {
+    <p i18n="@@privacy.bookings.tauladaWidget">
+      Gestionamos las reservas con Taulada (taulada.com). El formulario de reservas de la página de
+      inicio y de la de reservas, y la página a la que lleva el enlace de reservas de Google Maps,
+      son de Taulada y se cargan desde sus servidores, así que al abrirlos Taulada recibe tu
+      dirección IP y los datos técnicos de tu navegador. Taulada trata los datos de tu reserva por
+      nuestra cuenta, como encargado del tratamiento: los guarda y te envía los emails de la reserva
+      (confirmación, recordatorio o cancelación); lo explica en su
+      <a href="https://taulada.com/privacidad/" rel="noopener">política de privacidad</a>. También
+      anotamos en Taulada las reservas que nos haces por teléfono, WhatsApp o en persona, y
+      guardamos el historial de tus reservas, incluidas las que no se presentaron, para organizar
+      mejor las mesas. Base legal: nuestro interés legítimo (art. 6.1.f del RGPD); puedes oponerte
+      escribiéndonos a {{ site.email }}.
+    </p>
+    <p i18n="@@privacy.bookings.fromDish">
+      Si reservaste con nosotros a través de DISH antes de pasarnos a Taulada, trajimos a Taulada tu
+      nombre, tus datos de contacto y el historial de esas reservas. Los conservamos como máximo un
+      año después de tu última reserva, el plazo que te indicamos entonces. Si vuelves a reservar
+      con nosotros, se aplican los plazos de esta política.
+    </p>
+  } @else {
+    <p i18n="@@privacy.bookings.dishWidget">
+      Puedes reservar con DISH desde su app o desde el formulario de reservas de esta web, en la
+      página de inicio y en la de reservas. Ese formulario es de DISH y se carga desde sus
+      servidores, así que al abrir esas páginas DISH recibe tu dirección IP y los datos técnicos de
+      tu navegador. DISH Digital Solutions GmbH (Alemania) es responsable de su plataforma y te
+      informa en su
+      <a [href]="dishPrivacyUrl" rel="noopener">política de privacidad</a>; nosotros somos
+      responsables de los datos de la reserva que recibimos. En DISH guardamos también el historial
+      de tus reservas, incluidas las que no se presentaron, para organizar mejor las mesas. Base
+      legal: nuestro interés legítimo (art. 6.1.f del RGPD); puedes oponerte escribiéndonos a
+      {{ site.email }}.
+    </p>
+  }
   <p i18n="@@privacy.health.withBookings">
     Si nos informas de alergias o intolerancias, son datos de salud. Solo los usamos para adaptar tu
     plato, con tu consentimiento explícito (art. 9.2.a del RGPD), y para nada más. Si nos lo dices
@@ -107,9 +140,22 @@
       Cloudflare, Inc. (EE. UU.): alojamiento de la web, seguridad, estadísticas de visitas y
       reenvío a nuestro buzón del correo que llega a nuestras direcciones @dondenakiss.es.
     </li>
-    <li i18n="@@privacy.recipients.dish">
-      DISH Digital Solutions GmbH (Alemania): historial de reservas y de reservas no presentadas.
-    </li>
+    @if (taulada) {
+      <li i18n="@@privacy.recipients.taulada">
+        Taulada (taulada.com, España): sistema de reservas. Guarda las reservas y el historial de
+        cada cliente y envía los emails de las reservas. Para ello usa Cloudflare, que guarda los
+        datos en la Unión Europea, y Resend, de Plus Five Five, Inc. (EE. UU.), que envía los emails
+        desde Irlanda.
+      </li>
+      <li i18n="@@privacy.recipients.dishHistory">
+        DISH Digital Solutions GmbH (Alemania): historial de las reservas que hicimos con DISH,
+        incluidas las no presentadas.
+      </li>
+    } @else {
+      <li i18n="@@privacy.recipients.dish">
+        DISH Digital Solutions GmbH (Alemania): historial de reservas y de reservas no presentadas.
+      </li>
+    }
   </ul>
   <p i18n="@@privacy.recipients.messaging">
     Para el correo electrónico usamos Gmail, de Google Ireland Limited (Irlanda), y para los
@@ -122,14 +168,25 @@
   </p>
 
   <h2 i18n="@@privacy.transfers.heading">4. Transferencias internacionales</h2>
-  <p i18n="@@privacy.transfers.withMessaging">
-    Cloudflare puede tratar datos en Estados Unidos. Estas transferencias se amparan en el Marco de
-    Privacidad de Datos UE-EE. UU. y, en su defecto, en las cláusulas contractuales tipo aprobadas
-    por la Comisión Europea; puedes pedirnos una copia escribiéndonos a {{ site.email }}. Google
-    también puede tratar fuera de la UE los datos de los correos y, si cargas el mapa, los de tu
-    navegación, y Meta los de los mensajes de WhatsApp e Instagram, con las garantías que describen
-    en sus políticas.
-  </p>
+  @if (taulada) {
+    <p i18n="@@privacy.transfers.withTaulada">
+      Cloudflare y Resend pueden tratar datos en Estados Unidos. Estas transferencias se amparan en
+      el Marco de Privacidad de Datos UE-EE. UU. y, en su defecto, en las cláusulas contractuales
+      tipo aprobadas por la Comisión Europea; puedes pedirnos una copia escribiéndonos a
+      {{ site.email }}. Google también puede tratar fuera de la UE los datos de los correos y, si
+      cargas el mapa, los de tu navegación, y Meta los de los mensajes de WhatsApp e Instagram, con
+      las garantías que describen en sus políticas.
+    </p>
+  } @else {
+    <p i18n="@@privacy.transfers.withMessaging">
+      Cloudflare puede tratar datos en Estados Unidos. Estas transferencias se amparan en el Marco
+      de Privacidad de Datos UE-EE. UU. y, en su defecto, en las cláusulas contractuales tipo
+      aprobadas por la Comisión Europea; puedes pedirnos una copia escribiéndonos a
+      {{ site.email }}. Google también puede tratar fuera de la UE los datos de los correos y, si
+      cargas el mapa, los de tu navegación, y Meta los de los mensajes de WhatsApp e Instagram, con
+      las garantías que describen en sus políticas.
+    </p>
+  }
 
   <h2 i18n="@@privacy.cookies.heading">5. Cookies</h2>
   <p i18n="@@privacy.cookies.consent">
@@ -142,15 +199,26 @@
     >.
   </p>
 
-  <p i18n="@@privacy.cookies.technical">
-    Para recordar tu decisión guardamos en el almacenamiento local de tu navegador si aceptaste o
-    rechazaste y la fecha, durante 12 meses; después te volvemos a preguntar. Es un dato técnico,
-    necesario para respetar tu elección, y está exento de consentimiento. El formulario de reservas
-    de DISH puede intentar guardar una cookie técnica de sesión, necesaria para que funcione, que
-    también está exenta. Si en algún momento Cloudflare necesitara una cookie técnica de seguridad
-    para proteger la web frente a ataques automatizados, también estaría exenta (art. 22.2 de la
-    LSSI).
-  </p>
+  @if (taulada) {
+    <p i18n="@@privacy.cookies.technicalTaulada">
+      Para recordar tu decisión guardamos en el almacenamiento local de tu navegador si aceptaste o
+      rechazaste y la fecha, durante 12 meses; después te volvemos a preguntar. Es un dato técnico,
+      necesario para respetar tu elección, y está exento de consentimiento. El formulario de
+      reservas de Taulada no guarda cookies ni otros datos en tu navegador. Si en algún momento
+      Cloudflare necesitara una cookie técnica de seguridad para proteger la web frente a ataques
+      automatizados, también estaría exenta (art. 22.2 de la LSSI).
+    </p>
+  } @else {
+    <p i18n="@@privacy.cookies.technical">
+      Para recordar tu decisión guardamos en el almacenamiento local de tu navegador si aceptaste o
+      rechazaste y la fecha, durante 12 meses; después te volvemos a preguntar. Es un dato técnico,
+      necesario para respetar tu elección, y está exento de consentimiento. El formulario de
+      reservas de DISH puede intentar guardar una cookie técnica de sesión, necesaria para que
+      funcione, que también está exenta. Si en algún momento Cloudflare necesitara una cookie
+      técnica de seguridad para proteger la web frente a ataques automatizados, también estaría
+      exenta (art. 22.2 de la LSSI).
+    </p>
+  }
 
   <h2 i18n="@@privacy.rights.heading">6. Tus derechos</h2>
   <p i18n="@@privacy.rights.intro">
