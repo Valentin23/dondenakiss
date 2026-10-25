@@ -65,7 +65,7 @@ export const SITE = {
    * switch-over steps are in taulada#59.
    */
   booking: {
-    provider: 'dish' as BookingProvider,
+    provider: 'taulada' as BookingProvider,
     dishWidgetUrl: 'https://reservation.dish.co/widget/hydra-06933495-a3ac-403d-9ac6-a94eaec9ea9c',
     taulada: { origin: 'https://taulada.com', slug: 'dondenakiss' },
   },
@@ -82,7 +82,7 @@ export const SITE = {
    */
   activityLicence: { reference: '1079/94', authority: 'Ayuntamiento de Alicante' },
   /** Date of the last revision of the legal texts (ISO). */
-  legalUpdated: '2026-10-16',
+  legalUpdated: '2026-10-25',
 } as const;
 
 /** `tel:` URI for the phone number (RFC 3966 does not allow spaces). */
