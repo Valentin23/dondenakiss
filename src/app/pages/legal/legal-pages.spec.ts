@@ -1,13 +1,15 @@
-import { Type } from '@angular/core';
+import { Provider, Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
+import { BOOKING } from '../../config/booking';
+import { SITE } from '../../config/site';
 import { Privacy } from '../privacy/privacy';
 import { Legal } from './legal';
 
-async function render(component: Type<unknown>): Promise<HTMLElement> {
+async function render(component: Type<unknown>, providers: Provider[] = []): Promise<HTMLElement> {
   await TestBed.configureTestingModule({
     imports: [component],
-    providers: [provideRouter([])],
+    providers: [provideRouter([]), ...providers],
   }).compileComponents();
   const fixture = TestBed.createComponent(component);
   await fixture.whenStable();
@@ -36,9 +38,12 @@ describe('Legal notice', () => {
   });
 });
 
-describe('Privacy policy', () => {
+describe.each(['dish', 'taulada'] as const)('Privacy policy with %s', (provider) => {
+  const renderPrivacy = () =>
+    render(Privacy, [{ provide: BOOKING, useValue: { ...SITE.booking, provider } }]);
+
   it('only describes processing the site really does', async () => {
-    const el = await render(Privacy);
+    const el = await renderPrivacy();
     const text = el.textContent ?? '';
     // No JS analytics beacon is loaded, so the policy must not claim one.
     expect(text).not.toContain('Web Analytics');
@@ -47,26 +52,35 @@ describe('Privacy policy', () => {
     expect(processors).not.toContain('Google');
     // Mail to the domain's addresses passes through Cloudflare Email Routing.
     expect(processors).toContain('@dondenakiss.es');
-    // Google Maps is the only third-party cookie that needs consent; DISH's is technical.
+    // Google Maps is the only third-party cookie that needs consent; DISH's is technical
+    // and Taulada's booking form sets none.
     expect(text).toContain(
       'Las únicas cookies de terceros que necesitan tu consentimiento son las del mapa de Google Maps',
     );
-    expect(text).toContain('cookie técnica de sesión');
+    if (provider === 'dish') expect(text).toContain('cookie técnica de sesión');
     expect(text).toContain('Configurar cookies');
   });
 
-  it('covers every contact channel: phone, WhatsApp, email, DISH and Instagram', async () => {
-    const el = await render(Privacy);
-    const text = el.textContent ?? '';
-    expect(text).toContain('teléfono, WhatsApp, email o la app de DISH');
+  it('covers every contact channel: phone, WhatsApp, email, the booking system and Instagram', async () => {
+    const el = await renderPrivacy();
+    const text = (el.textContent ?? '').replace(/\s+/g, ' ');
+    expect(text).toContain(
+      provider === 'dish'
+        ? 'teléfono, WhatsApp, email o la app de DISH'
+        : 'teléfono, WhatsApp o email, reservar desde el formulario de reservas de esta web',
+    );
     expect(text).toContain('mensaje privado de Instagram');
-    // DISH keeps the regular-guest and no-show history for the restaurant, so it is a processor.
-    // WhatsApp and Instagram (Meta) act under their own terms, like Gmail, so they are not.
+    // The booking system keeps the regular-guest and no-show history for the restaurant, so it
+    // is a processor, and DISH stays one for the bookings made with it. WhatsApp and Instagram
+    // (Meta) act under their own terms, like Gmail, so they are not.
     const processors = el.querySelector('h2 + p + ul')?.textContent ?? '';
     expect(processors).toContain('DISH Digital Solutions GmbH');
+    if (provider === 'taulada') expect(processors).toContain('Taulada (taulada.com, España)');
     expect(processors).not.toContain('WhatsApp');
     expect(processors).not.toContain('Instagram');
+    // DISH's own policy is linked while its booking form is on the site.
     const dishLink = el.querySelector<HTMLAnchorElement>('a[href*="reservation.dish.co"]');
-    expect(dishLink?.href).toContain('privacy_ES.pdf');
+    if (provider === 'dish') expect(dishLink?.href).toContain('privacy_ES.pdf');
+    else expect(dishLink).toBeNull();
   });
 });
