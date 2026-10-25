@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { afterNextRender, Component, type ElementRef, inject, viewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { BOOKING } from '../../config/booking';
 import { PHONE_HREF, SITE } from '../../config/site';
 import { CURRENT_LOCALE } from '../../i18n/locales';
 
@@ -15,13 +16,26 @@ const WIDGET_COLORS = {
 };
 
 /**
- * The DISH Reservation widget, in the page's language. Without
- * `SITE.dishWidgetUrl`, a card that asks guests to call instead.
+ * The online booking form, in the page's language: DISH Reservation's widget
+ * or Taulada's, as `SITE.booking.provider` says. Without either, a card that
+ * asks guests to call instead.
  */
 @Component({
   selector: 'app-booking-widget',
   template: `
-    @if (widgetUrl) {
+    @if (taulada) {
+      <!-- Taulada's widget script turns this into the booking form; the link is for
+           visitors without JavaScript. -->
+      <div
+        #slot
+        [attr.data-taulada-booking]="taulada.slug"
+        [attr.data-lang]="locale"
+        data-title="Reservas Donde Nakiss"
+        i18n-data-title="@@reservations.widgetTitle"
+      >
+        <a class="btn btn-primary" [href]="tauladaPage" i18n="@@nav.book">Reservar mesa</a>
+      </div>
+    } @else if (widgetUrl) {
       <iframe
         [src]="widgetUrl"
         title="Reservas Donde Nakiss"
@@ -99,11 +113,40 @@ const WIDGET_COLORS = {
   `,
 })
 export class BookingWidget {
+  private readonly booking = inject(BOOKING);
+  protected readonly locale = inject(CURRENT_LOCALE);
   protected readonly phone = SITE.phone;
   protected readonly phoneHref = PHONE_HREF;
-  protected readonly widgetUrl = SITE.dishWidgetUrl
-    ? inject(DomSanitizer).bypassSecurityTrustResourceUrl(
-        `${SITE.dishWidgetUrl}?${new URLSearchParams({ lang: inject(CURRENT_LOCALE), ...WIDGET_COLORS })}`,
-      )
+  protected readonly taulada = this.booking.provider === 'taulada' ? this.booking.taulada : null;
+  protected readonly tauladaPage = this.taulada
+    ? `${this.taulada.origin}/r/${this.taulada.slug}`
     : null;
+  protected readonly widgetUrl = this.dishUrl();
+  private readonly slot = viewChild<ElementRef<HTMLElement>>('slot');
+
+  constructor() {
+    // Once hydrated (the page is prerendered), load Taulada's widget script,
+    // which mounts every [data-taulada-booking] on the page; if it's already
+    // loaded (navigating between pages), mount this one.
+    afterNextRender(() => {
+      const element = this.slot()?.nativeElement;
+      if (!element || !this.taulada) return;
+      const taulada = (window as Window & { Taulada?: { mount(element: Element): void } }).Taulada;
+      if (taulada) return taulada.mount(element);
+      const src = `${this.taulada.origin}/widget.js`;
+      if (document.querySelector(`script[src="${src}"]`)) return;
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      document.head.append(script);
+    });
+  }
+
+  private dishUrl() {
+    const { provider, dishWidgetUrl } = this.booking;
+    if (provider !== 'dish' || !dishWidgetUrl) return null;
+    return inject(DomSanitizer).bypassSecurityTrustResourceUrl(
+      `${dishWidgetUrl}?${new URLSearchParams({ lang: this.locale, ...WIDGET_COLORS })}`,
+    );
+  }
 }

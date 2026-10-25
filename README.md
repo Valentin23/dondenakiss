@@ -86,7 +86,10 @@ https://dondenakiss.es/?utm_source=google&utm_medium=organic&utm_campaign=gbp
 
 ## To do
 
-- When adding the DISH widget or any other third-party service: update the privacy policy (recipients
-  and cookies) and `SITE.legalUpdated`.
+- When adding any third-party service: update the privacy policy (recipients and cookies) and
+  `SITE.legalUpdated`.
+- Switch-over from DISH to Taulada (steps in taulada#59): set `SITE.booking.provider` to `taulada`
+  and `SITE.legalUpdated` to that day. The booking form and the privacy policy follow the setting;
+  setting it back to `dish` undoes both.
 - `/admin` (SPA): `RenderMode.Client` in `app.routes.server.ts`, `noindex`, `Disallow: /admin` in
   `robots.txt` and `_redirects` with `/admin/* /index.csr.html 200`.
