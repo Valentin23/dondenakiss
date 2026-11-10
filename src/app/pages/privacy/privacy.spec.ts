@@ -20,10 +20,10 @@ describe('Privacy', () => {
     expect(page).not.toContain('Taulada');
   });
 
-  it('describes Taulada once it takes the bookings, and keeps DISH for the history', async () => {
+  it('describes Taulada once it takes the bookings, with DISH closed', async () => {
     const page = await text('taulada');
     expect(page).toContain('Gestionamos las reservas con Taulada');
-    expect(page).toContain('historial de las reservas que hicimos con DISH');
+    expect(page).not.toContain('Digital Solutions GmbH');
     expect(page).not.toContain('Ese formulario es de DISH');
     expect(page).not.toContain('app de DISH');
   });
