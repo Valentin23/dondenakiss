@@ -74,7 +74,9 @@ describe.each(['dish', 'taulada'] as const)('Privacy policy with %s', (provider)
     // is a processor, and DISH stays one for the bookings made with it. WhatsApp and Instagram
     // (Meta) act under their own terms, like Gmail, so they are not.
     const processors = el.querySelector('h2 + p + ul')?.textContent ?? '';
-    expect(processors).toContain('DISH Digital Solutions GmbH');
+    // DISH only while it takes the bookings: its account closed after the move to Taulada.
+    if (provider === 'dish') expect(processors).toContain('DISH Digital Solutions GmbH');
+    else expect(processors).not.toContain('DISH');
     if (provider === 'taulada') expect(processors).toContain('Taulada (taulada.com, España)');
     expect(processors).not.toContain('WhatsApp');
     expect(processors).not.toContain('Instagram');
